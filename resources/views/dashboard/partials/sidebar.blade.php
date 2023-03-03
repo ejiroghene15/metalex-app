@@ -12,7 +12,7 @@
     <!-- Collapse navbar -->
     <div class="collapse navbar-collapse" id="sidenav">
       <div class="navbar-nav flex-column">
-        <span class="navbar-header">Subscription</span>
+        <span class="navbar-header">Dashboard</span>
         <!-- List -->
         <ul class="list-unstyled ms-n2 mb-4">
           <!-- Nav item -->
@@ -29,6 +29,14 @@
               Consultations
             </a>
           </li>
+
+
+          @if ($user->user_type === 'firm')
+          <!-- Associates -->
+          <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.associates'])>
+            <a class="nav-link" href="{{ route('office.associates') }}"><i class="fe fe-users nav-icon"></i>Associates</a>
+          </li>
+          @endif
 
           <!-- Forum -->
           <li class="nav-item">
@@ -62,9 +70,9 @@
           </li>
 
           <!-- Virtual office profile -->
-          @if ($user->user_type !== 'client')
-          <li class="nav-item">
-            <a class="nav-link" href="profile-edit.html"><i class="bi bi-building nav-icon"></i>
+          @if ($user->is_verified && $user->user_type !== 'client')
+          <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.profile'])>
+            <a class="nav-link" href="{{ route('office.profile') }}"><i class="bi bi-building nav-icon"></i>
               Office Profile
             </a>
           </li>
