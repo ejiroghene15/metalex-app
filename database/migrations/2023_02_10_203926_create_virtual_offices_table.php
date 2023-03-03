@@ -18,9 +18,9 @@ return new class extends Migration
       $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
       $table->string('user_type');
       $table->string('firm_name');
-      $table->string('profile_image');
+      $table->string('logo')->nullable();
       $table->string('specialization')->nullable();
-      $table->text("physical_office_address")->nullable();
+      $table->text("address")->nullable();
       $table->text('description')->nullable();
       $table->char('offers_probono', 5)->default('no');
       $table->string('year_of_call')->nullable();
