@@ -12,8 +12,10 @@ class VirtualOffice extends Model
   protected $fillable = [
     'user_id',
     'user_type',
+    'firm_name',
+    'logo',
     'specialization',
-    'physical_office_address',
+    'address',
     'description',
     'offers_probono',
     'year_of_call',

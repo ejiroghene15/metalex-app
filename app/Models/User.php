@@ -27,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
     'avatar',
     'password',
     'country',
+    'address',
     'state',
     'city',
     'zip_code',
@@ -60,8 +61,8 @@ class User extends Authenticatable implements MustVerifyEmail
     return $this->hasOne(VirtualOffice::class)->withDefault();
   }
 
-  public function associate()
+  public function is_associate()
   {
-    return $this->belongsToMany(VirtualOffice::class, 'associate', 'user_id', 'office_id');
+    return $this->belongsToMany(VirtualOffice::class, 'associates', 'user_id', 'office_id');
   }
 }
