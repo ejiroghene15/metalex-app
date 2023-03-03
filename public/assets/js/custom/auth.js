@@ -1,7 +1,3 @@
-// * Set input to replace entries as tags under area of specialization
-let tags = document.querySelectorAll(".tags");
-tags.forEach((input) => new Tagify(input));
-
 // * Registration
 $(".registration_form").on("submit", function (e) {
   e.preventDefault();

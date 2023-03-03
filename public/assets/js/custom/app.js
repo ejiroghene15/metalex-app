@@ -1,6 +1,10 @@
+// * Set input to replace entries as tags under area of specialization
+let tags = document.querySelectorAll(".tags");
+tags.forEach((input) => new Tagify(input));
+
 $("select[name='country'").on("change", function () {
   let _this = $(this);
-  let states = "<option>Select State</option>";
+  let states = null;
   let country = _this.val();
   toastr.remove();
 
@@ -60,3 +64,15 @@ $("#avatar").change(function () {
     $("#upload-avatar").show();
   }
 });
+
+if ($("#editor").length) {
+  ClassicEditor.create(document.querySelector("#editor"), {
+    toolbar: {
+      items: ["heading", "|", "bold", "link"],
+    },
+    language: "en",
+    licenseKey: "",
+  }).then((editor) => {
+    window.editor = editor;
+  });
+}
