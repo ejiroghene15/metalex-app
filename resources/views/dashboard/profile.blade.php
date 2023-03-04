@@ -157,12 +157,12 @@
 @section('scripts')
 @parent
 {{-- Page Scripts --}}
-<script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
-<script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
-<script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ secure_asset('assets/js/vendors/flatpickr.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
 <script>
   const CSC_TOKEN = "{{ env('CSC_API_TOKEN') }}"
   $("#edit-profile").click(() => $("#my-profile *").attr("disabled", false))
 </script>
-<script src="{{ asset('assets/js/custom/app.js') }}"></script>
+<script src="{{ secure_asset('assets/js/custom/app.js') }}"></script>
 @endsection

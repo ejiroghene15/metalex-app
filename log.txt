@@ -1,0 +1,15 @@
+Personal details as usually with anything but to be clear I will list them:
+1. Name: first name, middle and last name
+2. Age
+3. Email
+4. Phone number
+5. Address (office address) Country, State, Street. this is what is going to determine the location of the lawyers sef when people
+
+
+6. Nationality
+7. University Attended
+8. Law School
+9. Other Degrees
+10. Certifications
+11. Area of Specialization
+12. Top 5 legal skills 

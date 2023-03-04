@@ -4,8 +4,8 @@
 
 @section('style')
 @parent
-<link rel="stylesheet" href="{{ asset('assets/libs/@yaireo/tagify/dist/tagify.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/libs/dropzone/dist/dropzone.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('assets/libs/@yaireo/tagify/dist/tagify.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('assets/libs/dropzone/dist/dropzone.css') }}">
 @endsection
 
 @section('body')
@@ -43,7 +43,7 @@
               <div class="d-lg-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center mb-4 mb-lg-0">
                   <img
-                    src="{{ $user->virtual_office->logo ?? asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
+                    src="{{ $user->virtual_office->logo ?? secure_asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
                     id="img-uploaded" class="avatar-xl rounded-circle" alt="">
                   <div class="ms-3">
                     <h4 class="mb-0">Firm Logo </h4>
@@ -103,14 +103,14 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('assets/libs/@yaireo/tagify/dist/tagify.min.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/@yaireo/tagify/dist/tagify.min.js') }}"></script>
 @parent
 {{-- Page Scripts --}}
-<script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
-<script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
-<script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ asset('assets/libs/dropzone/dist/min/dropzone.min.js') }}"></script>
-<script src="{{ asset('assets/libs/quill/dist/quill.min.js') }}"></script>
-<script src="{{ asset('assets/js/custom/ckeditor.js') }}"></script>
-<script src="{{ asset('assets/js/custom/app.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ secure_asset('assets/js/vendors/flatpickr.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/dropzone/dist/min/dropzone.min.js') }}"></script>
+<script src="{{ secure_asset('assets/libs/quill/dist/quill.min.js') }}"></script>
+<script src="{{ secure_asset('assets/js/custom/ckeditor.js') }}"></script>
+<script src="{{ secure_asset('assets/js/custom/app.js') }}"></script>
 @endsection

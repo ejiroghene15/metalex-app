@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="col-xl-7 col-lg-6 col-md-12 text-lg-end text-center">
-          <img src="{{ asset('assets/images/hero/hero-img.png') }}" alt="" class="img-fluid" />
+          <img src="{{ secure_asset('assets/images/hero/hero-img.png') }}" alt="" class="img-fluid" />
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
             <!-- Card -->
             <div class="card mb-4 card-hover">
               <a href="pages/course-single.html" class="card-img-top">
-                <img src="{{ asset('assets/images/course/course-react.jpg') }}" alt=""
+                <img src="{{ secure_asset('assets/images/course/course-react.jpg') }}" alt=""
                   class="rounded-top-md card-img-top" />
               </a>
               <!-- Card Body -->
@@ -134,7 +134,7 @@
               <div class="card-footer">
                 <div class="row align-items-center g-0">
                   <div class="col-auto">
-                    <img src="{{ asset('assets/images/avatar/avatar-1.jpg') }}" class="rounded-circle avatar-xs"
+                    <img src="{{ secure_asset('assets/images/avatar/avatar-1.jpg') }}" class="rounded-circle avatar-xs"
                       alt="" />
                   </div>
                   <div class="col ms-2">
@@ -175,7 +175,7 @@
             <!-- Card -->
             <div class="card mb-4 card-hover">
               <a href="pages/course-single.html" class="card-img-top"><img
-                  src="{{ asset('assets/images/course/course-wordpress.jpg') }}" alt=""
+                  src="{{ secure_asset('assets/images/course/course-wordpress.jpg') }}" alt=""
                   class="card-img-top rounded-top-md" /></a>
               <!-- Card Body -->
               <div class="card-body">
@@ -214,7 +214,7 @@
               <div class="card-footer">
                 <div class="row align-items-center g-0">
                   <div class="col-auto">
-                    <img src="{{ asset('assets/images/avatar/avatar-8.jpg') }}" class="rounded-circle avatar-xs"
+                    <img src="{{ secure_asset('assets/images/avatar/avatar-8.jpg') }}" class="rounded-circle avatar-xs"
                       alt="" />
                   </div>
                   <div class="col ms-2">
