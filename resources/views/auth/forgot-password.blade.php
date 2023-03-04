@@ -13,7 +13,7 @@
           <div class="card-body p-6">
             <div class="mb-4">
               <a href="{{ route('home') }}">
-                <img src="{{ secure_asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
+                <img src="{{ asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
                   style="object-position: -5px 0; height: 30px" class="mb-5" alt="">
               </a>
               <h2 class="mb-1 fw-bold">Forgot Password</h2>
@@ -49,5 +49,5 @@
 
 @section('scripts')
 @parent
-<script src="{{ secure_asset('assets/js/custom/auth.js') }}"></script>
+<script src="{{ asset('assets/js/custom/auth.js') }}"></script>
 @endsection

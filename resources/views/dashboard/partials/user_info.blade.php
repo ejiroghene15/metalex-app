@@ -2,7 +2,7 @@
   <div class="col-xl-12 col-lg-12 col-md-12 col-12">
     <!-- Bg -->
     <div class="pt-16 rounded-top-md"
-      style="background: url({{ secure_asset('assets/images/background/profile-bg.jpg') }}) no-repeat;background-size: cover;">
+      style="background: url({{ asset('assets/images/background/profile-bg.jpg') }}) no-repeat;background-size: cover;">
     </div>
 
     <div class="card rounded-0 rounded-bottom  px-4  pt-2 pb-4 ">
@@ -15,7 +15,7 @@
             @if ($user->is_verified)
             <a href="#" class="position-absolute top-0 end-0" data-bs-toggle="tooltip" data-placement="top"
               title="Verified">
-              <img src="{{ secure_asset('assets/images/svg/checked-mark.svg') }}" alt="" height="30" width="30">
+              <img src="{{ asset('assets/images/svg/checked-mark.svg') }}" alt="" height="30" width="30">
             </a>
             @endif
           </div>

@@ -4,7 +4,7 @@
 
 @section('style')
 @parent
-<link rel="stylesheet" href="{{ secure_asset('assets/libs/@yaireo/tagify/dist/tagify.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/libs/@yaireo/tagify/dist/tagify.css') }}">
 @endsection
 
 @section('body')
@@ -18,7 +18,7 @@
           <div class="card-body p-6">
             <div class="mb-4">
               <a href="{{ url('/') }}">
-                <img src="{{ secure_asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
+                <img src="{{ asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
                   style="object-position: -5px 0; height: 30px" class="mb-5" alt="">
               </a>
               <h2 class="mb-1 fw-bold">Sign Up </h2>
@@ -87,15 +87,15 @@
 @endsection
 
 @section('scripts')
-<script src="{{ secure_asset('assets/libs/@yaireo/tagify/dist/tagify.min.js') }}"></script>
+<script src="{{ asset('assets/libs/@yaireo/tagify/dist/tagify.min.js') }}"></script>
 @parent
 {{-- Page Scripts --}}
-<script src="{{ secure_asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
-<script src="{{ secure_asset('assets/js/vendors/flatpickr.js') }}"></script>
-<script src="{{ secure_asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
+<script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
 <script>
   const CSC_TOKEN = "{{ env('CSC_API_TOKEN') }}"
 </script>
-<script src="{{ secure_asset('assets/js/custom/app.js') }}"></script>
-<script src="{{ secure_asset('assets/js/custom/auth.js') }}"></script>
+<script src="{{ asset('assets/js/custom/app.js') }}"></script>
+<script src="{{ asset('assets/js/custom/auth.js') }}"></script>
 @endsection

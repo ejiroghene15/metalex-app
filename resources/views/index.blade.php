@@ -4,7 +4,7 @@
 
 @section('style')
 @parent
-<link rel="stylesheet" href="{{ secure_asset('assets/libs/tiny-slider/dist/tiny-slider.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/libs/tiny-slider/dist/tiny-slider.css') }}">
 @endsection
 
 @auth
@@ -18,9 +18,9 @@
 <!-- Scripts -->
 @section('scripts')
 @parent
-<script src="{{ secure_asset('assets/libs/tiny-slider/dist/min/tiny-slider.js')}}"></script>
-<script src="{{ secure_asset('assets/libs/@popperjs/core/dist/umd/popper.min.js') }}"></script>
-<script src="{{ secure_asset('assets/libs/tippy.js/dist/tippy-bundle.umd.min.js') }}"></script>
-<script src="{{ secure_asset('assets/js/vendors/tnsSlider.js') }}"></script>
-<script src="{{ secure_asset('assets/js/vendors/tooltip.js') }}"></script>
+<script src="{{ asset('assets/libs/tiny-slider/dist/min/tiny-slider.js')}}"></script>
+<script src="{{ asset('assets/libs/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset('assets/libs/tippy.js/dist/tippy-bundle.umd.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendors/tnsSlider.js') }}"></script>
+<script src="{{ asset('assets/js/vendors/tooltip.js') }}"></script>
 @endsection

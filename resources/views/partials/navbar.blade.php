@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-default">
   <div class="container-fluid px-0">
     <a class="navbar-brand" href="{{ route('home') }}">
-      <img src="{{ secure_asset('assets/images/brand/logo/metalex_full_logo.svg') }}" style="height: 25px" alt="">
+      <img src="{{ asset('assets/images/brand/logo/metalex_full_logo.svg') }}" style="height: 25px" alt="">
     </a>
 
     @auth
