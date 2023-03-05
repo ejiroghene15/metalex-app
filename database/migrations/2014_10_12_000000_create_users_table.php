@@ -17,7 +17,6 @@ return new class extends Migration
       $table->id();
       $table->string('first_name')->nullable();
       $table->string('last_name')->nullable();
-      $table->text('firm_name')->nullable();
       $table->string('avatar')->default("https://res.cloudinary.com/jiroghene/image/upload/v1583814631/profilephotos/placeholder_afglhp.jpg");
       $table->string('email')->unique();
       $table->timestamp('email_verified_at')->nullable();
