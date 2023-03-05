@@ -17,7 +17,7 @@ return new class extends Migration
       $table->id();
       $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
       $table->string('user_type');
-      $table->string('firm_name');
+      $table->string('firm_name')->nullable();
       $table->string('logo')->nullable();
       $table->string('specialization')->nullable();
       $table->text("address")->nullable();
