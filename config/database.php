@@ -50,7 +50,7 @@ return [
       'port' => env('DB_PORT', '3306'),
       'database' => env('APP_ENV') === 'local' ? env('DB_DATABASE', 'forge') : env('STACKHERO_MYSQL_DB'),
       'username' => env('APP_ENV') === 'local' ? env('DB_USERNAME', 'forge') : env('STACKHERO_MYSQL_USER'),
-      'password' => env('APP_ENV') === 'local' ? env('DB_PASSWORD', '') : env('STACKHERO_MYSQL_ROOT_PASSWORD'),
+      'password' => env('APP_ENV') === 'local' ? env('DB_PASSWORD', '') : env('STACKHERO_MYSQL_PASSWORD'),
       'unix_socket' => env('DB_SOCKET', ''),
       'charset' => 'utf8mb4',
       'collation' => 'utf8mb4_unicode_ci',
