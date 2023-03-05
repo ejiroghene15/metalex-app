@@ -45,7 +45,7 @@ return [
 
     'mysql' => [
       'driver' => 'mysql',
-      'url' => env('DATABASE_URL'),
+      // 'url' => env('DATABASE_URL'),
       'host' => env('APP_ENV') === 'local' ? env('DB_HOST', '127.0.0.1') : env('STACKHERO_MYSQL_HOST'),
       'port' => env('DB_PORT', '3306'),
       'database' => env('APP_ENV') === 'local' ? env('DB_DATABASE', 'forge') : env('STACKHERO_MYSQL_DB'),
