@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FirmProfile;
 use App\Models\User;
-use App\Models\VirtualOffice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +22,7 @@ class OfficeController extends Controller
     // * Update user profile image
     $user = User::find(Auth::id());
 
-    $user->virtual_office->update(["logo" => $image->getSecurePath()]);
+    $user->firm->update(["logo" => $image->getSecurePath()]);
 
     return back()->withMessage("Firm Logo Updated")->withStatus("success");
   }
@@ -30,8 +30,10 @@ class OfficeController extends Controller
   public function updateProfile(Request $request)
   {
     $request->validate([
-      'firm_name' => 'required',
-      'address' => 'required',
+      'firm_name' => 'exclude_unless:user_type,firm|required',
+      'address' => 'exclude_unless:user_type,firm|required',
+      'university' => 'exclude_unless:user_type,lawyer|required',
+      'law_school' => 'exclude_unless:user_type,lawyer|required',
       'specialization' => 'required',
       'offers_probono' => 'required',
       'description' => 'nullable',
@@ -42,7 +44,7 @@ class OfficeController extends Controller
     // * Update user profile image
     $user = User::find(Auth::id());
 
-    $user->virtual_office->update($request->all());
+    $user->{$user->user_type}->update($request->all());
 
     return back()->withMessage("Office Profile Updated")->withStatus("success");
   }
@@ -50,29 +52,31 @@ class OfficeController extends Controller
   public function myAssociates()
   {
     $user = User::find(Auth::id());
-    $associates = $user->virtual_office->associates;
+    $associates = $user->firm->associates;
     return view('dashboard.office.associates')->withAssociates($associates);
   }
 
-  public function attachAssociate(VirtualOffice $office, Request $request)
+  public function attachAssociate(FirmProfile $firm, Request $request)
   {
     $request->validate(['email' => 'bail|required|email']);
+
+    if ($request->email === Auth::user()->email) return back()->withMessage("You cannot add yourself as an associate")->withStatus("danger");
 
     $associate = User::where('email', $request->email)->pluck('id');
 
     if (count($associate)) {
-      $office->associates()->syncWithoutDetaching($associate);
+      $firm->associates()->syncWithoutDetaching($associate);
       return back()->withMessage("Associate added")->withStatus("success");
     }
 
     return back()->withMessage("Sorry!! This lawyer could not be added as an associate to your firm possibly because do not have an account on this platform.")->withStatus("danger");
   }
 
-  public function detachAssociate(VirtualOffice $office, Request $request)
+  public function detachAssociate(FirmProfile $firm, Request $request)
   {
     $associate = base64_decode($request->user_id);
 
-    $office->associates()->detach([$associate]);
+    $firm->associates()->detach([$associate]);
 
     return back()->withMessage("Associate removed")->withStatus("success");
   }

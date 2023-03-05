@@ -56,13 +56,18 @@ class User extends Authenticatable implements MustVerifyEmail
     'email_verified_at' => 'datetime',
   ];
 
-  public function virtual_office()
+  public function firm()
   {
-    return $this->hasOne(VirtualOffice::class)->withDefault();
+    return $this->hasOne(FirmProfile::class)->withDefault();
   }
 
-  public function is_associate()
+  public function lawyer()
   {
-    return $this->belongsToMany(VirtualOffice::class, 'associates', 'user_id', 'office_id');
+    return $this->hasOne(LawyerProfile::class)->withDefault();
   }
+
+  // public function is_associate()
+  // {
+  //   return $this->belongsToMany(VirtualOffice::class, 'associates', 'user_id', 'office_id');
+  // }
 }

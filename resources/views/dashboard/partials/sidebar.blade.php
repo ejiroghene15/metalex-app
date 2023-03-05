@@ -30,11 +30,11 @@
             </a>
           </li>
 
-
           @if ($user->user_type === 'firm')
           <!-- Associates -->
           <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.associates'])>
-            <a class="nav-link" href="{{ route('office.associates') }}"><i class="fe fe-users nav-icon"></i>Associates</a>
+            <a class="nav-link" href="{{ route('office.associates') }}"><i
+                class="fe fe-users nav-icon"></i>Associates</a>
           </li>
           @endif
 
@@ -52,6 +52,14 @@
               Library
             </a>
           </li>
+
+          @if ($user->user_type !== 'client')
+          <!-- Associates -->
+          <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.certificates'])>
+            <a class="nav-link" href="#"><i class="fe fe-award nav-icon"></i>Certifications</a>
+          </li>
+          @endif
+
 
           <!-- Notifications -->
           <li class="nav-item">

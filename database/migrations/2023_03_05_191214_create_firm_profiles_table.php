@@ -13,17 +13,15 @@ return new class extends Migration
    */
   public function up()
   {
-    Schema::create('virtual_offices', function (Blueprint $table) {
+    Schema::create('firm_profiles', function (Blueprint $table) {
       $table->id();
       $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-      $table->string('user_type');
       $table->string('firm_name')->nullable();
       $table->string('logo')->nullable();
       $table->string('specialization')->nullable();
       $table->text("address")->nullable();
       $table->text('description')->nullable();
       $table->char('offers_probono', 5)->default('no');
-      $table->string('year_of_call')->nullable();
       $table->timestamps();
     });
   }
@@ -35,6 +33,6 @@ return new class extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('virtual_offices');
+    Schema::dropIfExists('firm_profiles');
   }
 };

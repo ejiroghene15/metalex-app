@@ -28,7 +28,7 @@
   {{-- Address --}}
   <div class="mb-3 col-12 col-md-12">
     <label class="form-label" for="address"><span class="text-danger fw-bold">*</span> Physical Office Address</label>
-    <input type="text" name="physical_office_address" class="form-control" placeholder="Address">
+    <input type="text" name="address" class="form-control" placeholder="Address">
   </div>
 
   {{-- Country --}}

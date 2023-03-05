@@ -42,7 +42,7 @@ class UserRegistration extends FormRequest
       'zip_code' => 'nullable',
       'user_type' => 'nullable',
       'firm_name' => 'exclude_unless:user_type,firm|required',
-      'physical_office_address' => 'exclude_unless:user_type,firm|required',
+      'address' => 'exclude_unless:user_type,firm|required',
       'offers_probono' => 'exclude_if:user_type,client|required',
       'specialization' => 'exclude_if:user_type,client|required',
       'year_of_call' => 'exclude_unless:user_type,lawyer|required',

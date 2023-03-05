@@ -59,8 +59,8 @@ Route::middleware(['auth'])->group(function () {
 
       Route::post('set-logo', 'setLogo')->name('office.set-logo');
       Route::post('update-profile', 'updateProfile')->name('office.update');
-      Route::post('add-associate/{office}', 'attachAssociate')->name('office.add-associate');
-      Route::post('remove-associate/{office}', 'detachAssociate')->name('office.remove-associate');
+      Route::post('add-associate/{firm}', 'attachAssociate')->name('office.add-associate');
+      Route::post('remove-associate/{firm}', 'detachAssociate')->name('office.remove-associate');
     });
   });
 });

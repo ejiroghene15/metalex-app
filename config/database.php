@@ -45,7 +45,7 @@ return [
 
     'mysql' => [
       'driver' => 'mysql',
-      // 'url' => env('DATABASE_URL'),
+      'url' => env('DATABASE_URL'),
       'host' => env('APP_ENV') === 'local' ? env('DB_HOST', '127.0.0.1') : env('STACKHERO_MYSQL_HOST'),
       'port' => env('DB_PORT', '3306'),
       'database' => env('APP_ENV') === 'local' ? env('DB_DATABASE', 'forge') : env('STACKHERO_MYSQL_DB'),
@@ -59,7 +59,7 @@ return [
       'strict' => true,
       'engine' => null,
       'options' => extension_loaded('pdo_mysql') ? array_filter([
-        PDO::MYSQL_ATTR_SSL_CA => __DIR__ . '/../isrgrootx1.pem',
+        PDO::MYSQL_ATTR_SSL_CA => env('APP_ENV') === 'local' ? env('MYSQL_ATTR_SSL_CA') : __DIR__ . '/../isrgrootx1.pem'
       ]) : [],
     ],
 

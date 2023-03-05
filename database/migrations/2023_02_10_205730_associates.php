@@ -14,8 +14,8 @@ return new class extends Migration
   public function up()
   {
     Schema::create('associates', function (Blueprint $table) {
-      $table->integer('user_id');
-      $table->integer('office_id');
+      $table->integer('firm_id');
+      $table->integer('lawyer_id');
     });
   }
 

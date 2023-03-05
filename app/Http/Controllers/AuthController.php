@@ -40,8 +40,8 @@ class AuthController extends Controller
     // * New user record
     $user = User::create($validated);
 
-    // * Create a virtual office if the user is not a client
-    if ($validated['user_type'] !== 'client') $user->virtual_office()->create($validated);
+    // * Create a profile for the user based on the user type
+    if ($user->user_type !== 'client') $user->{$validated['user_type']}()->create($validated);
 
     // * Send an email verification message to the newly registered user
     event(new Registered($user));

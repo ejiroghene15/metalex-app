@@ -9,7 +9,8 @@
       <div class="d-flex align-items-end justify-content-between  ">
         <div class="d-flex align-items-center">
           <div class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
-            <img src="{{ $user->user_type === 'firm' ? $user->virtual_office->logo : $user->avatar }}"
+            <img
+              src="{{ $user->user_type === 'firm' ? $user->firm->logo ?? asset('assets/images/brand/logo/metalex_full_logo.svg') : $user->avatar }}"
               class="avatar-xl rounded-circle border border-4 border-white" alt="">
 
             @if ($user->is_verified)
@@ -27,11 +28,23 @@
               @else
               {{ $user->first_name . ' ' . $user->last_name }}
               @endif
-              {{-- @if ($user->is_verified)
-              <a href="#" class="text-decoration-none" data-bs-toggle="tooltip" data-placement="top" title="Verified">
-                <i class="fe fe-check-circle text-success" style="font-size: 14px"></i>
+
+              @switch($user->user_type)
+              @case('lawyer')
+              <a href="#" class="text-decoration-none" data-bs-toggle="tooltip" data-placement="top" title="Lawyer">
+                <i class="mdi mdi-gavel text-info ms-1" style="font-size: 18px"></i>
               </a>
-              @endif --}}
+              @break
+              @case('firm')
+              <a href="#" class="text-decoration-none" data-bs-toggle="tooltip" data-placement="top" title="Firm">
+                <i class="bi bi-building text-info ms-1" style="font-size: 18px"></i>
+              </a>
+              @break
+              @default
+              <a href="#" class="text-decoration-none" data-bs-toggle="tooltip" data-placement="top" title="Client">
+                <i class="fe fe-user text-info ms-1" style="font-size: 18px"></i>
+              </a>
+              @endswitch
             </h2>
 
             <p class=" mb-0 d-block">{{ $user->email }}</p>

@@ -83,7 +83,7 @@
                         <a href="#" class="btn btn-sm btn-info mt-3"><i class="fe fe-message-square"></i> Message</a>
                       </div>
                       <div class="d-flex justify-content-between border-bottom py-2 mt-4 fs-6">
-                        <span>Date Registered</span>
+                        <span>Member Since</span>
                         <span class="text-dark"> {{ date('dS M, Y', strtotime($associate->created_at)) }}</span>
                       </div>
                       <div class="d-flex justify-content-between pt-2 fs-6">
@@ -109,7 +109,7 @@
                       </div>
 
                       <form class="modal-body" method="POST"
-                        action="{{ route('office.remove-associate', ['office' => $user->virtual_office->id]) }}">
+                        action="{{ route('office.remove-associate', ['firm' => $user->firm->id]) }}">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ base64_encode($associate->id) }}">
                         <p>Please confirm you want to remove
@@ -179,7 +179,7 @@
         </div>
 
         <form class="modal-body" method="POST"
-          action="{{ route('office.add-associate', ['office' => $user->virtual_office->id]) }}">
+          action="{{ route('office.add-associate', ['firm' => $user->firm->id]) }}">
           @csrf
           <div class="mb-3">
             <label class="form-label">Associates Email Address</label>
