@@ -46,6 +46,13 @@
             </a>
           </li>
 
+          <!-- Bookmarks -->
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fe fe-bookmark nav-icon"></i>
+              Bookmarks
+            </a>
+          </li>
+
           <!-- Library -->
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fe fe-book nav-icon"></i>
