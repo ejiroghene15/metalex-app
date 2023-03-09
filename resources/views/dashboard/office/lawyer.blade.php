@@ -1,4 +1,4 @@
-<h3 class="mb-0">Education & Others</h3>
+<h3>Background Information</h3>
 <p class="mb-4">
   This will be displayed along with every other information on the directory listing page
   <span data-bs-toggle="tooltip" data-placement="right"

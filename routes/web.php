@@ -56,11 +56,13 @@ Route::middleware(['auth'])->group(function () {
       Route::view('office', 'dashboard.office')->name('office.profile');
 
       Route::get('associates', 'myAssociates')->name('office.associates');
+      Route::get('certifications', 'myCertificates')->name('office.certificates');
 
       Route::post('set-logo', 'setLogo')->name('office.set-logo');
       Route::post('update-profile', 'updateProfile')->name('office.update');
       Route::post('add-associate/{firm}', 'attachAssociate')->name('office.add-associate');
       Route::post('remove-associate/{firm}', 'detachAssociate')->name('office.remove-associate');
+      Route::post("add-certificate", 'addCertificate')->name('office.upload-certificate');
     });
   });
 });

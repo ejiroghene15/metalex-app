@@ -56,7 +56,9 @@
           @if ($user->user_type !== 'client')
           <!-- Associates -->
           <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.certificates'])>
-            <a class="nav-link" href="#"><i class="fe fe-award nav-icon"></i>Certifications</a>
+            <a class="nav-link" href="{{ route('office.certificates') }}">
+              <i class="fe fe-award nav-icon"></i>Certifications
+            </a>
           </li>
           @endif
 

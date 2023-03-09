@@ -17,3 +17,10 @@ Personal details as usually with anything but to be clear I will list them:
 major.ns.cloudflare.com
 
 ophelia.ns.cloudflare.com
+
+
+HOSTING DETAILS:
+
+Cpanel Login: https://metalexlegal.com/cpanel
+Username: metalexleg
+Password: !A$abx3X5m5@Y^D

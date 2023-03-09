@@ -11,7 +11,7 @@ class OfficeController extends Controller
 {
   public function setLogo(Request $request)
   {
-    $request->validate(['logo' => 'required|mimes:png,jpg,jpeg,gif|max:1024'], ['max' => "Selected image exceeds maximum upload size"]);
+    $request->validate(['logo' => 'required|mimes:png,jpg,jpeg|max:1024'], ['max' => "Selected image exceeds maximum upload size"]);
 
     // * generate a unique name for the image based on the album id.
     $img_name = bin2hex("logo_" . Auth::user()->email);
@@ -20,9 +20,10 @@ class OfficeController extends Controller
     $image = $request->logo->storeOnCloudinaryAs('office_logo', $img_name);
 
     // * Update user profile image
-    $user = User::find(Auth::id());
+    $request->user()->firm->update(["logo" => $image->getSecurePath()]);
 
-    $user->firm->update(["logo" => $image->getSecurePath()]);
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Updated firm logo']);
 
     return back()->withMessage("Firm Logo Updated")->withStatus("success");
   }
@@ -42,17 +43,17 @@ class OfficeController extends Controller
     $request['specialization'] = collect(json_decode(request('specialization')))->implode('value', ',');
 
     // * Update user profile image
-    $user = User::find(Auth::id());
+    $request->user()->{$request->user_type}->update($request->all());
 
-    $user->{$user->user_type}->update($request->all());
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Updated office profile details']);
 
     return back()->withMessage("Office Profile Updated")->withStatus("success");
   }
 
-  public function myAssociates()
+  public function myAssociates(Request $request)
   {
-    $user = User::find(Auth::id());
-    $associates = $user->firm->associates;
+    $associates = $request->user()->firm->associates;
     return view('dashboard.office.associates')->withAssociates($associates);
   }
 
@@ -66,6 +67,10 @@ class OfficeController extends Controller
 
     if (count($associate)) {
       $firm->associates()->syncWithoutDetaching($associate);
+
+      // * Log user activity
+      $request->user()->activity()->create(['activity' => "Added a new associate <b>$request->email</b> to the firm"]);
+
       return back()->withMessage("Associate added")->withStatus("success");
     }
 
@@ -76,8 +81,51 @@ class OfficeController extends Controller
   {
     $associate = base64_decode($request->user_id);
 
+    $associate_details = User::find($associate)->first();
+
     $firm->associates()->detach([$associate]);
 
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => "Removed associate <b>$associate_details->email</b> from firm"]);
+
     return back()->withMessage("Associate removed")->withStatus("success");
+  }
+
+  public function myCertificates(Request $request)
+  {
+    return view('dashboard.office.certifications')->withCertificates($request->user()->certificates);
+  }
+
+  public function addCertificate(Request $request)
+  {
+    $certificate = $request->validate(
+      [
+        'certificate' => 'bail|required|mimes:png,jpg,jpeg|max:1024',
+        'type' => 'required',
+        'institution' => 'required',
+        'title' => 'required',
+        'additional_info' => 'required',
+      ],
+      [
+        'max' => "Selected image exceeds maximum upload size",
+        'required' => ":attribute is required"
+      ]
+    );
+
+    // * generate a unique name for the image based on the album id.
+    $certificate['unique_id'] = $unique_id = bin2hex(random_bytes(4));
+
+    // * Store the image on cloudinary
+    $image = $request->certificate->storeOnCloudinaryAs('certificate', $unique_id);
+
+    // * get the url returned from cloudinary after certificate has been successfully uploaded
+    $certificate['certificate'] = $image->getSecurePath();
+
+    $request->user()->certificates()->create($certificate);
+
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => "Uploaded certificate $request->title"]);
+
+    return back()->withMessage("Certificate Uploaded")->withStatus("success");
   }
 }

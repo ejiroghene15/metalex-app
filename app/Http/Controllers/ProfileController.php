@@ -18,9 +18,11 @@ class ProfileController extends Controller
       'city' => 'nullable'
     ]);
 
-    $user = User::find(Auth::id());
+    // * Update users base profile
+    $request->user()->update($request->all());
 
-    $user->update($request->all());
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Updated basic profile details']);
 
     return back()->withMessage('Profile Updated')->withStatus('success');
   }
@@ -36,7 +38,10 @@ class ProfileController extends Controller
     $image = $request->avatar->storeOnCloudinaryAs('user_avatars', $img_name);
 
     // * Update user profile image
-    User::find(Auth::id())->update(["avatar" => $image->getSecurePath()]);
+    $request->user()->update(["avatar" => $image->getSecurePath()]);
+
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Updated profile avatar']);
 
     return back()->withMessage("Profile image updated")->withStatus("success");
   }

@@ -66,8 +66,13 @@ class User extends Authenticatable implements MustVerifyEmail
     return $this->hasOne(LawyerProfile::class)->withDefault();
   }
 
-  // public function is_associate()
-  // {
-  //   return $this->belongsToMany(VirtualOffice::class, 'associates', 'user_id', 'office_id');
-  // }
+  public function activity()
+  {
+    return $this->hasMany(Activity::class);
+  }
+
+  public function certificates()
+  {
+    return $this->hasMany(Certification::class);
+  }
 }

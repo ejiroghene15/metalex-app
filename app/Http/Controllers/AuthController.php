@@ -24,6 +24,10 @@ class AuthController extends Controller
 
     if (Auth::attempt($credentials, $request->has('remember_me'))) {
       $request->session()->regenerate();
+
+      // * Log user activity
+      $request->user()->activity()->create(['activity' => 'Logged in']);
+
       return redirect()->intended(route('home'));
     }
 
@@ -46,12 +50,18 @@ class AuthController extends Controller
     // * Send an email verification message to the newly registered user
     event(new Registered($user));
 
+    // * Log user activity
+    $user->activity()->create(['activity' => 'Created an account']);
+
     return ResponseController::success("A verification link has been sent to your email inbox, kindly click on the link to verify your account.");
   }
 
   public function resendVerificationLink(Request $request)
   {
     $request->user()->sendEmailVerificationNotification();
+
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Initiated a resend email verification action']);
 
     return back()->withMessage('Verification link sent!')->withStatus("success");
   }
@@ -65,6 +75,9 @@ class AuthController extends Controller
       "is_verified" => 1,
       "account_status" => 1,
     ]);
+
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Email successfully verified']);
 
     return redirect()->route('home');
   }
@@ -110,6 +123,9 @@ class AuthController extends Controller
 
   public function logout(Request $request)
   {
+    // * Log user activity
+    $request->user()->activity()->create(['activity' => 'Logged out']);
+
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
