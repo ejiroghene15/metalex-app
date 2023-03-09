@@ -16,7 +16,7 @@
         <!-- List -->
         <ul class="list-unstyled ms-n2 mb-4">
           <!-- Nav item -->
-          <li class="nav-item">
+          <li class="nav-item d-none">
             <a class="nav-link" href="#">
               <i class="fe fe-credit-card nav-icon"></i>
               My Subscription
@@ -26,7 +26,7 @@
           <!-- Consultations -->
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fe fe-message-square nav-icon"></i>
-              Consultations
+              Consultation
             </a>
           </li>
 
@@ -72,7 +72,7 @@
 
           <!-- Notifications -->
           <li class="nav-item">
-            <a class="nav-link" href="notifications.html"><i class="fe fe-bell nav-icon"></i>Notifications</a>
+            <a class="nav-link" href="notifications.html"><i class="fe fe-mail nav-icon"></i>Inbox</a>
           </li>
 
 
