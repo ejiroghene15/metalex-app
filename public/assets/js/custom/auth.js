@@ -17,11 +17,12 @@ $(".registration_form").on("submit", function (e) {
       _this[0].reset();
     }
   })
-    .catch(({ status, responseJSON }) => {
+    .catch(({status, responseJSON}) => {
       let message;
       switch (status) {
         case 500:
-          message = "Server error: Unable to process registration";
+          message = "An error occured, please contact support";
+          console.log(responseJSON)
           break;
         default:
           message = responseJSON.message;
@@ -55,11 +56,11 @@ $(".forgot_password").on("submit", function (e) {
       _this[0].reset();
     }
   })
-    .catch(({ status, responseJSON }) => {
+    .catch(({status, responseJSON}) => {
       let message;
       switch (status) {
         case 500:
-          message = "Server error: Unable to process registration";
+          message = "An error occured, please contact support";
           break;
 
         default:

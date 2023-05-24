@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('assets/libs/dropzone/dist/dropzone.css') }}">
 @endsection
 
+{{--Body Section--}}
 @section('body')
 <!-- Navbar -->
 @include('partials.navbar')
@@ -30,7 +31,6 @@
         <div class="col-lg-9 col-md-8 col-12">
           <!-- Card -->
           <div class="card">
-
             {{-- Display this informamation only for firm profiles --}}
             @if ($user->user_type === 'firm')
             <div class="card-header">
@@ -97,6 +97,7 @@
 @include('dashboard.partials.footer')
 @endsection
 
+{{--Scripts section--}}
 @section('scripts')
 <script src="{{ asset('assets/libs/@yaireo/tagify/dist/tagify.min.js') }}"></script>
 @parent

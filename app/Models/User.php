@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -75,4 +76,25 @@ class User extends Authenticatable implements MustVerifyEmail
   {
     return $this->hasMany(Certification::class);
   }
+
+  public function forums(): HasMany
+  {
+    return $this->hasMany(Forum::class);
+  }
+
+  public function bookmarks(): HasMany
+  {
+    return $this->hasMany(Bookmark::class);
+  }
+
+  public function forumTopics(): HasMany
+  {
+    return $this->hasMany(ForumTopics::class);
+  }
+
+  public function forumThreads(): HasMany
+  {
+    return $this->hasMany(ForumThread::class);
+  }
+
 }

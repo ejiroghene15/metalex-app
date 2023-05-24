@@ -22,7 +22,7 @@
           </div>
 
           <div class="lh-1">
-            <h2 class="mb-0">
+            <h2 class="mb-0 fs-3">
               @if ($user->user_type === 'firm')
               {{ $user->firm_name }}
               @else

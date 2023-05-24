@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FirmProfile;
+use App\Models\LawyerProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,9 +24,9 @@ class OfficeController extends Controller
     $request->user()->firm->update(["logo" => $image->getSecurePath()]);
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Updated firm logo']);
+    HelpersController::logActivity('Updated firm logo');
 
-    return back()->withMessage("Firm Logo Updated")->withStatus("success");
+    return ResponseController::_success("Firm Logo Updated");
   }
 
   public function updateProfile(Request $request)
@@ -46,9 +47,9 @@ class OfficeController extends Controller
     $request->user()->{$request->user_type}->update($request->all());
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Updated office profile details']);
+    HelpersController::logActivity('Updated office profile details');
 
-    return back()->withMessage("Office Profile Updated")->withStatus("success");
+    return ResponseController::_success("Office Profile Updated");
   }
 
   public function myAssociates(Request $request)
@@ -69,12 +70,12 @@ class OfficeController extends Controller
       $firm->associates()->syncWithoutDetaching($associate);
 
       // * Log user activity
-      $request->user()->activity()->create(['activity' => "Added a new associate <b>$request->email</b> to the firm"]);
+      HelpersController::logActivity("Added a new associate <b>$request->email</b> to the firm");
 
-      return back()->withMessage("Associate added")->withStatus("success");
+      return ResponseController::_success("Associate added");
     }
 
-    return back()->withMessage("Sorry!! This lawyer could not be added as an associate to your firm possibly because do not have an account on this platform.")->withStatus("danger");
+    return ResponseController::_error("Sorry!! This lawyer could not be added as an associate to your firm possibly because do not have an account on this platform.");
   }
 
   public function detachAssociate(FirmProfile $firm, Request $request)
@@ -86,18 +87,21 @@ class OfficeController extends Controller
     $firm->associates()->detach([$associate]);
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => "Removed associate <b>$associate_details->email</b> from firm"]);
+    HelpersController::logActivity("Removed associate <b>$associate_details->email</b> from firm");
 
-    return back()->withMessage("Associate removed")->withStatus("success");
+    return ResponseController::_error("Associate Removed");
   }
 
   public function myCertificates(Request $request)
   {
+    $this->authorize('certificates', LawyerProfile::class);
     return view('dashboard.office.certifications')->withCertificates($request->user()->certificates);
   }
 
   public function addCertificate(Request $request)
   {
+    $this->authorize('certificates', LawyerProfile::class);
+
     $certificate = $request->validate(
       [
         'certificate' => 'bail|required|mimes:png,jpg,jpeg|max:1024',
@@ -124,8 +128,8 @@ class OfficeController extends Controller
     $request->user()->certificates()->create($certificate);
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => "Uploaded certificate $request->title"]);
+    HelpersController::logActivity("Uploaded certificate $request->title");
 
-    return back()->withMessage("Certificate Uploaded")->withStatus("success");
+    return ResponseController::_success("Certificate Uploaded");
   }
 }

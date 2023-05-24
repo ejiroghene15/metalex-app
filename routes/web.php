@@ -1,10 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
-use App\Models\Country;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'index')->name('home');
+Route::view('find-lawyer', '')->name('find-lawyer');
+Route::view('articles', '')->name('articles');
+Route::view('about-us', '')->name('about');
 
 // * Unauthenticated Routes
 Route::middleware(['guest'])->group(function () {
@@ -43,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/email/verification-notification', 'resendVerificationLink')->middleware(['throttle:6,1'])->name('verification.send');
   });
 
+  // * Dashboard
   Route::prefix('app')->group(function () {
     // * User Profile Setup
     Route::controller(ProfileController::class)->group(function () {
@@ -51,25 +54,46 @@ Route::middleware(['auth'])->group(function () {
       Route::post('update-avatar', 'updateAvatar')->name('avatar.update');
     });
 
-    // * Office Setup for lawyers and firms
+    // MENU: Office Setup for lawyers and firms
     Route::controller(OfficeController::class)->group(function () {
+      // Lawyers & Firms
       Route::view('office', 'dashboard.office')->name('office.profile');
-
-      Route::get('associates', 'myAssociates')->name('office.associates');
-      Route::get('certifications', 'myCertificates')->name('office.certificates');
-
-      Route::post('set-logo', 'setLogo')->name('office.set-logo');
       Route::post('update-profile', 'updateProfile')->name('office.update');
+
+      // Firms
+      Route::get('associates', 'myAssociates')->name('office.associates');
       Route::post('add-associate/{firm}', 'attachAssociate')->name('office.add-associate');
       Route::post('remove-associate/{firm}', 'detachAssociate')->name('office.remove-associate');
+      Route::post('set-logo', 'setLogo')->name('office.set-logo');
+
+      // Lawyers
+      Route::get('certifications', 'myCertificates')->name('office.certificates');
       Route::post("add-certificate", 'addCertificate')->name('office.upload-certificate');
     });
   });
 });
 
+// MENU: Forum
+Route::controller(ForumController::class)->group(function () {
+  Route::get('forum', 'forums')->name('forums');
+
+  // TOPICS: Under a selected forum
+  Route::get('forum/{slug}.{id}', 'topics')->name('forum.topics');
+
+  // THREADS: Under a forum topic
+  Route::get('forum/d/{slug}.{topic}', 'threads')->name('forum.thread');
+
+  Route::get('app/forum', 'userForums')->name('dashboard.forums');
+  Route::post('app/forum/create', 'newForum')->name('forum.create');
+  Route::post('forum/{forum}/create/topic', 'newTopic')->name('forum.create.topic');
+  Route::post('forum/create/thread', 'newThread');
+  Route::post('forum/bookmark/thread', 'bookmarkThread');
+  Route::post('forum/removeBookmark/thread', 'removeBookmark');
+});
+
 // * Login, Logout, Reset Password
 Route::controller(AuthController::class)->group(function () {
-  Route::post('login', 'login')->name('authenticate.login');
-  Route::get('logout', 'logout')->name('authenticate.logout');
+  Route::post('login', 'login')->name('auth.login');
+  Route::get('logout', 'logout')->name('auth.logout');
   Route::post('reset-password', 'resetPassword')->name('password.update');
 });

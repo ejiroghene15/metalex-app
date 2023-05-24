@@ -31,16 +31,16 @@
           </li>
 
           @if ($user->user_type === 'firm')
-          <!-- Associates -->
-          <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.associates'])>
-            <a class="nav-link" href="{{ route('office.associates') }}"><i
-                class="fe fe-users nav-icon"></i>Associates</a>
-          </li>
+            <!-- Associates -->
+            <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.associates'])>
+              <a class="nav-link" href="{{ route('office.associates') }}"><i
+                  class="fe fe-users nav-icon"></i>Associates</a>
+            </li>
           @endif
 
           <!-- Forum -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li @class(['nav-item','active'=> Route::currentRouteName() === 'dashboard.forums'])>
+            <a class="nav-link" href="{{route('dashboard.forums')}}">
               <i class="fe fe-rss nav-icon"></i>
               Forum
             </a>
@@ -60,13 +60,13 @@
             </a>
           </li>
 
-          @if ($user->user_type !== 'client')
-          <!-- Associates -->
-          <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.certificates'])>
-            <a class="nav-link" href="{{ route('office.certificates') }}">
-              <i class="fe fe-award nav-icon"></i>Certifications
-            </a>
-          </li>
+          @if ($user->user_type === 'lawyer')
+            <!-- Associates -->
+            <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.certificates'])>
+              <a class="nav-link" href="{{ route('office.certificates') }}">
+                <i class="fe fe-award nav-icon"></i>Certifications
+              </a>
+            </li>
           @endif
 
 
@@ -88,11 +88,11 @@
 
           <!-- Virtual office profile -->
           @if ($user->is_verified && $user->user_type !== 'client')
-          <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.profile'])>
-            <a class="nav-link" href="{{ route('office.profile') }}"><i class="bi bi-building nav-icon"></i>
-              Office Profile
-            </a>
-          </li>
+            <li @class(['nav-item','active'=> Route::currentRouteName() === 'office.profile'])>
+              <a class="nav-link" href="{{ route('office.profile') }}"><i class="bi bi-building nav-icon"></i>
+                Office Profile
+              </a>
+            </li>
           @endif
 
           <!-- Nav item -->
@@ -118,7 +118,7 @@
 
           <!-- Nav item -->
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('authenticate.logout') }}"><i class="fe fe-power nav-icon"></i>Sign
+            <a class="nav-link" href="{{ route('auth.logout') }}"><i class="fe fe-power nav-icon"></i>Sign
               Out</a>
           </li>
         </ul>

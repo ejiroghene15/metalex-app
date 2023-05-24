@@ -24,10 +24,8 @@ class AuthController extends Controller
 
     if (Auth::attempt($credentials, $request->has('remember_me'))) {
       $request->session()->regenerate();
-
       // * Log user activity
-      $request->user()->activity()->create(['activity' => 'Logged in']);
-
+      HelpersController::logActivity("Logged in");
       return redirect()->intended(route('home'));
     }
 
@@ -51,7 +49,7 @@ class AuthController extends Controller
     event(new Registered($user));
 
     // * Log user activity
-    $user->activity()->create(['activity' => 'Created an account']);
+    $user->activity()->create(["activity" => "Registration successful"]);
 
     return ResponseController::success("A verification link has been sent to your email inbox, kindly click on the link to verify your account.");
   }
@@ -61,7 +59,7 @@ class AuthController extends Controller
     $request->user()->sendEmailVerificationNotification();
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Initiated a resend email verification action']);
+    HelpersController::logActivity('Initiated a resend email verification action');
 
     return back()->withMessage('Verification link sent!')->withStatus("success");
   }
@@ -77,7 +75,7 @@ class AuthController extends Controller
     ]);
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Email successfully verified']);
+    HelpersController::logActivity('Email successfully verified');
 
     return redirect()->route('home');
   }
@@ -124,8 +122,7 @@ class AuthController extends Controller
   public function logout(Request $request)
   {
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Logged out']);
-
+    HelpersController::logActivity('Logged out');
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();

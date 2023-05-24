@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Forum;
+use App\Models\ForumCategory;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-  
+
 }

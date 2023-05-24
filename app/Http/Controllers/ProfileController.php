@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,9 +21,9 @@ class ProfileController extends Controller
     $request->user()->update($request->all());
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Updated basic profile details']);
+    HelpersController::logActivity("Updated basic profile details");
 
-    return back()->withMessage('Profile Updated')->withStatus('success');
+    return ResponseController::_success("Profile updated");
   }
 
   public static function updateAvatar(Request $request)
@@ -41,8 +40,8 @@ class ProfileController extends Controller
     $request->user()->update(["avatar" => $image->getSecurePath()]);
 
     // * Log user activity
-    $request->user()->activity()->create(['activity' => 'Updated profile avatar']);
+    HelpersController::logActivity("Updated profile avatar");
 
-    return back()->withMessage("Profile image updated")->withStatus("success");
+    return ResponseController::_success("Profile image updated");
   }
 }

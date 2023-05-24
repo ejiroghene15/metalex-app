@@ -32,6 +32,7 @@ return new class extends Migration
       $table->boolean('account_status')->default(0);
       $table->rememberToken();
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 

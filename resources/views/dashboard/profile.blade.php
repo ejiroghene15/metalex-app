@@ -2,6 +2,7 @@
 
 @section('title', 'Edit Profile')
 
+{{--Body Section--}}
 @section('body')
 <!-- Navbar -->
 @include('partials.navbar')
@@ -154,6 +155,7 @@
 @include('dashboard.partials.footer')
 @endsection
 
+{{--Scripts section--}}
 @section('scripts')
 @parent
 {{-- Page Scripts --}}

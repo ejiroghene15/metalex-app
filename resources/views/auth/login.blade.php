@@ -30,7 +30,7 @@
             @endif
 
             <!-- Form -->
-            <form method="POST" action="{{ route('authenticate.login') }}">
+            <form method="POST" action="{{ route('auth.login') }}">
               @csrf
               <!-- Username -->
               <div class="mb-3">
