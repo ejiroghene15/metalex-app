@@ -81,14 +81,19 @@ Route::controller(ForumController::class)->group(function () {
   Route::get('forum/{slug}.{id}', 'topics')->name('forum.topics');
 
   // THREADS: Under a forum topic
-  Route::get('forum/d/{slug}.{topic}', 'threads')->name('forum.thread');
+  Route::get('forum/d/{slug}.{topic_id}', 'threads')->name('forum.thread');
 
   Route::get('app/forum', 'userForums')->name('dashboard.forums');
   Route::post('app/forum/create', 'newForum')->name('forum.create');
+  Route::post('app/forum/delete', 'deleteForum')->name('forum.delete');
+
+  Route::view('app/bookmarks',  'dashboard.bookmarks')->name('dashboard.bookmarks');
+
   Route::post('forum/{forum}/create/topic', 'newTopic')->name('forum.create.topic');
   Route::post('forum/create/thread', 'newThread');
   Route::post('forum/bookmark/thread', 'bookmarkThread');
   Route::post('forum/removeBookmark/thread', 'removeBookmark');
+  Route::post('forum/report/thread/{thread}', 'report');
 });
 
 // * Login, Logout, Reset Password
