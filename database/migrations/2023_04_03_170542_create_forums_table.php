@@ -19,6 +19,7 @@ return new class extends Migration {
       $table->string("slug");
       $table->foreignId("category_id");
       $table->text("description")->nullable();
+      $table->boolean("status")->default(0);
       $table->timestamps();
       $table->softDeletes();
     });

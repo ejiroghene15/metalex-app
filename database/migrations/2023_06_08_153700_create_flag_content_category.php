@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('forum_topics', function (Blueprint $table) {
-            $table->tinyIncrements('views')->after('body');
-            $table->tinyIncrements('upvotes')->after('views');
-            $table->tinyIncrements('likes')->after('upvotes');
+        Schema::create('flag_content_category', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('forum_topics', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('flag_content_category');
     }
 };

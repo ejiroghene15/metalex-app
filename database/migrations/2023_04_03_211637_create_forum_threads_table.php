@@ -17,8 +17,10 @@ return new class extends Migration {
       $table->foreignId("topic_id")->constrained('forum_topics')->onUpdate('cascade')->onDelete('cascade');
       $table->foreignId("user_id")->constrained('users')->onUpdate('cascade')->onDelete('cascade');
       $table->text("reply");
-      $table->boolean("is_quoting_reply")->default(0);
-      $table->unsignedBigInteger("quoted_reply_id")->nullable();
+      $table->boolean("is_replying")->default(0);
+      $table->unsignedBigInteger("thread_id")->nullable();
+      $table->string("flagged_as")->nullable();
+      $table->integer("flagged_by")->nullable();
       $table->timestamps();
     });
   }

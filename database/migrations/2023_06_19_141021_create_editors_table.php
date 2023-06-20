@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('flagged_contents', function (Blueprint $table) {
+        Schema::create('editors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flagged_contents');
+        Schema::dropIfExists('editors');
     }
 };
