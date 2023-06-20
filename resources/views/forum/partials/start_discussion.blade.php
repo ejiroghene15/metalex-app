@@ -34,7 +34,7 @@
             <button class="btn btn-primary">Submit</button>
           </form>
         @else
-          <a href="{{route('auth.login')}}" class="btn btn-primary">Login to start a discussion</a>
+          <a href="{{route('login')}}" class="btn btn-primary">Login to start a discussion</a>
         @endauth
       </div>
     </div>

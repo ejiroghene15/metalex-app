@@ -27,34 +27,6 @@
             </div>
             <div class="dropdown-divider"></div>
             <ul class="list-unstyled">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">
-                  <i class="fe fe-circle me-2"></i>Status
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <span class="badge-dot bg-success me-2"></span>Online
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <span class="badge-dot bg-secondary me-2"></span>Offline
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <span class="badge-dot bg-warning me-2"></span>Away
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <span class="badge-dot bg-danger me-2"></span>Busy
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
               <li>
                 <a class="dropdown-item" href="{{ route('user.profile') }}">
                   <i class="fe fe-user me-2"></i>Profile
@@ -141,7 +113,7 @@
 
         @guest
           <a href="{{ route('login') }}" class="btn btn-white shadow-sm mx-2">Sign In</a>
-          <a href="{{ route('register') }}" class="btn btn-primary">Sign Up</a>
+          <a href="{{ route('register') }}" class="btn btn-success">Sign Up</a>
         @endguest
 
         @auth
@@ -167,33 +139,6 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <ul class="list-unstyled">
-                  <li class="dropdown-submenu dropstart-lg">
-                    <a class="dropdown-item dropdown-list-group-item dropdown-toggle" href="#">
-                      <i class="fe fe-circle me-2"></i>Status
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <span class="badge-dot bg-success me-2"></span>Online
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <span class="badge-dot bg-secondary me-2"></span>Offline
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <span class="badge-dot bg-warning me-2"></span>Away
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <span class="badge-dot bg-danger me-2"></span>Busy
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
                   <li>
                     <a class="dropdown-item" href="{{ route('user.profile') }}">
                       <i class="fe fe-user me-2"></i>Profile

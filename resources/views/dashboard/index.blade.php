@@ -1,7 +1,3 @@
-@section('body')
-<!-- Navbar -->
-@include('partials.navbar')
-
 <main>
   <!-- Page Content -->
   <section class="bg-primary">
@@ -22,7 +18,7 @@
           </div>
         </div>
         <div class="col-xl-7 col-lg-6 col-md-12 text-lg-end text-center">
-          <img src="{{ asset('assets/images/hero/hero-img.png') }}" alt="" class="img-fluid" />
+          <img src="{{ asset('assets/images/hero/hero-img.png') }}" alt="" class="img-fluid"/>
         </div>
       </div>
     </div>
@@ -91,7 +87,7 @@
             <div class="card mb-4 card-hover">
               <a href="pages/course-single.html" class="card-img-top">
                 <img src="{{ asset('assets/images/course/course-react.jpg') }}" alt=""
-                  class="rounded-top-md card-img-top" />
+                     class="rounded-top-md card-img-top"/>
               </a>
               <!-- Card Body -->
               <div class="card-body">
@@ -105,10 +101,10 @@
                   </li>
                   <li class="list-inline-item">
                     <svg class="me-1 mt-n1" width="16" height="16" viewBox="0 0 16 16" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3" y="8" width="2" height="6" rx="1" fill="#754FFE" />
-                      <rect x="7" y="5" width="2" height="9" rx="1" fill="#DBD8E9" />
-                      <rect x="11" y="2" width="2" height="12" rx="1" fill="#DBD8E9" />
+                         xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="8" width="2" height="6" rx="1" fill="#754FFE"/>
+                      <rect x="7" y="5" width="2" height="9" rx="1" fill="#DBD8E9"/>
+                      <rect x="11" y="2" width="2" height="12" rx="1" fill="#DBD8E9"/>
                     </svg>
                     Beginner
                   </li>
@@ -135,7 +131,7 @@
                 <div class="row align-items-center g-0">
                   <div class="col-auto">
                     <img src="{{ asset('assets/images/avatar/avatar-1.jpg') }}" class="rounded-circle avatar-xs"
-                      alt="" />
+                         alt=""/>
                   </div>
                   <div class="col ms-2">
                     <span>Morris Mccoy</span>
@@ -176,7 +172,7 @@
             <div class="card mb-4 card-hover">
               <a href="pages/course-single.html" class="card-img-top"><img
                   src="{{ asset('assets/images/course/course-wordpress.jpg') }}" alt=""
-                  class="card-img-top rounded-top-md" /></a>
+                  class="card-img-top rounded-top-md"/></a>
               <!-- Card Body -->
               <div class="card-body">
                 <h4 class="mb-2 text-truncate-line-2">
@@ -190,10 +186,10 @@
                   </li>
                   <li class="list-inline-item">
                     <svg class="me-1 mt-n1" width="16" height="16" viewBox="0 0 16 16" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <rect x="3" y="8" width="2" height="6" rx="1" fill="#754FFE" />
-                      <rect x="7" y="5" width="2" height="9" rx="1" fill="#754FFE" />
-                      <rect x="11" y="2" width="2" height="12" rx="1" fill="#DBD8E9" />
+                         xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="8" width="2" height="6" rx="1" fill="#754FFE"/>
+                      <rect x="7" y="5" width="2" height="9" rx="1" fill="#754FFE"/>
+                      <rect x="11" y="2" width="2" height="12" rx="1" fill="#DBD8E9"/>
                     </svg>
                     Intermediate
                   </li>
@@ -215,7 +211,7 @@
                 <div class="row align-items-center g-0">
                   <div class="col-auto">
                     <img src="{{ asset('assets/images/avatar/avatar-8.jpg') }}" class="rounded-circle avatar-xs"
-                      alt="" />
+                         alt=""/>
                   </div>
                   <div class="col ms-2">
                     <span>Claire Robertson</span>
@@ -235,7 +231,3 @@
   </section>
 
 </main>
-
-<!-- footer -->
-@include('dashboard.partials.footer')
-@endsection

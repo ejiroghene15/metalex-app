@@ -76,6 +76,25 @@
           }
         })
       })
+
+      // * Flag a content
+      $("#thread_section").on("click", ".flag_thread", function () {
+        thread_id.value = $(this).data().thread;
+      });
+
+      $("#report-content").submit(function (e) {
+        e.preventDefault();
+        let form = $(this)[0];
+        let data = $(this).serializeArray();
+        $.post(`{{env('APP_URL')}}/forum/report/thread/${thread_id.value}`, data, function (response) {
+          if (response?.status === "success") {
+            $("#thread_section").load(`${location.href} #thread_section > *`);
+            form.reset();
+            $(".btn-close").click();
+            setTimeout(initEditor, 500)
+          }
+        });
+      })
     </script>
   @endauth
 

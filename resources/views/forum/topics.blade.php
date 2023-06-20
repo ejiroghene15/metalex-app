@@ -47,7 +47,7 @@
               <article class="ms-xl-3 w-100 mt-3 mt-xl-1">
                 <nav class="mb-2">
                   <h5 class="mb-2 fs-4 d-flex">
-                    <a href="{{ route('forum.thread', ["slug"=> $_->slug, "topic" => $_->id]) }}"
+                    <a href="{{ route('forum.thread', ["slug"=> $_->slug, "topic_id" => $_->id]) }}"
                        class="text-gray-600 d-block me-3">
                       {{$_->subject}}
                     </a>
@@ -61,13 +61,9 @@
                   <div class="d-flex gap-3">
                     <h6 class="text-primary">
                       <i class="bi bi-person"></i>
-
                       {{$_->user->first_name . " " . $_->user->last_name}}
                     </h6>
-                    {{--                    <h6 class="text-info mx-1">--}}
-                    {{--                      <i class="bi bi-chat-square-dots"></i>--}}
-                    {{--                      {{$_->threads->count()}}--}}
-                    {{--                    </h6>--}}
+
                     <h6 class="text-success">
                       <i class="bi bi-calendar-date"></i> {{$_->created_at->isoFormat("MMM Do, YYYY")}}
                     </h6>
@@ -75,7 +71,6 @@
                 </nav>
 
                 @if($_->threads->count())
-
                   <span class="text-muted">
                               <i class="mdi mdi-reply"></i>
                               <h6 class="text-muted d-inline-block">

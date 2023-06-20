@@ -76,7 +76,7 @@
                     @auth
                       @include('forum.partials.reply_thread')
                     @else
-                      <a class="btn btn-sm bg-primary-soft d-inline-block" href="{{route('login')}}">
+                      <a class="btn btn-sm bg-primary-soft d-inline-block mb-2" href="{{route('login')}}">
                         Login to comment on this thread
                       </a>
                     @endauth
@@ -104,15 +104,30 @@
                             </div>
 
                             {{-- Report abuse tag--}}
-                            <a href="#" class="badge bg-gray-300 align-self-start text-muted ms-auto"
-                               data-bs-toggle="tooltip"
-                               data-placement="top" title="Report Abuse">
-                              <i class="fe fe-flag fs-5"></i>
-                            </a>
+                            @if($_->flagged_as)
+                              <span class="badge bg-danger-soft align-self-start position-absolute end-0"
+                                    data-bs-toggle="tooltip" data-placement="top"
+                                    title="This content has been flagged as {{$_->flagged_as}} by {{$_->flaggedBy->first_name . ' '. $_->flaggedBy->last_name}}">
+                                      <i class="bi bi-flag-fill fs-5"></i>
+                                    </span>
+                            @else
+                              @can('flag_thread', $_)
+                                <a href="#"
+                                   class="badge bg-gray-300 align-self-start text-muted ms-auto flag_thread"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#report-comment"
+                                   data-thread="{{base64_encode($_->id)}}"
+                                >
+                                  <i class="fe fe-flag fs-5"></i>
+                                </a>
+                              @endcan
+                            @endif
                           </header>
+
                           <article class="pt-2 @if($_->replies->count()) border-start ms-n6 mt-n2 @endif">
                             <article>
-                              <div class="mt-2 fs-5 @if($_->replies->count()) ms-6 mb-n3 @endif">
+                              <div
+                                class="mt-2 fs-5 @if($_->replies->count()) ms-6 mb-n3 @endif" @style(['filter: blur(4px)' => !!$_->flagged_as])>
                                 {!! $_->reply !!}
                               </div>
                               @foreach($_->replies as $__)
@@ -126,18 +141,30 @@
                                     </h6>
                                     <span
                                       class="fs-6 badge bg-info-soft text-muted">{{$__->created_at->diffForHumans()}}</span>
-                                    <article class="fs-5 pt-2">
+                                    <article
+                                      class="fs-5 pt-2" @style(['filter: blur(4px)' => !!$__->flagged_as])>
                                       {!! $__->reply !!}
                                     </article>
                                   </div>
 
                                   {{-- Report abuse flag under thread replies--}}
-                                  <a href="#"
-                                     class="badge bg-gray-300 text-muted align-self-start position-absolute end-0"
-                                     data-bs-toggle="tooltip"
-                                     data-placement="top" title="Report Abuse">
-                                    <i class="fe fe-flag fs-5"></i>
-                                  </a>
+                                  @if($__->flagged_as)
+                                    <span class="badge bg-danger-soft align-self-start position-absolute end-0"
+                                          data-bs-toggle="tooltip" data-placement="top"
+                                          title="This content has been flagged as {{$__->flagged_as}} by {{$__->flaggedBy->first_name . ' '. $__->flaggedBy->last_name}}">
+                                      <i class="bi bi-flag-fill fs-5"></i>
+                                    </span>
+                                  @else
+                                    @can('flag_thread', $__)
+                                      <a href="#"
+                                         data-thread="{{base64_encode($__->id)}}"
+                                         class="badge bg-gray-300 text-muted align-self-start position-absolute end-0 flag_thread"
+                                         data-bs-toggle="modal"
+                                         data-bs-target="#report-comment">
+                                        <i class="fe fe-flag fs-5"></i>
+                                      </a>
+                                    @endcan
+                                  @endif
                                 </div>
                               @endforeach
                             </article>
@@ -230,8 +257,10 @@
                     </div>
                   </div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, eius!</p>
-                <a href="instructor-profile.html" class="btn btn-outline-secondary btn-sm">View Details</a>
+                <article hidden>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, eius!</p>
+                  <a href="instructor-profile.html" class="btn btn-outline-secondary btn-sm">View Details</a>
+                </article>
               </div>
             </div>
           </aside>
@@ -239,6 +268,8 @@
         <!-- Card -->
       </div>
     </section>
+
+    @include('forum.partials.flag_thread')
   </main>
 
   <!-- footer -->
