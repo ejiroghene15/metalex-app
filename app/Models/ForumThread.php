@@ -27,4 +27,9 @@ class ForumThread extends Model
     return $this->belongsTo(User::class);
   }
 
+  public function flaggedBy(): BelongsTo
+  {
+    return $this->belongsTo(User::class, 'flagged_by');
+  }
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Forum;
 use App\Models\ForumCategory;
+use App\Models\ForumThread;
 use App\Models\ForumTopics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +40,18 @@ class ForumController extends Controller
     HelpersController::logActivity("Created new forum - $request->forum_name");
 
     return ResponseController::_success("New forum - $request->forum_name created");
+  }
+
+  // * Delete a forum
+  public function deleteForum(Request $request)
+  {
+    $forum = Forum::find(base64_decode($request->forum_id));
+    $forum->delete();
+
+    // * Log user activity
+    HelpersController::logActivity("Deleted forum - $forum->name");
+
+    return ResponseController::_success("Deleted forum - $forum->name");
   }
 
   // * Create a new topic for discussion
@@ -108,7 +121,7 @@ class ForumController extends Controller
     $threads = $topic->threads()->where('is_replying', 0)->paginate($per_page)->fragment('thread');
 
     if (!$topic) return back();
-    $topic->increment('views');
+
     return view('forum.thread', compact('topic', 'threads'));
   }
 
@@ -137,6 +150,21 @@ class ForumController extends Controller
     HelpersController::logActivity("Bookmarked removed - <a href='/forum/d/$topic->slug.$topic->id'>$topic->subject </a>");
 
     return ResponseController::success("Thread removed from bookmarks");
+  }
+
+  // * Report a content posted
+  public function report(Request $request, $t)
+  {
+    $thread = ForumThread::find(base64_decode($t));
+    $thread->update([
+      'flagged_as' => $request->flag,
+      'flagged_by' => Auth::id()
+    ]);
+
+    // * Log user activity
+    HelpersController::logActivity("Flagged a thread as $request->flag");
+
+    return ResponseController::success("posted");
   }
 
   // * Return a forum created by a user of the application

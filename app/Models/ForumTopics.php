@@ -26,13 +26,6 @@ class ForumTopics extends Model
     return $this->hasMany(ForumThread::class, 'topic_id');
   }
 
-  public function views(): Attribute
-  {
-    return Attribute::make(
-      set: fn($value) => $value / 2
-    );
-  }
-
   public function bookMark(): HasMany
   {
     return $this->hasMany(Bookmark::class, 'content_id');
