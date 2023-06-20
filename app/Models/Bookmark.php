@@ -10,4 +10,9 @@ class Bookmark extends Model
   use HasFactory;
 
   protected $guarded = [];
+
+  public function forum()
+  {
+    return $this->belongsTo(ForumTopics::class, 'content_id');
+  }
 }
