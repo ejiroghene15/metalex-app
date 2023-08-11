@@ -5,7 +5,7 @@
     </a>
 
     @auth
-      <!-- Mobile view nav wrap -->
+      {{--MOBILE VIEW NAV AREA--}}
       <ul class="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap">
         <li class="dropdown ms-2">
           <a class="rounded-circle" href="#" role="button" data-bs-toggle="dropdown">
@@ -13,7 +13,7 @@
               <img alt="avatar" src="{{ $user->avatar }}" class="rounded-circle"/>
             </div>
           </a>
-          <div class="dropdown-menu dropdown-menu-end shadow">
+          <div class="dropdown-menu dropdown-menu-end">
             <div class="dropdown-item">
               <div class="d-flex">
                 <div class="avatar avatar-md avatar-indicators avatar-online">
@@ -27,6 +27,11 @@
             </div>
             <div class="dropdown-divider"></div>
             <ul class="list-unstyled">
+              <li>
+                <a class="dropdown-item" href="{{ route('user.dashboard', Str::slug($user->fullName())) }}">
+                  <i class="mdi mdi-view-dashboard-outline me-2"></i>Dashboard
+                </a>
+              </li>
               <li>
                 <a class="dropdown-item" href="{{ route('user.profile') }}">
                   <i class="fe fe-user me-2"></i>Profile
@@ -69,36 +74,43 @@
       <ul class="navbar-nav mt-4 mt-lg-0">
         <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> Route::currentRouteName() === 'home']) href="{{route('home')}}">
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'home']) href="{{route('home')}}">
             <i class="fe fe-home me-1"></i> Home
           </a>
         </li>
 
         <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> Route::currentRouteName() === 'find-lawyer']) href="{{route('find-lawyer')}}">
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'services']) href="{{route('services')}}">
+            <i class="bi bi-briefcase me-1"></i> Services
+          </a>
+        </li>
+
+        <li class="nav-item me-3" hidden>
+          <a
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'find-lawyer']) href="{{route('find-lawyer')}}">
             <i class="fe fe-users me-1"></i> Consult a Lawyer
           </a>
         </li>
 
         <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> Route::currentRouteName() === 'articles']) href="{{route('articles')}}">
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> in_array($current_route, ['p.articles', 'p.magazines', 'p.category', 'full-article', 'single-category'])]) href="{{route('p.articles')}}">
             <i class="bi bi-book me-1"></i>
-            <span>Articles</span>
+            <span>Publications</span>
           </a>
         </li>
 
         <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary' => in_array(Route::currentRouteName(), ['forums', 'forum.topics', 'forum.thread'])]) href="{{route('forums')}}">
-            <i class="bi bi-chat-square-dots me-1"></i> Forum
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary' => in_array($current_route, ['forums', 'forum.topics', 'forum.thread'])]) href="{{route('forums')}}">
+            <i class="bi bi-chat-square-quote me-1"></i> Forum
           </a>
         </li>
 
         <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> Route::currentRouteName() === 'about']) href="{{route('about')}}">
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'about']) href="{{route('about')}}">
             <i class="bi bi-info me-1"></i>About Us
           </a>
         </li>
@@ -118,7 +130,7 @@
 
         @auth
           <ul class="navbar-nav navbar-right-wrap ms-2 d-none d-lg-block">
-            <li class="dropdown ms-2 d-inline-block">
+            <li class="dropdown ms-2">
               <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static"
                  aria-expanded="false">
                 <div class="avatar avatar-md avatar-indicators avatar-online">
@@ -139,6 +151,11 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <ul class="list-unstyled">
+                  <li>
+                    <a class="dropdown-item" href="{{ route('user.dashboard', Str::slug($user->fullName())) }}">
+                      <i class="mdi mdi-view-dashboard-outline me-2"></i>Dashboard
+                    </a>
+                  </li>
                   <li>
                     <a class="dropdown-item" href="{{ route('user.profile') }}">
                       <i class="fe fe-user me-2"></i>Profile

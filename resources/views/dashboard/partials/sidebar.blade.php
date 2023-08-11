@@ -46,13 +46,6 @@
             </a>
           </li>
 
-          <!-- Bookmarks -->
-          <li @class(['nav-item','active'=> Route::currentRouteName() === 'dashboard.bookmarks'])>
-            <a class="nav-link" href="{{route('dashboard.bookmarks')}}"><i class="fe fe-bookmark nav-icon"></i>
-              Bookmarks
-            </a>
-          </li>
-
           <!-- Library -->
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fe fe-book nav-icon"></i>

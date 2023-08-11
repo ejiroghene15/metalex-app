@@ -26,7 +26,7 @@
                   <form class="d-inline bookmark" method="post">
                     @csrf
                     <button class="btn btn-sm bg-light-soft text-white">
-                      @if($user->bookmarks->where('content_id', $topic->id)->count())
+                      @if($user->bookmarks()->where([['content_id', $topic->id], ['type', 'forum']])->count())
                         <i class="bi bi-bookmark-fill icon me-1"></i>
                         <span class="label" for="remove">Remove Bookmark</span>
                       @else
@@ -34,13 +34,13 @@
                         <span class="label" for="add">Bookmark</span>
                       @endif
                     </button>
-                    <input type="hidden" name="topic" value="{{base64_encode($topic->id)}}">
+                    <input type="hidden" name="id" value="{{base64_encode($topic->id)}}">
                   </form>
 
                 @endauth
                 <span class="badge bg-dark-info-soft mx-2">
                   <i class="fe fe-calendar"></i>
-                  <span>{{$topic->created_at->isoFormat("MMM Do, YYYY")}}</span>
+                  <span>{{$topic->created_at}}</span>
                 </span>
               </div>
             </div>
@@ -95,7 +95,7 @@
                           <header class="d-flex gap-2">
                             <div>
                               <h5 class="mb-1">
-                                {{$_->user->first_name . ' '. $_->user->last_name}}
+                                {{$_->user->fullName()}}
                               </h5>
 
                               <span class="fs-6 badge bg-primary-soft text-muted">
@@ -107,7 +107,7 @@
                             @if($_->flagged_as)
                               <span class="badge bg-danger-soft align-self-start position-absolute end-0"
                                     data-bs-toggle="tooltip" data-placement="top"
-                                    title="This content has been flagged as {{$_->flagged_as}} by {{$_->flaggedBy->first_name . ' '. $_->flaggedBy->last_name}}">
+                                    title="This content has been flagged as {{$_->flagged_as}} by {{$_->flaggedBy->fullName()}}">
                                       <i class="bi bi-flag-fill fs-5"></i>
                                     </span>
                             @else
@@ -136,9 +136,7 @@
                                   <img src="{{$__->user->avatar}}" alt=""
                                        class="rounded-circle avatar-sm ms-n3 align-self-center mt-n3">
                                   <div class="ms-4 flex-grow-1">
-                                    <h6 class="mb-1 text-gray-500">
-                                      {{$__->user->first_name . ' '. $__->user->last_name}}
-                                    </h6>
+                                    <h6 class="mb-1 text-gray-500">{{$__->user->fullName()}}</h6>
                                     <span
                                       class="fs-6 badge bg-info-soft text-muted">{{$__->created_at->diffForHumans()}}</span>
                                     <article
@@ -151,7 +149,7 @@
                                   @if($__->flagged_as)
                                     <span class="badge bg-danger-soft align-self-start position-absolute end-0"
                                           data-bs-toggle="tooltip" data-placement="top"
-                                          title="This content has been flagged as {{$__->flagged_as}} by {{$__->flaggedBy->first_name . ' '. $__->flaggedBy->last_name}}">
+                                          title="This content has been flagged as {{$__->flagged_as}} by {{$__->flaggedBy->fullName()}}">
                                       <i class="bi bi-flag-fill fs-5"></i>
                                     </span>
                                   @else
@@ -178,7 +176,7 @@
                               style="display: none !important;">
                           @csrf
                           <textarea name="reply" rows="1" class="form-control rounded-5 bg-gray-100 border-0 mb-3"
-                                    placeholder="Replying {{$_->user->first_name . ' '. $_->user->last_name}}..."
+                                    placeholder="Replying {{$_->user->fullName()}}..."
                                     style="font-size: 13px;" required></textarea>
                           <input type="hidden" name="topic" value="{{base64_encode($topic->id)}}">
                           <input type="hidden" name="is_replying" value="1">
@@ -191,7 +189,7 @@
 
                         <footer class="w-100 mb-n3">
                           <span class="badge bg-info reply_user cursor-pointer">
-                           <i class="bi bi-reply"></i> Reply {{$_->user->first_name . ' '. $_->user->last_name}}
+                           <i class="bi bi-reply"></i> Reply {{$_->user->fullName()}}
                           </span>
                         </footer>
                       @endauth
@@ -201,7 +199,7 @@
                   @endforelse
                 </div>
 
-                <div>
+                <div id="pagination">
                   {{$threads->onEachSide(10)->links()}}
                 </div>
               </div>
@@ -227,12 +225,12 @@
                     @endif
                   </div>
                   <div class="ms-4">
-                    <h4 class="mb-0">{{$topic->user->first_name . ' ' . $topic->user->last_name}}</h4>
+                    <h4 class="mb-0">{{$topic->user->fullName()}}</h4>
                     <p class="mb-1 fs-6">Author</p>
                     <span class="fs-6">
                     <span class="badge bg-success-soft">
                       <span class="mdi mdi-calendar-check"></span>
-                      {{$topic->user->created_at->isoFormat("MMM Do, YYYY")}}
+                      {{$topic->user->created_at}}
                     </span>
                     </span>
                   </div>
@@ -276,4 +274,14 @@
   @include('partials.footer')
 @endsection
 
-@include('forum.partials.script')
+@auth
+  @section('scripts')
+    @parent
+    <script>const APP_URL = "{{env('APP_URL')}}"</script>
+    {{--  <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={{env('IFRAMELY_EMBED_KEY')}}"></script>--}}
+    <script src="{{asset('assets/js/vendors/ckeditor-ballon.js')}}"></script>
+    <script src="{{asset('assets/js/custom/content.js')}}"></script>
+  @endsection
+@endauth
+
+

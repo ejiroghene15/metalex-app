@@ -64,7 +64,7 @@
             <div class="col">
               <div class="mb-4 mb-lg-0">
                 <img
-                  src="../../assets/images/brand/gray-logo-airbnb.svg"
+                  src="{{asset('assets/images/brand/gray-logo-airbnb.svg')}}"
                   alt=""
                   class=""
                 />
@@ -74,7 +74,7 @@
             <div class="col">
               <div class="mb-4 mb-lg-0">
                 <img
-                  src="../../assets/images/brand/gray-logo-discord.svg"
+                  src="{{asset('assets/images/brand/gray-logo-discord.svg')}}"
                   alt=""
                   class=""
                 />
@@ -83,17 +83,7 @@
             <div class="col">
               <div class="mb-4 mb-lg-0">
                 <img
-                  src="../../assets/images/brand/gray-logo-intercom.svg"
-                  alt=""
-                  class=""
-                />
-              </div>
-            </div>
-            <!-- col -->
-            <div class="col">
-              <div class="mb-4 mb-lg-0">
-                <img
-                  src="../../assets/images/brand/gray-logo-stripe.svg"
+                  src="{{asset('assets/images/brand/gray-logo-intercom.svg')}}"
                   alt=""
                   class=""
                 />
@@ -103,7 +93,17 @@
             <div class="col">
               <div class="mb-4 mb-lg-0">
                 <img
-                  src="../../assets/images/brand/gray-logo-netflix.svg"
+                  src="{{asset('assets/images/brand/gray-logo-stripe.svg')}}"
+                  alt=""
+                  class=""
+                />
+              </div>
+            </div>
+            <!-- col -->
+            <div class="col">
+              <div class="mb-4 mb-lg-0">
+                <img
+                  src="{{asset('assets/images/brand/gray-logo-netflix.svg')}}"
                   alt=""
                   class=""
                 />
@@ -120,11 +120,13 @@
           <!-- Features -->
           <div class="col-md-4 mb-lg-0 mb-4">
             <div class="d-flex align-items-center">
-            <span class="icon-shape icon-lg bg-dark-primary-soft rounded-circle text-center text-primary fs-4 flex-shrink-0">
+            <span
+              class="icon-shape icon-lg bg-dark-primary-soft rounded-circle text-center text-primary fs-4 flex-shrink-0">
               <i class="fe fe-filter"> </i></span>
               <div class="ms-3">
                 <h4 class="mb-0 fw-semi-bold">Listings</h4>
-                <p class="mb-0">Get access to top lawyers and firms offering professional legal services in any industry</p>
+                <p class="mb-0">Get access to top lawyers and firms offering professional legal services in any
+                  industry</p>
               </div>
             </div>
           </div>
@@ -132,7 +134,8 @@
           <!-- Features -->
           <div class="col-md-4 mb-lg-0 mb-4">
             <div class="d-flex align-items-center">
-            <span class="icon-shape icon-lg bg-dark-warning-soft rounded-circle text-center text-warning fs-4 flex-shrink-0">
+            <span
+              class="icon-shape icon-lg bg-dark-warning-soft rounded-circle text-center text-warning fs-4 flex-shrink-0">
               <i class="fe fe-message-square"> </i></span>
               <div class="ms-3">
                 <h4 class="mb-0 fw-semi-bold">Interactive Forum</h4>
@@ -226,7 +229,7 @@
         </div>
       </div>
       <!-- divider -->
-      <hr class="my-lg-12 my-8" />
+      <hr class="my-lg-12 my-8"/>
       <div class="row align-items-center">
         <!-- col -->
         <div class="col-lg-6 col-md-12 col-12">
@@ -366,7 +369,7 @@
             <!-- card body  -->
             <div class="card-body">
               <img
-                src="../../assets/images/brand/dropbox-logo.svg"
+                src="{{asset('assets/images/brand/dropbox-logo.svg')}}"
                 alt=""
                 class="icon-lg mb-3"
               />
@@ -383,7 +386,7 @@
             <!-- card body  -->
             <div class="card-body">
               <img
-                src="../../assets/images/brand/hubspot.svg"
+                src="{{asset('assets/images/brand/hubspot.svg')}}"
                 alt=""
                 class="icon-lg mb-3"
               />
@@ -400,7 +403,7 @@
             <!-- card body  -->
             <div class="card-body">
               <img
-                src="../../assets/images/brand/google-drive.svg"
+                src="{{asset('assets/images/brand/google-drive.svg')}}"
                 alt=""
                 class="icon-lg mb-3"
               />
@@ -415,7 +418,7 @@
             <!-- card body  -->
             <div class="card-body">
               <img
-                src="../../assets/images/brand/slack-logo.svg"
+                src="{{asset('assets/images/brand/slack-logo.svg')}}"
                 alt=""
                 class="icon-lg mb-3"
               />
@@ -430,7 +433,7 @@
             <!-- card body  -->
             <div class="card-body">
               <img
-                src="../../assets/images/brand/zapier.svg"
+                src="{{asset('assets/images/brand/zapier.svg')}}"
                 alt=""
                 class="icon-lg mb-3"
               />
@@ -445,7 +448,7 @@
             <!-- card body  -->
             <div class="card-body">
               <img
-                src="../../assets/images/brand/dropbox-logo.svg"
+                src="{{asset('assets/images/brand/dropbox-logo.svg')}}"
                 alt=""
                 class="icon-lg mb-3"
               />

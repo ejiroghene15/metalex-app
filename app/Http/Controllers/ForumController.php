@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class ForumController extends Controller
 {
+  public function __construct(HelpersController $helper)
+  {
+  }
+
   // * Return all forums that has been created
   public function forums()
   {
@@ -96,9 +100,8 @@ class ForumController extends Controller
 
     $topic = ForumTopics::find(base64_decode($request->topic));
 
-    $topic->threads()->create([
+    $request->user()->forumThreads()->create([
       'topic_id' => $topic->id,
-      'user_id' => $request->user()->id,
       'reply' => $request->reply,
       'is_replying' => $request->has('is_replying'),
       'thread_id' => $request->has('is_replying') && $request->is_replying ? base64_decode($request->thread) : 0
@@ -126,11 +129,12 @@ class ForumController extends Controller
   }
 
   // * Bookmark a forum thread
-  public function bookmarkThread()
+  public function bookmarkThread(Request $request)
   {
-    $topic = ForumTopics::find(base64_decode(request()->topic));
-    $topic->bookmark()->create([
-      'user_id' => Auth::id(),
+    $topic = ForumTopics::find(base64_decode($request->id));
+
+    $request->user()->bookmarks()->create([
+      'content_id' => $topic->id,
       'type' => 'forum'
     ]);
 
@@ -140,11 +144,11 @@ class ForumController extends Controller
     return ResponseController::success("Thread Bookmarked");
   }
 
-  // * Remove a thread from user bookmark
-  public function removeBookmark()
+  // * Remove a thread from user bookmarks
+  public function removeThreadBookmark(Request $request)
   {
-    $topic = ForumTopics::find(base64_decode(request()->topic));
-    $topic->bookmark()->where('user_id', Auth::id())->delete();
+    $topic = ForumTopics::find(base64_decode($request->id));
+    $request->user()->bookmarks()->where([['content_id', $topic->id], ['type', 'forum']])->delete();
 
     // * Log user activity
     HelpersController::logActivity("Bookmarked removed - <a href='/forum/d/$topic->slug.$topic->id'>$topic->subject </a>");

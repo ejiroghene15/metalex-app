@@ -51,7 +51,7 @@
                         </span>
                             <span class="mb-0 badge bg-success-soft" data-bs-toggle="tooltip" data-placement="right"
                                   title="Date Created">
-                          <i class="bi bi-calendar me-1"></i>{{ $bm->created_at->isoFormat('Do, MMM YYYY') }}
+                          <i class="bi bi-calendar me-1"></i>{{ $bm->created_at }}
                         </span>
                           </a>
                         </div>

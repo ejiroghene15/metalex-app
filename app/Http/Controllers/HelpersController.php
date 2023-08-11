@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 class HelpersController extends Controller
 {
-  static $paginate_per_page = 10;
+  static int $paginate_per_page;
+
+  public function __construct()
+  {
+    return self::$paginate_per_page = env('APP_PAGINATE_PER_PAGE');
+  }
 
   public static function logActivity($activity)
   {
@@ -22,5 +27,5 @@ class HelpersController extends Controller
     // Replaces multiple hyphens with single one.
     return strtolower(preg_replace('/-+/', '-', $string));
   }
-
 }
+

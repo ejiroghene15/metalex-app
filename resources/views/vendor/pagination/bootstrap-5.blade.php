@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <nav class="d-flex justify-items-center justify-content-between pt-3 ps-2 bg-gray-100">
+    <nav class="d-flex justify-items-center justify-content-between pt-3 ps-2">
         <div class="d-flex justify-content-between flex-fill d-sm-none">
             <ul class="pagination pagination-sm">
                 {{-- Previous Page Link --}}

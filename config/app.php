@@ -193,7 +193,7 @@ return [
     // App\Providers\BroadcastServiceProvider::class,
     App\Providers\EventServiceProvider::class,
     App\Providers\RouteServiceProvider::class,
-    App\Providers\CountryProvider::class,
+    App\Providers\CustomProvider::class,
 
   ],
 

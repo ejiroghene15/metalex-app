@@ -32,8 +32,10 @@ class AppServiceProvider extends ServiceProvider
       Mail::alwaysTo(env('MAIL_TO_TEST_ADDRESS'));
     }
 
-    // * These are the flag categories under which a content is reported
-    View::share('flags', DB::table('flag_content_category')->get(['id', 'name', 'description']));
+    if (!$this->app->runningInConsole()) {
+      // * These are the flag categories under which a content is reported
+      View::share('flags', DB::table('flag_content_category')->get(['id', 'name', 'description']));
+    }
 
     // * Set Pagination to use bootstrap 5 styling
     Paginator::useBootstrapFive();

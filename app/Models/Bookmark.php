@@ -15,4 +15,9 @@ class Bookmark extends Model
   {
     return $this->belongsTo(ForumTopics::class, 'content_id');
   }
+
+  public function blog()
+  {
+    return $this->belongsTo(Blog::class, 'content_id');
+  }
 }

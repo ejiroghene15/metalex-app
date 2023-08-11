@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Models\Blog;
 use App\Models\ForumThread;
 use App\Models\LawyerProfile;
+use App\Policies\BlogPolicy;
 use App\Policies\LawyerPolicy;
 use App\Policies\Thread;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -21,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
   protected $policies = [
     LawyerProfile::class => LawyerPolicy::class,
     ForumThread::class => Thread::class,
+    Blog::class => BlogPolicy::class
   ];
 
   /**

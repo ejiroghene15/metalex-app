@@ -61,11 +61,11 @@
                   <div class="d-flex gap-3">
                     <h6 class="text-primary">
                       <i class="bi bi-person"></i>
-                      {{$_->user->first_name . " " . $_->user->last_name}}
+                      {{$_->user->fullName()}}
                     </h6>
 
                     <h6 class="text-success">
-                      <i class="bi bi-calendar-date"></i> {{$_->created_at->isoFormat("MMM Do, YYYY")}}
+                      <i class="bi bi-calendar-date"></i> {{$_->created_at}}
                     </h6>
                   </div>
                 </nav>
@@ -74,7 +74,7 @@
                   <span class="text-muted">
                               <i class="mdi mdi-reply"></i>
                               <h6 class="text-muted d-inline-block">
-                                <span>{{$_->threads->last()->user->first_name . " " . $_->threads->last()->user->last_name}}</span>
+                                <span>{{$_->threads->last()->user->fullName()}}</span>
                                 <span class="mx-1 d-inline-block"></span>
                                 <i class="fe fe-clock text-muted"></i>
                               <span>{{$_->threads->last()->created_at->diffForHumans() }}</span>
@@ -104,24 +104,7 @@
   @parent
   @auth
     <script src="{{asset('assets/js/vendors/ckeditor.js')}}"></script>
-    <script>
-      // * Initialize wysiwyg HTML editor
-      ClassicEditor
-        .create(document.querySelector('.editor'), {
-          toolbar: {
-            items: ["bold", "link", "bulletedList", "numberedList"],
-          },
-          licenseKey: "",
-        })
-        .then(editor => {
-          window.editor = editor;
-        })
-        .catch(error => {
-          console.error('Oops, something went wrong!');
-          console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
-          console.warn('Build id: wui4zned51yo-bq6cokjedqtb');
-          console.error(error);
-        });
-    </script>
+    <script src="{{asset('assets/js/custom/init_editor.js')}}"></script>
+    <script>CKClassicEditor()</script>
   @endauth
 @endsection
