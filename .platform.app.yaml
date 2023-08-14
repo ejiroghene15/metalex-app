@@ -1,5 +1,5 @@
 # The name of this app. Must be unique within a project.
-name: app
+name: metalexlegal
 
 # The runtime the application uses. The 'type' key defines the base container
 # image that will be used to run the application. There is a separate base
@@ -41,4 +41,4 @@ web:
   locations:
     '/':
       root: "web"
-      passthru: "/public/index.php"
+      passthru: "/index.php"
