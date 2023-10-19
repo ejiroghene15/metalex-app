@@ -10,36 +10,25 @@
         <!-- Page header -->
         <div class="border-bottom pb-4 mb-4 d-md-flex align-items-center justify-content-between">
           <div class="mb-3 mb-md-0">
-            <h1 class="mb-1 h2 fw-bold">Bookmarks</h1>
+            <h1 class="mb-1 h2 fw-bold">My Forums</h1>
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 @include('user.component.breadcrumb')
                 <li class="breadcrumb-item active" aria-current="page">
-                  Bookmarks
+                  Forum
                 </li>
               </ol>
             </nav>
           </div>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+             data-bs-target="#create-forum">New Forum...</a>
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="card mb-4">
-        <!-- Card header -->
-        <div class="card-header d-lg-flex align-items-center justify-content-between">
-          <div class="mb-3 mb-lg-0">
-            <h3 class="mb-0">My Forums</h3>
-            <span>
-                  You have full control to manage your own forum
-                </span>
-          </div>
-          <div>
-            <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
-               data-bs-target="#create-forum">New Forum...</a>
-          </div>
-        </div>
         <!-- Card body -->
         <div class="card-body px-0 pb-2">
           <ul class="list-group list-group-flush">
@@ -73,10 +62,11 @@
                           <i class="fe fe-more-vertical"></i>
                         </a>
                         <span class="dropdown-menu" aria-labelledby="forumSetting">
-                          <span class="dropdown-header">Setting </span>
-{{--                          <a class="dropdown-item" href="#">--}}
-                          {{--                            <i class="fe fe-edit dropdown-item-icon"></i>Edit--}}
-                          {{--                          </a>--}}
+                          <span class="dropdown-header">Setting</span>
+                            <a class="dropdown-item"
+                               href="{{route('forum.edit', ['slug' => $_->slug, 'forum' => $_->id])}}">
+                            <i class="fe fe-edit dropdown-item-icon"></i> Edit
+                          </a>
                           <a class="dropdown-item delete_forum" data-bs-toggle="modal"
                              data-bs-target="#delete-forum-modal"
                              data-forum="{{base64_encode($_->id)}}">
@@ -90,65 +80,22 @@
                 </div>
               </li>
             @empty
-              <h5 class="card-body py-0">Create your forum to get started</h5>
+              <h5>Create your forum</h5>
             @endforelse
           </ul>
         </div>
       </div>
 
-      @include('user.component.delete_forum')
+      @if($user->forums->count())
+        {{--Delete a Forum--}}
+        @include('user.component.delete_forum')
+      @endif
 
-      <div class="modal fade" id="create-forum" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">New Forum</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <form class="modal-body" action="{{ route('forum.create') }}" method="POST">
-              @csrf
-              <div class="mb-3">
-                <label class="form-label">Category</label>
-                <select name="forum_category" class="form-control">
-                  @foreach ($category as $_)
-                    <option value="{{ $_->id }}">{{ $_->name }}</option>
-                  @endforeach
-                </select>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">
-                  <span>Forum Name</span>
-                  <span data-bs-toggle="tooltip" data-placement="right"
-                        title="The name of your forum, E.g: Legal Analytics, Cyber Security & Data Privacy">
-              <i class="fe fe-help-circle"></i>
-            </span>
-                </label>
-                <input class="form-control" name="forum_name" type="text"/>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label">
-                  <span>Description</span>
-                  <span data-bs-toggle="tooltip" data-placement="right"
-                        title="This should be a short description about your forum">
-              <i class="fe fe-help-circle"></i>
-            </span>
-                </label>
-                <input class="form-control" name="description" maxlength="100" type="text"/>
-              </div>
-
-              <button class="btn btn-primary">Save</button>
-            </form>
-
-          </div>
-        </div>
-      </div>
+      {{--Create a Forum--}}
+      @include('user.component.create_forum')
     </div>
   </section>
 @endsection
-
 
 @section('scripts')
   @parent

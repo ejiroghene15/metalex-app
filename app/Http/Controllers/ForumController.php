@@ -9,7 +9,6 @@ use App\Models\ForumTopics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class ForumController extends Controller
 {
   public function __construct(HelpersController $helper)
@@ -19,43 +18,59 @@ class ForumController extends Controller
   // * Return all forums that has been created
   public function forums()
   {
-    $forums = ForumCategory::all();
-    return view('forum.index', compact("forums"));
+    return view('forum.index', ['forums' => ForumCategory::all()]);
   }
 
   // * Create a new forum
   public function newForum(Request $request)
   {
-    $validate = $request->validate([
-      'forum_name' => 'required',
-      'forum_category' => 'required',
+    $forum = $request->validate([
+      'name' => 'required',
+      'category_id' => 'required',
       'description' => 'max:100'
     ]);
 
-    Forum::create([
-      "user_id" => Auth::id(),
-      "name" => $request->forum_name,
-      "slug" => HelpersController::slugify($request->forum_name),
-      "category_id" => $request->forum_category,
-      "description" => $request->description
-    ]);
+    $forum['slug'] = HelpersController::slugify($request->name);
+
+    $request->user()->forums()->create($forum);
 
     // * Log user activity
-    HelpersController::logActivity("Created new forum - $request->forum_name");
+    HelpersController::logActivity("Created new forum - $request->name");
 
-    return ResponseController::_success("New forum - $request->forum_name created");
+    return ResponseController::_success("New forum - $request->name created");
+  }
+
+  // * Edit a forum
+  public function editForum($slug, Forum $forum)
+  {
+    return view('user.forum.edit', ['forum' => $forum]);
+  }
+
+  // * Update a forum
+  public function updateForum(Request $request)
+  {
+    $forum = $request->validate([
+      'name' => 'required',
+      'description' => 'required',
+      'rules' => 'required'
+    ]);
+
+    $request->user()->forums()->update($forum);
+
+    HelpersController::logActivity("Updated forum - $request->name");
+
+    return ResponseController::_success("Forum updated");
   }
 
   // * Delete a forum
   public function deleteForum(Request $request)
   {
-    $forum = Forum::find(base64_decode($request->forum_id));
-    $forum->delete();
+    $request->user()->forums()->where('id', base64_decode($request->id))->delete();
 
     // * Log user activity
-    HelpersController::logActivity("Deleted forum - $forum->name");
+    HelpersController::logActivity("Deleted forum - $request->name");
 
-    return ResponseController::_success("Deleted forum - $forum->name");
+    return ResponseController::_success("Deleted forum - $request->name");
   }
 
   // * Create a new topic for discussion
@@ -147,7 +162,7 @@ class ForumController extends Controller
   // * Remove a thread from user bookmarks
   public function removeThreadBookmark(Request $request)
   {
-    $topic = ForumTopics::find(base64_decode($request->id));
+    $topic = ForumTopics::find(base64_decode($request->topic));
     $request->user()->bookmarks()->where([['content_id', $topic->id], ['type', 'forum']])->delete();
 
     // * Log user activity
@@ -172,10 +187,8 @@ class ForumController extends Controller
   }
 
   // * Return a forum created by a user of the application
-  public function userForums()
+  public function userForums(Request $request)
   {
-    $forums = Forum::where('user_id', Auth::id())->get();
-    $category = ForumCategory::all();
-    return view('dashboard.forum', compact("forums", "category"));
+    return view('user.forum.index', ['forums' => $request->user()->forums(), 'category' => ForumCategory::all()]);
   }
 }
