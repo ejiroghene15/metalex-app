@@ -21,7 +21,7 @@
           </div>
         </div>
         @auth
-          <a href="{{route('dashboard.forums')}}" class="btn btn-success btn-sm d-inline-block mb-3">Create Forum</a>
+          <a href="{{route('forum.all')}}" class="btn btn-success btn-sm d-inline-block mb-3">Create Forum</a>
         @else
           <a class="btn btn-sm bg-primary-soft d-inline-block mb-3" href="{{route('login')}}">Login to create a
             forum</a>
@@ -100,4 +100,12 @@
 
   <!-- footer -->
   @include('partials.footer')
+@endsection
+
+
+@section('scripts')
+  @parent
+  <script src="{{asset('assets/js/vendors/ckeditor.js')}}"></script>
+  <script src="{{asset('assets/js/custom/init_editor.js')}}"></script>
+  <script>CKClassicEditor()</script>
 @endsection

@@ -90,7 +90,7 @@
   <script src="{{asset('assets/libs/flatpickr/dist/flatpickr.min.js')}}"></script>
   <script src="{{asset('assets/js/vendors/flatpickr.js')}}"></script>
   <script src="{{asset('assets/js/vendors/ckeditor.js')}}"></script>
-  <script src="{{asset('assets/js/custom/init_editor.js')}}"></script>
+  <script src="{{asset('assets/js/custom/content.js')}}"></script>
   <script src="{{asset('assets/js/vendors/dropify.js')}}"></script>
   <script>
     CKClassicEditor();

@@ -23,5 +23,27 @@ Username: metalexleg
 Password: !A$abx3X5m5@Y^D
 
 
+Your identification has been saved in /home/metaaywi/.ssh/id_rsa.
+Your public key has been saved in /home/metaaywi/.ssh/id_rsa.pub.
+
+# SSH KEY PASSWORD => IP[L?Q&qb*rH
+# SSH KEY FINGER PRINT  => 36:49:6f:85:77:85:80:8b:c5:60:17:13:eb:e5:a2:e1
+
+The key's randomart image is:
++--[ RSA 2048]----+
+|        oo=+.. ..|
+|       . .++  .. |
+|        .oo.+ .  |
+|       ..+.= .   |
+|        S = .    |
+|       o = .     |
+|        E        |
+|                 |
+|                 |
++-----------------+
 
 
+Access Details:
+Server IP:	162.0.209.138
+Username:	metaaywi
+SSH port:	21098

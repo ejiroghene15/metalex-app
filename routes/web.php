@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('livewire', 'livewire.index');
 Route::view('/', 'index')->name('home');
 Route::view('services', 'services')->name('services');
 Route::view('find-lawyer', '')->name('find-lawyer');
@@ -35,10 +36,6 @@ Route::controller(ForumController::class)->group(function () {
 
   // THREADS: Under a forum topic
   Route::get('forum/d/{slug}.{topic_id}', 'threads')->name('forum.thread');
-
-  Route::get('app/forum', 'userForums')->name('dashboard.forums');
-  Route::post('app/forum/create', 'newForum')->name('forum.create');
-  Route::post('app/forum/delete', 'deleteForum')->name('forum.delete');
 
   Route::post('forum/{forum}/create/topic', 'newTopic')->name('forum.create.topic');
   Route::post('forum/create/thread', 'newThread');
@@ -113,6 +110,15 @@ Route::middleware(['auth'])->group(function () {
       Route::view('my-profile/edit', 'user.profile.index')->name('user.profile.edit');
       Route::post('update-base-profile', 'updateBaseProfile')->name('user.profile.update');
       Route::post('update-avatar', 'updateAvatar')->name('user.avatar.update');
+    });
+
+    // FORUM
+    Route::controller(ForumController::class)->group(function () {
+      Route::get('forum', 'userForums')->name('forum.all');
+      Route::post('forum/create', 'newForum')->name('forum.create');
+      Route::get('forum/edit/{slug}.{forum}', 'editForum')->name('forum.edit');
+      Route::put('forum/update/{forum}', 'updateForum')->name('forum.update');
+      Route::delete('forum/delete', 'deleteForum')->name('forum.delete');
     });
 
     // MENU: Office Setup for lawyers and firms

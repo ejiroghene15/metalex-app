@@ -87,7 +87,7 @@
 
           </li>
         @empty
-          <h5 class="mb-0 text-muted">No topic has been created in this category.</h5>
+          <h5 class="mb-0 text-muted">No topic has been created in this forum.</h5>
         @endforelse
       </ul>
 
@@ -104,7 +104,7 @@
   @parent
   @auth
     <script src="{{asset('assets/js/vendors/ckeditor.js')}}"></script>
-    <script src="{{asset('assets/js/custom/init_editor.js')}}"></script>
+    <script src="{{asset('assets/js/custom/content.js')}}"></script>
     <script>CKClassicEditor()</script>
   @endauth
 @endsection

@@ -68,7 +68,7 @@
              data-bs-parent="#sideNavbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('cms')}}">Overview</a>
+              <a class="nav-link" href="{{route('forum.all')}}">Overview</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('cms')}}">Topics</a>
