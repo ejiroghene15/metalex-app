@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
    */
   public function boot()
   {
+    Schema::defaultStringLength(191); // or any value below or equal to 191
+
     // * If on localhost, send every mail to test address
     if ($this->app->environment('local')) {
       Mail::alwaysTo(env('MAIL_TO_TEST_ADDRESS'));
