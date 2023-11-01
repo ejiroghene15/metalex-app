@@ -14,13 +14,16 @@
             <!-- caption-->
             <h1 class="display-3 fw-bold mb-3">Hi there, we’re <span class="text-primary">Metalex</span></h1>
             <!-- para -->
-            <p class="h2 mb-3 d-none">We’re building the best next-generation interactive bootstrap based UI Kit design tool
-              for
-              developers, engineers, Full-Stack developer, and digital agency.</p>
-            <p class="mb-0 h4 text-body lh-lg">Geeks provide clean and consistent page designs to help you to create
-              beautiful
-              looking contents. Geek is feature-rich components and beautifully designed pages that help you create the
-              best possible website and web application projects.</p>
+            <p class="h2 mb-3 d-">What We Do</p>
+            <p class="mb-0 h4 text-body lh-3">
+              At Metalex Technologies, we are committed to designing and developing tech solutions to solve problems in
+              the legal space and justice system. With Metalex, we are reshaping the way legal knowledge and services
+              are accessed and shared. Our mission is simple yet profound. To create a vibrant and inclusive global
+              community where legal professionals and non-legal individuals can get discovered, learn and commect to
+              solve legal problems.
+            </p>
+
+
           </div>
         </div>
         <!-- gallery -->
@@ -50,43 +53,43 @@
             <img src="../assets/images/about/geeksui-img-6.jpg" alt="Gallery image 6" class="gallery__img rounded-3">
           </figure>
         </div>
+
         <div class="row">
           <!-- row -->
-          <div class="col-md-6 offset-right-md-6">
+          <div class="col-md-8 offset-right-md-4">
             <!-- heading -->
             <h1 class="display-4 fw-bold mb-3">Our global reach</h1>
             <!-- para -->
-            <p class="lead">Geeks is the leading global marketplace for teaching and learning, connecting millions of
-              students to the skills they need to succeed.</p>
+            <p class="lead lh-3 fs-4">
+              Our reach extends across borders, welcoming legal professionals and individuals from around the world.
+              We are dedicated to fostering a truly global community where legal knowledge and services transcend
+              national boundaries, enabling meaningful connections and knowledge sharing on a worldwide scale. Our
+              commitment to global reach ensures that anyone, no matter where they are, can benefit from the
+              resources, expertise, and opportunities within Metalex.
+            </p>
           </div>
-          <div class="col-lg-3 col-md-6 col-6">
+          <div class="col-lg-4 col-md-6 col-6">
             <!-- counter -->
             <div class="border-top pt-4 mt-6 mb-5">
-              <h1 class="display-3 fw-bold mb-0">20M</h1>
-              <p class="text-uppercase text-muted">Learners</p>
+              <h1 class="display-3 fw-bold mb-0">2</h1>
+              <p class="text-uppercase text-muted">Published Magazines</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-6">
+          <div class="col-lg-4 col-md-6 col-6">
             <!-- counter -->
             <div class="border-top pt-4 mt-6 mb-5">
-              <h1 class="display-3 fw-bold mb-0">57K</h1>
-              <p class="text-uppercase text-muted">Instructors</p>
+              <h1 class="display-3 fw-bold mb-0">10K</h1>
+              <p class="text-uppercase text-muted">LinkedIn Impressions</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-6">
+          <div class="col-lg-4 col-md-6 col-6">
             <!-- counter -->
             <div class="border-top pt-4 mt-6 mb-5">
-              <h1 class="display-3 fw-bold mb-0">21K</h1>
-              <p class="text-uppercase text-muted">Courses</p>
+              <h1 class="display-3 fw-bold mb-0">55</h1>
+              <p class="text-uppercase text-muted">Article Publications</p>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-6">
-            <!-- counter -->
-            <div class="border-top pt-4 mt-6 mb-5">
-              <h1 class="display-3 fw-bold mb-0">380M</h1>
-              <p class="text-uppercase text-muted">Course enrollments</p>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
@@ -94,12 +97,13 @@
     <section class="py-lg-16 py-10">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 offset-right-md-6 col-12 mb-6">
+          <div class="col-md-8 offset-right-md-5 col-12 mb-6">
             <!-- caption -->
             <h2 class="display-4 mb-3 fw-bold">Our core values</h2>
-            <p class="lead">Our core values are the fundamental beliefs of a person or organization geeks academy. We
-              help
-              people understand the difference between right and wrong.</p>
+            <p class="lead fs-4 lh-3">
+              We are driven by a set of core values that guide our actions, drive our team resilience, and define our
+              vision for the future of law
+            </p>
           </div>
         </div>
         <div class="row">
@@ -110,9 +114,11 @@
               <div class="card-body p-5">
                 <!-- icon -->
                 <div class="mb-3"><i class="mdi mdi-school-outline mdi-48px text-primary lh-1 "></i></div>
-                <h3 class="mb-2">Make Education Accessible</h3>
-                <p class="mb-0">Quis cursus turpis in habitant sagittis amet dolor malesuada ut. Volutpat nunc id
-                  blanvolutpat nunc.</p>
+                <h3 class="mb-2">Seamless Access to Justice</h3>
+                <p class="mb-0 fs-6 lh-3 fw-semi-bold">
+                  We believe that optimal legal services should be accessible to all, and we are committed to making
+                  justice seamlessly available to anyone globally.
+                </p>
               </div>
             </div>
           </div>
@@ -123,9 +129,11 @@
               <div class="card-body p-5">
                 <!-- icon -->
                 <div class="mb-3"><i class="mdi mdi-account-group mdi-48px text-primary lh-1 "></i></div>
-                <h3 class="mb-2">Learn and Grow</h3>
-                <p class="mb-0">Quis cursus turpis in habitant sagittis amet dolor malesuada ut. Volutpat nunc id
-                  blanvolutpat nunc.</p>
+                <h3 class="mb-2">Efficient Legal Tech Solutions</h3>
+                <p class="mb-0 fs-6 lh-3 fw-semi-bold">
+                  In a fast-paced digital world, we strive to provide efficient legal
+                  solutions that meet the needs of today&#39;s professionals and individuals.
+                </p>
               </div>
             </div>
           </div>
@@ -136,203 +144,68 @@
               <div class="card-body p-5">
                 <!-- icon -->
                 <div class="mb-3"><i class="mdi mdi-finance mdi-48px text-primary lh-1 "></i></div>
-                <h3 class="mb-2">Make Education Accessible</h3>
-                <p class="mb-0">Quis cursus turpis in habitant sagittis amet dolor malesuada ut. Volutpat nunc id
-                  blanvolutpat nunc.</p>
+                <h3 class="mb-2">Legal Education and Inclusivity</h3>
+                <p class="mb-0 fs-6 lh-3 fw-semi-bold">
+                  We believe in the power of a diverse and inclusive community, where legal
+                  professionals and people from all walks of life can unite, learn, and grow together.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- Team -->
     <section class="py-lg-16 py-10 bg-white">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 offset-right-md-6 col-12 mb-10">
+          <div class="col-md-8 offset-right-md-4 col-12 mb-10">
             <!-- heading -->
             <h2 class="display-4 mb-3 fw-bold">Our Team</h2>
             <!-- lead -->
-            <p class="lead mb-5">Want to work with some of the best global talent and build a tool used by all the
-              companies you know and love? Join the Geeks team and help shape the future of design.</p>
+            <p class="lead fs-4 lh-3 mb-5">
+              We are building a global team of diverse talents, united by a shared vision to revolutionize the practice
+              of law and justice globally. We bring together expertise from various fields to drive our core values. We
+              welcome individuals who share our vision and are interested in contributing their expertise, and be
+              part of shaping the future of law.
+            </p>
             <!-- btn -->
-            <a href="#" class="btn btn-primary">Openings</a>
+            <a href="#" class="btn btn-dark">Join Us</a>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-2 col-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-start gap-3">
+          <div class="">
             <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
               <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-1.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
+              <img src="../assets/images/avatar/akpos.jpg" alt="" class="imgtooltip rounded-circle"
+                   style="height: 200px; width: 200px; border-radius: 50%"
                    data-template="one">
               <!-- text -->
               <div id="one" class="d-none">
-                <div class="mb-0 fw-semi-bold">Paul Haney</div>
-                <span>CEO </span>
+                <div class="mb-0 fw-semi-bold">Kohwo Akpofure</div>
+                <span>Founder</span>
               </div>
             </div>
           </div>
-          <div class="col-md-2 col-3">
+          <div class="">
             <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
               <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-2.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
+              <img src="../assets/images/avatar/orobosa.jpg" alt="" class="imgtooltip  rounded-circle"
+                   width="100" style="height: 200px; width: 200px"
                    data-template="two">
               <!-- text -->
               <div id="two" class="d-none">
-                <div class="mb-0 fw-semi-bold">Gail Lanier</div>
-                <span>Engineering </span>
+                <div class="mb-0 fw-semi-bold">Orobosa Ebowe</div>
+                <span>Associate</span>
               </div>
             </div>
           </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-3.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="three">
-              <!-- text -->
-              <div id="three" class="d-none">
-                <div class="mb-0 fw-semi-bold">Gail Lanier</div>
-                <span>Manager </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-4.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="four">
-              <!-- text -->
-              <div id="four" class="d-none">
-                <div class="mb-0 fw-semi-bold">Mary Holler</div>
-                <span>Sales</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-5.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="five">
-              <!-- text -->
-              <div id="five" class="d-none">
-                <div class="mb-0 fw-semi-bold">Gilbert Farr</div>
-                <span>Oprator </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-6.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="six">
-              <!-- text -->
-              <div id="six" class="d-none">
-                <div class="mb-0 fw-semi-bold">Charlie Holland</div>
-                <span>Designer </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-7.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="seven">
-              <!-- text -->
-              <div id="seven" class="d-none">
-                <div class="mb-0 fw-semi-bold">James Butler</div>
-                <span>Developer </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-8.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="eight">
-              <!-- text -->
-              <div id="eight" class="d-none">
-                <div class="mb-0 fw-semi-bold">Richard Lane</div>
-                <span>Insight </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-9.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="eleven">
-              <!-- text -->
-              <div id="eleven" class="d-none">
-                <div class="mb-0 fw-semi-bold">Gail Lanier</div>
-                <span>Seo</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-10.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="twelve">
-              <!-- text -->
-              <div id="twelve" class="d-none">
-                <div class="mb-0 fw-semi-bold">Mary Holler</div>
-                <span>Content</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-11.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="thirteen">
-              <!-- text -->
-              <div id="thirteen" class="d-none">
-                <div class="mb-0 fw-semi-bold">Gilbert Farr</div>
-                <span>Designer </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 col-3">
-            <div class="p-xl-5 p-lg-3 mb-3 mb-lg-0">
-              <!-- avatar -->
-              <img src="../assets/images/avatar/avatar-12.jpg" alt="" class="imgtooltip img-fluid rounded-circle"
-                   data-template="fourteen">
-              <!-- text -->
-              <div id="fourteen" class="d-none">
-                <div class="mb-0 fw-semi-bold">James Butler</div>
-                <span>Developer </span>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
-    <!-- cta -->
-    <section class="bg-primary">
-      <div class="container">
-        <!-- row -->
-        <div class="row align-items-center g-0">
-          <div class="col-xl-6 col-lg-6 col-md-12">
-            <!-- heading -->
-            <div class="pt-6 pt-lg-0">
-              <h1 class="text-white display-4 fw-bold pe-lg-8">Join the Geeks team & shape the future of design
-              </h1>
-              <!-- text -->
-              <p class="text-white-50 mb-4 lead">
-                If you’re passionate and ready to dive in, we’d love to meet you. We’re committed to supporting our
-                employee professional development and well-being.
-              </p>
-              <!-- btn -->
-              <a href="#" class="btn btn-dark">View opportunities</a>
-            </div>
-          </div>
-          <!-- img -->
-          <div class=" col-xl-6 col-lg-6 col-md-12 text-lg-end text-center pt-6">
-            <img src="../assets/images/hero/hero-img.png" alt="" class="img-fluid">
-          </div>
-        </div>
-      </div>
-    </section>
+
   </main>
 
 
