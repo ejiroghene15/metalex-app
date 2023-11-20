@@ -23,6 +23,8 @@
         </div>
         <a href="#" class="btn btn-secondary btn-sm mb-3" data-bs-toggle="modal"
            data-bs-target="#new-discussion">Start Discussion...</a>
+        <a href="#" class="btn btn-info btn-sm mb-3 ms-2" data-bs-toggle="modal"
+           data-bs-target="#forum-rules">Rules & Guidelines</a>
       </div>
     </header>
 
@@ -94,6 +96,7 @@
       {{$topics->onEachSide(10)->links()}}
     </section>
     @include('forum.partials.start_discussion')
+    @include('forum.partials.rules')
   </main>
 
   <!-- footer -->

@@ -14,9 +14,8 @@
             <div class="mb-8">
               <span
                 class="badge p-3 bg-info-soft mb-3 d-inline-block text-uppercase fw-bold ls-lg">Metalex Legal Forum</span>
-              <h3 class="mb-2 display-5 fw-bold">Exploring the Intersection of Law and Technology</h3>
-              <h4 class="mb-0 text-muted lh-3">Be a part of the discussion. Navigate through our diverse range of
-                topics, created by intellectual folks like yourself. Ask questions and share your thoughts.</h4>
+              <h3 class="mb-2 display-5 fw-bold">Your Personalized Space for Legal Dialogue and Insights</h3>
+              <h4 class="text-muted lh-3">Explore our wide range of topics and join the conversation. Ask questions, share your thoughts, and be part of the discussion. Your legal insights matters.</h4>
             </div>
           </div>
         </div>

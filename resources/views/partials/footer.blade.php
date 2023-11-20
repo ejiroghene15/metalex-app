@@ -71,8 +71,8 @@
       <!-- Links -->
       <div class="col-12 col-md-7 col-lg-8 d-md-flex justify-content-end">
         <nav class="nav nav-footer">
-          <a class="nav-link ps-0 fs-6 fw-semi-bold" href="#">Privacy Policy</a>
-          <a class="nav-link fs-6 fw-semi-bold" href="#">Terms of Use</a>
+          <a class="nav-link ps-0 fs-6 fw-semi-bold" href="{{route('privacy-policy')}}">Privacy Policy</a>
+          <a class="nav-link fs-6 fw-semi-bold" href="{{route('terms')}}">Terms of Use</a>
         </nav>
       </div>
     </div>
