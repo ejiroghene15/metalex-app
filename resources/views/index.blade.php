@@ -10,13 +10,14 @@
 @section('body')
   @include('partials.navbar')
 
-  @auth
-    @include('dashboard.index')
-  @endauth
+  {{--  @auth--}}
+  {{--    @include('dashboard.index')--}}
+  {{--  @endauth--}}
 
-  @guest
-    @include('guest.index')
-  @endguest
+  {{--  @guest--}}
+  {{--  This is the general home paage--}}
+  @include('guest.index')
+  {{--  @endguest--}}
 
   @include('partials.footer')
 @endsection
