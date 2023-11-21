@@ -1,5 +1,5 @@
 @extends('user.layout.master')
-
+{{$posts}}
 @section('body')
   <!-- Container fluid -->
   <section class="container-fluid p-4">
@@ -15,6 +15,7 @@
     </div>
 
     <div class="row">
+      {{-- Articles--}}
       <div class="col-xl-3 col-lg-6 col-md-12 col-12">
         <!-- Card -->
         <div class="card mb-4">
@@ -22,20 +23,21 @@
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
               <div>
-                <span class="fs-6 text-uppercase fw-semi-bold">Sales</span>
+                <span class="fs-6 text-uppercase fw-semi-bold">Articles</span>
               </div>
               <div>
-                <span class="fe fe-shopping-bag fs-3 text-primary"></span>
+                <span class="fe fe-book-open fs-3 text-primary"></span>
               </div>
             </div>
             <h2 class="fw-bold mb-1">
-              $10,800
+              {{$user->blog->count()}}
             </h2>
-            <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+20.9$</span>
-            <span class="ms-1 fw-medium">Number of sales</span>
+            <span class="ms-1 fw-medium">Number of Posts</span>
           </div>
         </div>
       </div>
+
+      {{-- Forums--}}
       <div class="col-xl-3 col-lg-6 col-md-12 col-12">
         <!-- Card -->
         <div class="card mb-4">
@@ -43,20 +45,21 @@
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
               <div>
-                <span class="fs-6 text-uppercase fw-semi-bold">Courses</span>
+                <span class="fs-6 text-uppercase fw-semi-bold">Forums</span>
               </div>
               <div>
-                <span class=" fe fe-book-open fs-3 text-primary"></span>
+                <span class="mdi mdi-forum fs-3 text-primary"></span>
               </div>
             </div>
             <h2 class="fw-bold mb-1">
-              2,456
+              {{$user->forums->count()}}
             </h2>
-            <span class="text-danger fw-semi-bold">120+</span>
-            <span class="ms-1 fw-medium">Number of pending</span>
+            <span class="ms-1 fw-medium">Number of Forums</span>
           </div>
         </div>
       </div>
+
+      {{-- Threads--}}
       <div class="col-xl-3 col-lg-6 col-md-12 col-12">
         <!-- Card -->
         <div class="card mb-4">
@@ -64,38 +67,38 @@
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
               <div>
-                <span class="fs-6 text-uppercase fw-semi-bold">Students</span>
-              </div>
-              <div>
-                <span class=" fe fe-users fs-3 text-primary"></span>
-              </div>
-            </div>
-            <h2 class="fw-bold mb-1">
-              1,22,456
-            </h2>
-            <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+1200</span>
-            <span class="ms-1 fw-medium">Students</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-6 col-md-12 col-12">
-        <!-- Card -->
-        <div class="card mb-4">
-          <!-- Card body -->
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
-              <div>
-                <span class="fs-6 text-uppercase fw-semi-bold">Instructor</span>
+                <span class="fs-6 text-uppercase fw-semi-bold">Threads</span>
               </div>
               <div>
                 <span class=" fe fe-user-check fs-3 text-primary"></span>
               </div>
             </div>
             <h2 class="fw-bold mb-1">
-              22,786
+              {{$user->forumTopics->count()}}
             </h2>
-            <span class="text-success fw-semi-bold"><i class="fe fe-trending-up me-1"></i>+200</span>
-            <span class="ms-1 fw-medium">Instructor</span>
+            <span class="ms-1 fw-medium">Number of Forum Threads</span>
+          </div>
+        </div>
+      </div>
+
+      {{-- Bookmarks--}}
+      <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+        <!-- Card -->
+        <div class="card mb-4">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3 lh-1">
+              <div>
+                <span class="fs-6 text-uppercase fw-semi-bold">Bookmarked Items</span>
+              </div>
+              <div>
+                <span class="mdi mdi-pin fs-3 text-primary"></span>
+              </div>
+            </div>
+            <h2 class="fw-bold mb-1">
+              {{$user->bookmarks->count()}}
+            </h2>
+            <span class="ms-1 fw-medium">Number of Bookmarked Items</span>
           </div>
         </div>
       </div>
@@ -302,8 +305,8 @@
           <!-- Card header -->
           <div class="card-header d-flex align-items-center
                               justify-content-between card-header-height">
-            <h4 class="mb-0">Popular Treads</h4>
-            <a href="#" class="btn btn-outline-secondary btn-sm">View all</a>
+            <h4 class="mb-0">Latest Posts</h4>
+            <a href="{{route('p.articles')}}" class="btn btn-outline-secondary btn-sm">View all</a>
           </div>
           <!-- Card body -->
           <div class="card-body">
@@ -348,111 +351,30 @@
                 </div>
               </li>
               <!-- List group -->
-              <li class="list-group-item px-0">
-                <div class="row">
-                  <div class="col-auto">
-                    <a href="#"><img src="../../../assets/images/course/course-gatsby.jpg" alt=""
-                                     class="img-fluid rounded img-4by3-lg"></a>
-                  </div>
-                  <div class="col ps-0">
-                    <a href="#">
-                      <h5 class="text-primary-hover">
-                        Guide to Static Sites with Gatsby.js
-                      </h5>
-                    </a>
-                    <div class="d-flex align-items-center">
-                      <img src="../../../assets/images/avatar/avatar-8.jpg" alt=""
-                           class="rounded-circle avatar-xs me-2">
-                      <span class="fs-6">Jenny Wilson</span>
+              @foreach($posts as $post)
+                {{$post}}
+                <li class="list-group-item px-0">
+                  <div class="row">
+                    <div class="col-auto">
+                      <a href="#">
+                        <img src="../../../assets/images/course/course-wordpress.jpg" alt=""
+                             class="img-fluid rounded img-4by3-lg"></a>
+                    </div>
+                    <div class="col ps-0">
+                      <a href="#">
+                        <h5 class="text-primary-hover">
+                          Online WordPress Courses Become an Expert Today‎
+                        </h5>
+                      </a>
+                      <div class="d-flex align-items-center">
+                        <img src="../../../assets/images/avatar/avatar-5.jpg" alt=""
+                             class="rounded-circle avatar-xs me-2">
+                        <span class="fs-6">Robert Fox</span>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown4"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown4">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
-              </li>
-              <!-- List group -->
-              <li class="list-group-item px-0">
-                <div class="row">
-                  <div class="col-auto">
-                    <a href="#">
-                      <img src="../../../assets/images/course/course-javascript.jpg" alt=""
-                           class="img-fluid rounded img-4by3-lg"></a>
-                  </div>
-                  <div class="col ps-0">
-                    <a href="#">
-                      <h5 class="text-primary-hover">The Modern JavaScript Courses
-                      </h5>
-                    </a>
-                    <div class="d-flex align-items-center">
-                      <img src="../../../assets/images/avatar/avatar-1.jpg" alt=""
-                           class="rounded-circle avatar-xs me-2">
-                      <span class="fs-6">Guy Hawkins</span>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown5"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown5">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
-              </li>
-              <!-- List group -->
-              <li class="list-group-item px-0">
-                <div class="row">
-                  <div class="col-auto">
-                    <a href="#">
-                      <img src="../../../assets/images/course/course-wordpress.jpg" alt=""
-                           class="img-fluid rounded img-4by3-lg"></a>
-                  </div>
-                  <div class="col ps-0">
-                    <a href="#">
-                      <h5 class="text-primary-hover">
-                        Online WordPress Courses Become an Expert Today‎
-                      </h5>
-                    </a>
-                    <div class="d-flex align-items-center">
-                      <img src="../../../assets/images/avatar/avatar-5.jpg" alt=""
-                           class="rounded-circle avatar-xs me-2">
-                      <span class="fs-6">Robert Fox</span>
-                    </div>
-                  </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown6"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown6">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
-              </li>
+                </li>
+              @endforeach
             </ul>
           </div>
         </div>

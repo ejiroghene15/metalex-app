@@ -19,7 +19,7 @@
               At Metalex Technologies, we are committed to designing and developing tech solutions to solve problems in
               the legal space and justice system. With Metalex, we are reshaping the way legal knowledge and services
               are accessed and shared. Our mission is simple yet profound. To create a vibrant and inclusive global
-              community where legal professionals and non-legal individuals can get discovered, learn and commect to
+              community where legal professionals and non-legal individuals can get discovered, learn and connect to
               solve legal problems.
             </p>
 
