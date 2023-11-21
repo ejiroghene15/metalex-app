@@ -65,8 +65,8 @@
       <input type="checkbox" class="form-check-input" name="i_agree">
       <label class="form-check-label" for="agreeCheck">
         <span>I agree to the
-          <a href="terms-condition-page.html">Terms of Service </a>and
-          <a href="terms-condition-page.html">Privacy Policy.</a></span>
+          <a href="{{route('terms')}}">Terms of Service </a>and
+          <a href="{{route('privacy-policy')}}">Privacy Policy.</a></span>
       </label>
     </div>
   </div>
