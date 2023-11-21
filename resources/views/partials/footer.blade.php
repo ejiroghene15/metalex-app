@@ -35,7 +35,7 @@
           <ul class="list-unstyled nav nav-footer flex-column nav-x-0">
             <li><a href="#" class="nav-link fw-semi-bold">Help and Support</a></li>
             <li><a href="#" class="nav-link fw-semi-bold">Become an Editor</a></li>
-            <li><a href="#" class="nav-link fw-semi-bold">FAQ’s</a></li>
+            <li><a href="{{route('faq')}}" class="nav-link fw-semi-bold">FAQ’s</a></li>
           </ul>
 
         </div>

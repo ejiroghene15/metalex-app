@@ -27,6 +27,7 @@ Route::view('find-lawyer', '')->name('find-lawyer');
 Route::view('about-us', 'about')->name('about');
 Route::view('terms', 'terms')->name('terms');
 Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');
+Route::view('faq', 'faq')->name('faq');
 Route::view('not-found', 'errors.404')->name('not-found');
 
 // MENU: Forum
