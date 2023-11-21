@@ -49,7 +49,7 @@
               </figure>
 
               <!-- Descriptions -->
-              <div>{!! $post->body !!}</div>
+              <div style="line-height: 2.5em;">{!! $post->body !!}</div>
 
               {{-- Only the user who created the post can edit it--}}
               @can('updateBlog', $post)
