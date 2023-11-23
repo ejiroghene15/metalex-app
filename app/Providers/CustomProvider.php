@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Country;
+use App\Models\ForumThread;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -36,7 +37,16 @@ class CustomProvider extends ServiceProvider
     });
 
     View::composer(['auth.register', 'user.*'], function ($view) {
-      return $view->with('country', Country::all());
+      return $view->with([
+        'country' => Country::all(),
+      ]);
+    });
+
+    View::composer(['user.index'], function ($view) {
+      return $view->with([
+        'latest_threads_for_dashboard' => ForumThread::inRandomOrder()->latest()->limit(5)->get(),
+        'posts_for_dashboard' => Blog::withoutTrashed()->inRandomOrder()->latest()->limit(5)->get(),
+      ]);
     });
 
     View::composer(['admin.*'], function ($view) {

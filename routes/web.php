@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('livewire', 'livewire.index');
 Route::view('/', 'index')->name('home');
 Route::view('services', 'services')->name('services');
 Route::view('find-lawyer', '')->name('find-lawyer');
@@ -99,7 +98,7 @@ Route::middleware(['auth'])->group(function () {
     // USER DASHBOARD
     Route::view('u/{user}', 'user.index')->name('user.dashboard');
 
-    // BOOKMARKS
+    // BOOKMARKSf
     Route::view('bookmarks', 'user.bookmarks')->name('user.bookmarks');
 
     // CMS

@@ -1,5 +1,4 @@
 @extends('user.layout.master')
-{{$posts}}
 @section('body')
   <!-- Container fluid -->
   <section class="container-fluid p-4">
@@ -105,73 +104,42 @@
     </div>
 
     <div class="row">
+      <!-- Latest threads in the application -->
       <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-4">
         <!-- Card -->
         <div class="card h-100">
           <!-- Card header -->
-          <div class="card-header d-flex align-items-center
-                              justify-content-between card-header-height">
-            <h4 class="mb-0">Latest Posts</h4>
+          <div class="card-header d-flex align-items-center justify-content-between card-header-height">
+            <h4 class="mb-0">Latest Threads</h4>
             <a href="#" class="btn btn-outline-secondary btn-sm">View all</a>
           </div>
           <!-- Card body -->
           <div class="card-body">
             <!-- List group -->
             <ul class="list-group list-group-flush">
-              <li class="list-group-item px-0 pt-0 ">
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="avatar avatar-md avatar-indicators avatar-offline">
-                      <img alt="avatar" src="../../../assets/images/avatar/avatar-1.jpg" class="rounded-circle">
+              @foreach($latest_threads_for_dashboard as $_)
+                <li class="list-group-item px-0 @if($loop->first) pt-0 @endif">
+                  <div class="row">
+                    <div class="col-auto">
+                      <div class="avatar avatar-sm">
+                        <img alt="avatar" src="{{$_->user->avatar}}" class="rounded-circle">
+                      </div>
                     </div>
-                  </div>
-                  <div class="col ms-n3">
-                    <h4 class="mb-0 h5">Rob Percival</h4>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">42</span>Courses</span>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">1,10,124</span>Students</span>
-                    <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">32,000</span> Reviews
-                          </span>
-                  </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown7"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown7">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
 
-              </li>
-              <!-- List group -->
-              <li class="list-group-item px-0 ">
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="avatar avatar-md avatar-indicators avatar-online">
-                      <img alt="avatar" src="../../../assets/images/avatar/avatar-2.jpg" class="rounded-circle">
+                    <div class="col ms-n3">
+                      <h6 class="mb-0 text-gray-600">{{$_->user->fullName()}}
+                        <small class="text-success" style="font-size: 9px">replied thread on</small>
+                      </h6>
+                      <a href="{{ route('forum.thread', ["slug"=> $_->topic->slug, "topic_id" => $_->topic->id]) }}" target="_blank"
+                         class="me-2 fs-6 text-gray-500 text-primary-hover stretched-link">
+                        {{$_->topic->subject}}
+                      </a>
+                      <div class="mt-2">
+                        <small class="badge bg-info-soft" style="font-size: 10px">{{$_->topic->forum->name}}</small>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col ms-n3">
-                    <h4 class="mb-0 h5">Jose Portilla</h4>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">12</span>Courses</span>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">21,567</span>Students</span>
-                    <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">22,000
-                            </span> Reviews
-                          </span>
-                  </div>
-                  <div class="col-auto">
+
+                    <div class="col-auto">
                           <span class="dropdown dropstart">
                             <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown8"
                                data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
@@ -184,192 +152,49 @@
                                   class="fe fe-trash dropdown-item-icon "></i>Remove</a>
                             </span>
                           </span>
-                  </div>
-                </div>
-
-              </li>
-              <!-- List group -->
-              <li class="list-group-item px-0 ">
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="avatar avatar-md avatar-indicators avatar-away">
-                      <img alt="avatar" src="../../../assets/images/avatar/avatar-3.jpg" class="rounded-circle">
                     </div>
                   </div>
-                  <div class="col ms-n3">
-                    <h4 class="mb-0 h5">Eleanor Pena</h4>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">32</span>Courses</span>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">11,604</span>Students</span>
-                    <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">12,230
-                            </span> Reviews
-                          </span>
-                  </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown9"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown9">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
 
-              </li>
-              <!-- List group -->
-              <li class="list-group-item px-0 ">
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="avatar avatar-md avatar-indicators avatar-info">
-                      <img alt="avatar" src="../../../assets/images/avatar/avatar-6.jpg" class="rounded-circle">
-                    </div>
-                  </div>
-                  <div class="col ms-n3">
-                    <h4 class="mb-0 h5">March Delson</h4>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">23</span>Courses</span>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">6,304</span>Students</span>
-                    <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">56,000</span> Reviews
-                          </span>
-                  </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown10"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown10">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
-
-              </li>
-              <!-- List group -->
-              <li class="list-group-item px-0 ">
-                <div class="row">
-                  <div class="col-auto">
-                    <div class="avatar avatar-md avatar-indicators avatar-busy">
-                      <img alt="avatar" src="../../../assets/images/avatar/avatar-7.jpg" class="rounded-circle">
-                    </div>
-                  </div>
-                  <div class="col ms-n3">
-                    <h4 class="mb-0 h5">Sina Ray</h4>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">14</span>Courses</span>
-                    <span class="me-2 fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">8,000</span>Students</span>
-                    <span class="fs-6">
-                            <span class="text-dark  me-1 fw-semi-bold">33,000</span> Reviews
-                          </span>
-                  </div>
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown11"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown11">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
-
-              </li>
+                </li>
+              @endforeach
             </ul>
           </div>
         </div>
       </div>
 
+      <!-- Latest Posts in the application -->
       <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-4">
-        <!-- Card -->
         <div class="card h-100">
           <!-- Card header -->
           <div class="card-header d-flex align-items-center
                               justify-content-between card-header-height">
             <h4 class="mb-0">Latest Posts</h4>
-            <a href="{{route('p.articles')}}" class="btn btn-outline-secondary btn-sm">View all</a>
+            <a href="{{route('p.articles')}}" target="_blank" class="btn btn-outline-secondary btn-sm">View all</a>
           </div>
           <!-- Card body -->
           <div class="card-body">
             <!-- List group flush -->
             <ul class="list-group list-group-flush">
-              <li class="list-group-item px-0 pt-0">
-                <div class="row">
-                  <!-- Col -->
-                  <div class="col-auto">
-                    <a href="#">
-                      <img src="../../../assets/images/course/course-laravel.jpg" alt=""
-                           class="img-fluid rounded img-4by3-lg"></a>
-                  </div>
-                  <!-- Col -->
-                  <div class="col ps-0">
-                    <a href="#">
-                      <h5 class="text-primary-hover">
-                        Revolutionize how you build the web...
-                      </h5>
-                    </a>
-                    <div class="d-flex align-items-center">
-                      <img src="../../../assets/images/avatar/avatar-7.jpg" alt=""
-                           class="rounded-circle avatar-xs me-2">
-                      <span class="fs-6">Brooklyn Simmons</span>
-                    </div>
-                  </div>
-                  <!-- Col auto -->
-                  <div class="col-auto">
-                          <span class="dropdown dropstart">
-                            <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown3"
-                               data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown3">
-                              <span class="dropdown-header">Settings</span>
-                              <a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon "></i>Edit</a>
-                              <a class="dropdown-item" href="#"><i
-                                  class="fe fe-trash dropdown-item-icon "></i>Remove</a>
-                            </span>
-                          </span>
-                  </div>
-                </div>
-              </li>
               <!-- List group -->
-              @foreach($posts as $post)
-                {{$post}}
-                <li class="list-group-item px-0">
+              @foreach($posts_for_dashboard as $_)
+                <li class="list-group-item px-0 @if($loop->first) pt-0 @endif">
                   <div class="row">
                     <div class="col-auto">
                       <a href="#">
-                        <img src="../../../assets/images/course/course-wordpress.jpg" alt=""
-                             class="img-fluid rounded img-4by3-lg"></a>
+                        <img src="{{$_->thumbnail}}" height="70" width="90"
+                             class="img- rounded"></a>
                     </div>
                     <div class="col ps-0">
-                      <a href="#">
-                        <h5 class="text-primary-hover">
-                          Online WordPress Courses Become an Expert Today‎
-                        </h5>
+                      <a href="{{route('full-article', ["article"=> $_->slug, "id" => $_->id])}}" target="_blank"
+                         class="stretched-link">
+                        <h6 class="text-gray-700 text-primary-hover text-capitalize fs-5">
+                          {!! Str::words($_->title, 10, '...') !!}
+                        </h6>
                       </a>
                       <div class="d-flex align-items-center">
-                        <img src="../../../assets/images/avatar/avatar-5.jpg" alt=""
+                        <img src="{{$_->author->avatar}}" alt=""
                              class="rounded-circle avatar-xs me-2">
-                        <span class="fs-6">Robert Fox</span>
+                        <span class="fs-6">{{$_->author->fullName()}}</span>
                       </div>
                     </div>
                   </div>
@@ -380,6 +205,7 @@
         </div>
       </div>
 
+      <!-- My Activity -->
       <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-4">
         <!-- Card -->
         <div class="card h-100">
