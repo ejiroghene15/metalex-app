@@ -71,29 +71,29 @@
               <a class="nav-link" href="{{route('forum.all')}}">Overview</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('cms')}}">Topics</a>
+              <a class="nav-link" href="{{route('my-forum-topics')}}">My Topics</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none">
               <a class="nav-link" href="{{route('cms')}}">Moderators</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none">
               <a class="nav-link" href="{{route('cms')}}">Flagged Content</a>
             </li>
           </ul>
         </div>
       </li>
 
-      {{-- VIRTUAL OFFICE--}}
+      {{-- LOGOUT--}}
       <li class="nav-item">
         <a class="nav-link "
-           href="../../../pages/dashboard/calendar.html">
-          <i class="nav-icon mdi mdi-office-building-cog me-2"></i>
-          Virtual Office
+           href="{{route('auth.logout')}}">
+          <i class="nav-icon mdi mdi-logout me-2"></i>
+          Sign Out
         </a>
       </li>
 
       {{-- NOTIFICATION--}}
-      <li class="nav-item">
+      <li class="nav-item d-none">
         <a class="nav-link "
            href="../../../pages/dashboard/calendar.html">
           <i class="nav-icon fe fe-bell me-2"></i>
@@ -101,12 +101,12 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item d-none">
         <div class="nav-divider"></div>
       </li>
 
       <!-- Nav item -->
-      <li class="nav-item">
+      <li class="nav-item d-none">
         <div class="navbar-heading">Components</div>
       </li>
 

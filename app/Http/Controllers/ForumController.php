@@ -92,6 +92,12 @@ class ForumController extends Controller
     return ResponseController::_success("Topic $request->subject created");
   }
 
+  public function newTopicFromDashboard(Request $request)
+  {
+    $forum = Forum::find(base64_decode($request->forum_id));
+    if ($forum) $this->newTopic($forum);
+  }
+
   // * Return all topics that has been created under a particular forum
   public function topics($slug, $id)
   {

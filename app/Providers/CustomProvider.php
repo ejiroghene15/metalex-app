@@ -30,6 +30,7 @@ class CustomProvider extends ServiceProvider
   {
     View::composer(['*'], function ($view) {
       return $view->with([
+        'color_tag' => collect(['primary', 'secondary', 'success', 'danger', 'warning', 'info'])->random(),
         'current_route' => Route::currentRouteName(),
         'categories' => BlogCategory::all(),
         'paginate_per_page' => env('APP_PAGINATE_PER_PAGE') # Using this as the default value for the no of records to show on each display/page for paginated records
@@ -44,7 +45,7 @@ class CustomProvider extends ServiceProvider
 
     View::composer(['user.index'], function ($view) {
       return $view->with([
-        'latest_threads_for_dashboard' => ForumThread::inRandomOrder()->latest()->limit(5)->get(),
+        'latest_threads_for_dashboard' => ForumThread::inRandomOrder()->latest()->limit(6)->get(),
         'posts_for_dashboard' => Blog::withoutTrashed()->inRandomOrder()->latest()->limit(5)->get(),
       ]);
     });
@@ -59,7 +60,6 @@ class CustomProvider extends ServiceProvider
     View::composer(['publications.*'], function ($view) {
       return $view->with([
         'posts' => Blog::withoutTrashed(),
-        'color_tag' => collect(['primary', 'secondary', 'success', 'danger', 'warning', 'info'])->random(),
         'linkedin_share_link' => "https://www.linkedin.com/sharing/share-offsite/?url=" . request()->fullUrl(),
         'twitter_share_link' => "https://twitter.com/intent/tweet?text=" . request()->fullUrl(),
         "facebook_share_link" => "https://www.facebook.com/sharer/sharer.php?u=" . request()->fullUrl(),

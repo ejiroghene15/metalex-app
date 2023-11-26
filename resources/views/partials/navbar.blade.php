@@ -37,12 +37,12 @@
                   <i class="fe fe-user me-2"></i>Profile
                 </a>
               </li>
-              <li>
+              <li class="d-none">
                 <a class="dropdown-item" href="./pages/student-subscriptions.html">
                   <i class="fe fe-star me-2"></i>Subscription
                 </a>
               </li>
-              <li>
+              <li class="d-none">
                 <a class="dropdown-item" href="#">
                   <i class="fe fe-settings me-2"></i>Settings
                 </a>
@@ -51,7 +51,7 @@
             <div class="dropdown-divider"></div>
             <ul class="list-unstyled">
               <li>
-                <a class="dropdown-item" href="./index.html">
+                <a class="dropdown-item" href="{{ route('auth.logout') }}">
                   <i class="fe fe-power me-2"></i>Sign Out
                 </a>
               </li>
@@ -79,7 +79,7 @@
           </a>
         </li>
 
-        <li class="nav-item me-3">
+        <li class="nav-item me-3 d-none">
           <a
             @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'services']) href="{{route('services')}}">
             <i class="bi bi-briefcase me-1"></i> Services
@@ -117,7 +117,7 @@
 
       </ul>
 
-      <div class="ms-auto d-flex align-items-center mt-2 mt-md-0">
+      <div class="ms-auto d-flex align-items-center mt-2 mt-md-0 pt-2 py-lg-0">
         <a href="#" class="form-check form-switch theme-switch btn btn-light btn-icon rounded-circle">
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
           <label class="form-check-label" for="flexSwitchCheckDefault"></label>
@@ -129,6 +129,8 @@
         @endguest
 
         @auth
+          {{-- Sign Out Button--}}
+{{--          <a href="{{ route('auth.logout') }}" class="d-lg-none d-inline-block btn bg-danger-soft ms-3">Logout</a>--}}
           <ul class="navbar-nav navbar-right-wrap ms-2 d-none d-lg-block">
             <li class="dropdown ms-2">
               <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static"
@@ -161,12 +163,12 @@
                       <i class="fe fe-user me-2"></i>Profile
                     </a>
                   </li>
-                  <li>
+                  <li class="d-none">
                     <a class="dropdown-item" href="./pages/student-subscriptions.html">
                       <i class="fe fe-star me-2"></i>Subscription
                     </a>
                   </li>
-                  <li>
+                  <li class="d-none">
                     <a class="dropdown-item" href="#">
                       <i class="fe fe-settings me-2"></i>Settings
                     </a>

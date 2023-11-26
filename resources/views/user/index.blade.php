@@ -105,7 +105,7 @@
 
     <div class="row">
       <!-- Latest threads in the application -->
-      <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-4">
+      <div class=" col-lg-6 col-md-12 col-12 mb-4">
         <!-- Card -->
         <div class="card h-100">
           <!-- Card header -->
@@ -130,7 +130,8 @@
                       <h6 class="mb-0 text-gray-600">{{$_->user->fullName()}}
                         <small class="text-success" style="font-size: 9px">replied thread on</small>
                       </h6>
-                      <a href="{{ route('forum.thread', ["slug"=> $_->topic->slug, "topic_id" => $_->topic->id]) }}" target="_blank"
+                      <a href="{{ route('forum.thread', ["slug"=> $_->topic->slug, "topic_id" => $_->topic->id]) }}"
+                         target="_blank"
                          class="me-2 fs-6 text-gray-500 text-primary-hover stretched-link">
                         {{$_->topic->subject}}
                       </a>
@@ -163,7 +164,7 @@
       </div>
 
       <!-- Latest Posts in the application -->
-      <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-4">
+      <div class=" col-lg-6 col-md-12 col-12 mb-4">
         <div class="card h-100">
           <!-- Card header -->
           <div class="card-header d-flex align-items-center
@@ -196,6 +197,8 @@
                              class="rounded-circle avatar-xs me-2">
                         <span class="fs-6">{{$_->author->fullName()}}</span>
                       </div>
+
+                      <p class="fs-6 mt-2 mb-0 text-{{$color_tag}}">{{$_->created_at}}</p>
                     </div>
                   </div>
                 </li>
@@ -206,12 +209,12 @@
       </div>
 
       <!-- My Activity -->
-      <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-4">
+      <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-4 d-none">
         <!-- Card -->
         <div class="card h-100">
           <!-- Card header -->
           <div class="card-header card-header-height d-flex align-items-center">
-            <h4 class="mb-0">Activity
+            <h4 class="mb-0">Magazines
             </h4>
           </div>
           <!-- Card body -->

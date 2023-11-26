@@ -121,6 +121,8 @@ Route::middleware(['auth'])->group(function () {
       Route::get('forum/edit/{slug}.{forum}', 'editForum')->name('forum.edit');
       Route::put('forum/update/{forum}', 'updateForum')->name('forum.update');
       Route::delete('forum/delete', 'deleteForum')->name('forum.delete');
+
+      Route::view('my-forum-topics', 'user.forum.topics')->name('my-forum-topics');
     });
 
     // MENU: Office Setup for lawyers and firms

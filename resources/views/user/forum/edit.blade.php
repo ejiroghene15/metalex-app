@@ -109,7 +109,7 @@
 
               </li>
             @empty
-              <h5 class="mb-0 text-muted">No topic has been created in this category.</h5>
+              <h5 class="mb-0 text-muted p-3">No topic has been created in this forum.</h5>
             @endforelse
           </ul>
         </div>
