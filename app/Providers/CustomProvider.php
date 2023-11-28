@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Country;
 use App\Models\ForumThread;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -60,6 +61,7 @@ class CustomProvider extends ServiceProvider
     View::composer(['publications.*', 'about'], function ($view) {
       return $view->with([
         'posts' => Blog::withoutTrashed(),
+        'flags' => DB::table('flag_content_category')->get(['id', 'name', 'description']),
         'linkedin_share_link' => "https://www.linkedin.com/sharing/share-offsite/?url=" . request()->fullUrl(),
         'twitter_share_link' => "https://twitter.com/intent/tweet?text=" . request()->fullUrl(),
         "facebook_share_link" => "https://www.facebook.com/sharer/sharer.php?u=" . request()->fullUrl(),
