@@ -7,6 +7,7 @@ use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicationsController;
 use App\Http\Controllers\UserController;
+use App\Mail\RegisteredMail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,10 @@ Route::view('terms', 'terms')->name('terms');
 Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');
 Route::view('faq', 'faq')->name('faq');
 Route::view('not-found', 'errors.404')->name('not-found');
+
+Route::get('view-mail', function () {
+  return (new RegisteredMail())->render();
+});
 
 // MENU: Forum
 Route::controller(ForumController::class)->group(function () {

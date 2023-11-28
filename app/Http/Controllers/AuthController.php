@@ -47,6 +47,7 @@ class AuthController extends Controller
 
     // * Send an email verification message to the newly registered user
     event(new Registered($user));
+//    Mail::to($user->email)->send(new RegisteredMail($user));
 
     // * Log user activity
     $user->activity()->create(["activity" => "Registration successful"]);
