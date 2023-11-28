@@ -57,7 +57,7 @@ class CustomProvider extends ServiceProvider
       ]);
     });
 
-    View::composer(['publications.*'], function ($view) {
+    View::composer(['publications.*', 'about'], function ($view) {
       return $view->with([
         'posts' => Blog::withoutTrashed(),
         'linkedin_share_link' => "https://www.linkedin.com/sharing/share-offsite/?url=" . request()->fullUrl(),

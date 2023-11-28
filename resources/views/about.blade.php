@@ -85,7 +85,7 @@
           <div class="col-lg-4 col-md-6 col-6">
             <!-- counter -->
             <div class="border-top pt-4 mt-6 mb-5">
-              <h1 class="display-3 fw-bold mb-0">55</h1>
+              <h1 class="display-3 fw-bold mb-0">{{$posts->count()}}</h1>
               <p class="text-uppercase text-muted">Article Publications</p>
             </div>
           </div>
