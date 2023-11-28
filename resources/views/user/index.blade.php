@@ -105,42 +105,43 @@
 
     <div class="row">
       <!-- Latest threads in the application -->
-      <div class=" col-lg-6 col-md-12 col-12 mb-4">
-        <!-- Card -->
-        <div class="card h-100">
-          <!-- Card header -->
-          <div class="card-header d-flex align-items-center justify-content-between card-header-height">
-            <h4 class="mb-0">Latest Threads</h4>
-            <a href="#" class="btn btn-outline-secondary btn-sm">View all</a>
-          </div>
-          <!-- Card body -->
-          <div class="card-body">
-            <!-- List group -->
-            <ul class="list-group list-group-flush">
-              @foreach($latest_threads_for_dashboard as $_)
-                <li class="list-group-item px-0 @if($loop->first) pt-0 @endif">
-                  <div class="row">
-                    <div class="col-auto">
-                      <div class="avatar avatar-sm">
-                        <img alt="avatar" src="{{$_->user->avatar}}" class="rounded-circle">
+      @if($latest_threads_for_dashboard->count())
+        <div class=" col-lg-6 col-md-12 col-12 mb-4">
+          <!-- Card -->
+          <div class="card h-100">
+            <!-- Card header -->
+            <div class="card-header d-flex align-items-center justify-content-between card-header-height">
+              <h4 class="mb-0">Latest Threads</h4>
+              <a href="#" class="btn btn-outline-secondary btn-sm">View all</a>
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <!-- List group -->
+              <ul class="list-group list-group-flush">
+                @foreach($latest_threads_for_dashboard as $_)
+                  <li class="list-group-item px-0 @if($loop->first) pt-0 @endif">
+                    <div class="row">
+                      <div class="col-auto">
+                        <div class="avatar avatar-sm">
+                          <img alt="avatar" src="{{$_->user->avatar}}" class="rounded-circle">
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="col ms-n3">
-                      <h6 class="mb-0 text-gray-600">{{$_->user->fullName()}}
-                        <small class="text-success" style="font-size: 9px">replied thread on</small>
-                      </h6>
-                      <a href="{{ route('forum.thread', ["slug"=> $_->topic->slug, "topic_id" => $_->topic->id]) }}"
-                         target="_blank"
-                         class="me-2 fs-6 text-gray-500 text-primary-hover stretched-link">
-                        {{$_->topic->subject}}
-                      </a>
-                      <div class="mt-2">
-                        <small class="badge bg-info-soft" style="font-size: 10px">{{$_->topic->forum->name}}</small>
+                      <div class="col ms-n3">
+                        <h6 class="mb-0 text-gray-600">{{$_->user->fullName()}}
+                          <small class="text-success" style="font-size: 9px">replied thread on</small>
+                        </h6>
+                        <a href="{{ route('forum.thread', ["slug"=> $_->topic->slug, "topic_id" => $_->topic->id]) }}"
+                           target="_blank"
+                           class="me-2 fs-6 text-gray-500 text-primary-hover stretched-link">
+                          {{$_->topic->subject}}
+                        </a>
+                        <div class="mt-2">
+                          <small class="badge bg-info-soft" style="font-size: 10px">{{$_->topic->forum->name}}</small>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="col-auto">
+                      <div class="col-auto">
                           <span class="dropdown dropstart">
                             <a class="text-muted text-decoration-none" href="#" role="button" id="courseDropdown8"
                                data-bs-toggle="dropdown" data-bs-offset="-20,20" aria-expanded="false">
@@ -153,18 +154,18 @@
                                   class="fe fe-trash dropdown-item-icon "></i>Remove</a>
                             </span>
                           </span>
+                      </div>
                     </div>
-                  </div>
 
-                </li>
-              @endforeach
-            </ul>
+                  </li>
+                @endforeach
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-
+      @endif
       <!-- Latest Posts in the application -->
-      <div class=" col-lg-6 col-md-12 col-12 mb-4">
+      <div class=" @if($latest_threads_for_dashboard->count()) col-lg-6 @endif col-md-12 col-12 mb-4">
         <div class="card h-100">
           <!-- Card header -->
           <div class="card-header d-flex align-items-center
