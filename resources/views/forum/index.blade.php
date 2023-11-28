@@ -86,7 +86,9 @@
                       </div>
                     </li>
                   @empty
-                    <h5 class="mb-0 text-muted">No forum has been created under this category.</h5>
+                    <h4 class="text-muted">Create your first forum under this category</h4>
+
+                    <h5 class="text-muted">{{$_->description}}</h5>
                   @endforelse
                 </ul>
               </div>
