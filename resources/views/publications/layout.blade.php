@@ -39,7 +39,7 @@
                   Articles
                 </a>
               </li>
-              <li class="nav-item" role="presentation">
+              <li class="nav-item d-none" role="presentation">
                 <a
                   href="{{route('p.magazine')}}" @class(['nav-link', 'active'=> Route::currentRouteName() === 'p.magazine'])>
                   Magazines
@@ -51,7 +51,7 @@
                   Categories
                 </a>
               </li>
-              <li class="nav-item" role="presentation">
+              <li class="nav-item d-none" role="presentation">
                 <a
                   href="{{route('p.authors')}}" @class(['nav-link', 'active'=> Route::currentRouteName() === 'p.authors'])>
                   Authors
