@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h6 class="fs-5 lh-3 text-muted mb-3">
+        <h6 class="fs-5 lh-3 mb-4">
           Welcome to the Metalex Legal Forum! To ensure an insightful and productive experience for all Metalex users,
           please adhere to the following rules and guidelines:
         </h6>
@@ -144,6 +144,30 @@
             </p>
           </div>
 
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="radio" name="rule">
+            <label class="form-check-label" for="moderator-authority">
+              Legal Considerations
+            </label>
+            <p>
+              <small>
+                Understand and respect all legal obligations, including copyright laws and intellectual property rights.
+              </small>
+            </p>
+          </div>
+
+        </article>
+
+        <article class="mt-4">
+          <p class="fw-semi-bold lh-3 fs-6 text-danger">
+            Failure to comply with these rules may result in warnings, post removal, temporary suspension, or permanent
+            banning from the Metalex Legal Forum.
+          </p>
+          <p class="fw-semi-bold lh-3 fs-6 text-danger">
+            Please engage in discussions responsibly and contribute positively to our community.
+            Thank you for being a part of Metalex Legal Forum. We look forward to your valuable contributions and
+            respectful insights.
+          </p>
         </article>
 
       </div>
