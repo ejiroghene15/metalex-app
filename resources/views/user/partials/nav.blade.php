@@ -45,12 +45,12 @@
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="./pages/student-subscriptions.html">
+                <a class="dropdown-item d-none" href="./pages/student-subscriptions.html">
                   <i class="fe fe-star me-2"></i>Subscription
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item d-none" href="#">
                   <i class="fe fe-settings me-2"></i>Settings
                 </a>
               </li>
