@@ -33,13 +33,14 @@
             </li>
 
           </ul>
-          <!-- Buttons -->
-          <div class="mb-8 mb-lg-0">
-            <a href="#" class="btn btn-primary me-3 mb-2 mb-lg-0">
-              Get started for Free
-            </a>
-
-          </div>
+          @guest
+            <!-- Buttons -->
+            <div class="mb-8 mb-lg-0">
+              <a href="{{route('register')}}" class="btn btn-primary me-3 mb-2 mb-lg-0">
+                Get started for Free
+              </a>
+            </div>
+          @endguest
         </div>
       </div>
       <!-- Hero Section -->
