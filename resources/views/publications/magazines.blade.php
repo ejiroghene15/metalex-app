@@ -7,7 +7,7 @@
     [
         'image' => 'assets/images/magazine/cover.jpg',
         'label' => 'Vo1 1, Issue 1',
-        'title' => 'The New Age Practice of Law',
+        'title' => 'TechTainment: Exploring the Intersection between Entertainment, Tech, and Intellectual Property',
         'file' =>  "https://res.cloudinary.com/jiroghene/image/upload/v1687428050/metalex/magazine/Metalex_Legal_Magazine_Issue_1_aapcvn.pdf"
     ]
   ];
