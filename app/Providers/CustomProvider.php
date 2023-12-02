@@ -58,7 +58,7 @@ class CustomProvider extends ServiceProvider
       ]);
     });
 
-    View::composer(['publications.*', 'about'], function ($view) {
+    View::composer(['publications.*', 'about', 'forum.*'], function ($view) {
       return $view->with([
         'posts' => Blog::withoutTrashed(),
         'flags' => DB::table('flag_content_category')->get(['id', 'name', 'description']),
