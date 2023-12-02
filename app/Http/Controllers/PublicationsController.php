@@ -59,7 +59,7 @@ class PublicationsController extends Controller
   public function removeBookmark(Request $request)
   {
     $blog = ForumTopics::find(base64_decode($request->id));
-    $request->user()->bookmarks()->where([['content_id',  $blog->id], ['type', 'blog']])->delete();
+    $request->user()->bookmarks()->where([['content_id', $blog->id], ['type', 'blog']])->delete();
 
     // * Log user activity
 //    HelpersController::logActivity("Bookmarked removed - <a href='/forum/d/$topic->slug.$topic->id'>$topic->subject </a>");
@@ -67,4 +67,21 @@ class PublicationsController extends Controller
     return ResponseController::success("article has been removed from your bookmarks");
   }
 
+  public function downloadMagazine()
+  {
+    $file = request()->url;
+    $fileContents = file_get_contents($file);
+
+    if ($fileContents !== false) {
+
+      $filename = basename($file);
+
+      return response($fileContents)
+        ->header('Content-Type', 'application/pdf') // Adjust the content type based on the file type
+        ->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
+    } else {
+      // Error response if file retrieval fails
+      return response()->json(['error' => 'Unable to retrieve file from the external resource'], 500);
+    }
+  }
 }

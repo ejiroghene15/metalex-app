@@ -52,7 +52,7 @@
                   Categories
                 </a>
               </li>
-              <li class="nav-item" role="presentation">
+              <li class="nav-item d-none" role="presentation">
                 <a
                   href="{{route('p.authors')}}" @class(['nav-link', 'active'=> Route::currentRouteName() === 'p.authors'])>
                   Authors

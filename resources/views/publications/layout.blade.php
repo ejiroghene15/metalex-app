@@ -39,7 +39,7 @@
                   Articles
                 </a>
               </li>
-              <li class="nav-item d-none" role="presentation">
+              <li class="nav-item" role="presentation">
                 <a
                   href="{{route('p.magazine')}}" @class(['nav-link', 'active'=> Route::currentRouteName() === 'p.magazine'])>
                   Magazines

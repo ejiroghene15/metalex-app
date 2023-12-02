@@ -62,8 +62,11 @@ Route::prefix('publication')->group(function () {
     Route::get('article/{article}.{id}', 'singleArticle')->name('full-article');
     Route::get('category/{category}.{id}', 'singleCategory')->name('single-category');
 
+    Route::post('/download/', 'downloadMagazine')->name('download-magazine');
+
     Route::post('article/add-bookmark', 'addBookmark');
     Route::post('article/remove-bookmark', 'removeBookmark');
+
   });
 });
 
