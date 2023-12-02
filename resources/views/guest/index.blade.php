@@ -311,7 +311,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row d-none">
         <!-- button  -->
         <div class="col-12 text-center mt-8">
           <a href="#" class="btn btn-primary">Send a Message</a>
