@@ -30,7 +30,7 @@
           <!-- Card footer -->
           <footer class="card-footer">
             <h5 class="text-primary">{{$_['label']}}</h5>
-            <h4>{{$_['title']}}</h4>
+            <h5 class="lh-3 fs-6">{{$_['title']}}</h5>
             <form method="post" action="{{route('download-magazine')}}">
               @csrf
               <input type="hidden" name="url" value="{{$_['file']}}">
