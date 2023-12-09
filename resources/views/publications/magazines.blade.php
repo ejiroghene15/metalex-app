@@ -2,17 +2,6 @@
 
 @section('title', 'Publication - Magazines')
 
-@php
-  $magazines = [
-    [
-        'image' => 'assets/images/magazine/cover.jpg',
-        'label' => 'Vo1 1, Issue 1',
-        'title' => 'TechTainment: Exploring the Intersection between Entertainment, Tech, and Intellectual Property',
-        'file' =>  "https://res.cloudinary.com/jiroghene/image/upload/v1687428050/metalex/magazine/Metalex_Legal_Magazine_Issue_1_aapcvn.pdf"
-    ]
-  ];
-@endphp
-
 @section('publication_content')
   <header class="mb-5">
     <h4 class="text-gray-600">Magazines</h4>
@@ -24,7 +13,8 @@
         <!-- Card -->
         <div class="card  mb-4 card-hover">
           <a href="#" class="bg-gradient-mix-shade card-img-top">
-            <img src="{{asset($_['image'])}}" alt="" class="card-img-top rounded-top-md">
+            <img src="{{asset('storage/magazine_thumbnails/'. $_['image'])}}" alt=""
+                 class="card-img-top rounded-top-md">
           </a>
 
           <!-- Card footer -->
@@ -33,7 +23,7 @@
             <h5 class="lh-3 fs-6">{{$_['title']}}</h5>
             <form method="post" action="{{route('download-magazine')}}">
               @csrf
-              <input type="hidden" name="url" value="{{$_['file']}}">
+              <input type="hidden" name="url" value="{{$_['url']}}">
               <button class="btn btn-sm bg-success-soft">
                 <i class="bi bi-download me-1"></i> Download Magazine
               </button>

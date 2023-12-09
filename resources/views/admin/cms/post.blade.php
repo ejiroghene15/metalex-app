@@ -4,7 +4,7 @@
 
 @section('body')
   <section class="container-fluid p-4">
-    <div class="row">
+    <header class="row">
       <!-- Page Header -->
       <div class="col-lg-12 col-md-12 col-12">
         <div class="border-bottom pb-4 mb-4 d-md-flex align-items-center justify-content-between">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </header>
 
     <div class="row">
       <div class="col-lg-12 col-md-12 col-12">
@@ -176,31 +176,29 @@
             </div>
           </div>
 
-          <!-- Card Footer -->
-          <div class="card-footer">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination justify-content-center mb-0">
-                <li class="page-item disabled">
-                  <a class="page-link mx-1 rounded" href="#" tabindex="-1" aria-disabled="true"><i
-                      class="mdi mdi-chevron-left"></i></a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link mx-1 rounded" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link mx-1 rounded" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link mx-1 rounded" href="#">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link mx-1 rounded" href="#"><i class="mdi mdi-chevron-right"></i></a>
-                </li>
-              </ul>
-            </nav>
-          </div>
         </div>
       </div>
     </div>
   </section>
+@endsection
+
+
+{{--Scripts section--}}
+@section('scripts')
+  @parent
+  {{--  DATATABLES--}}
+  <script src="{{asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js')}}"></script>
+  <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+  <script src="{{asset('assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js')}}"></script>
+
+  <script>
+
+    $('.dt').DataTable({
+      "order": [
+        [0, "desc"]
+      ],
+    });
+
+  </script>
 @endsection

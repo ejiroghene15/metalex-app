@@ -40,7 +40,7 @@
         <!-- Card -->
         <div class="card mb-4 ">
           <div class="table-responsive border-0 overflow-y-hidden">
-            <table class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox">
+            <table class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox dt">
               <thead>
               <tr>
                 <th hidden>
@@ -115,4 +115,24 @@
       </div>
     </div>
   </div>
+@endsection
+
+{{--Scripts section--}}
+@section('scripts')
+  @parent
+  {{--  DATATABLES--}}
+  <script src="{{asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js')}}"></script>
+  <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+  <script src="{{asset('assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js')}}"></script>
+
+  <script>
+
+    $('.dt').DataTable({
+      "order": [
+        [0, "desc"]
+      ],
+    });
+
+  </script>
 @endsection

@@ -44,7 +44,7 @@ class CustomProvider extends ServiceProvider
       ]);
     });
 
-    View::composer(['user.index'], function ($view) {
+    View::composer(['user.index', 'admin.index'], function ($view) {
       return $view->with([
         'latest_threads_for_dashboard' => ForumThread::inRandomOrder()->latest()->limit(6)->get(),
         'posts_for_dashboard' => Blog::withoutTrashed()->inRandomOrder()->latest()->limit(5)->get(),

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\ForumTopics;
+use App\Models\Magazine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PublicationsController extends Controller
 {
@@ -31,7 +33,7 @@ class PublicationsController extends Controller
 
   public function magazines()
   {
-    return view('publications.magazines');
+    return view('publications.magazines', ['magazines' => Magazine::all()]);
   }
 
   public function authors()
@@ -70,18 +72,9 @@ class PublicationsController extends Controller
   public function downloadMagazine()
   {
     $file = request()->url;
-    $fileContents = file_get_contents($file);
 
-    if ($fileContents !== false) {
+    $path = Storage::path("magazine/$file");
 
-      $filename = basename($file);
-
-      return response($fileContents)
-        ->header('Content-Type', 'application/pdf') // Adjust the content type based on the file type
-        ->header('Content-Disposition', 'attachment; filename="' . $filename . '"');
-    } else {
-      // Error response if file retrieval fails
-      return response()->json(['error' => 'Unable to retrieve file from the external resource'], 500);
-    }
+    return response()->download($path);
   }
 }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('admin.partials.head')
+@include('user.partials.head')
 
 <body>
 <main id="db-wrapper">
   @include('admin.partials.sidebar')
   <section id="page-content">
-    @include('admin.partials.nav')
+    @include('user.partials.nav')
 
     {{-- alert display section --}}
     <div id="alert">
@@ -19,7 +19,7 @@
   </section>
 </main>
 
-@include('admin.partials.scripts')
+@include('user.partials.scripts')
 </body>
 
 </html>

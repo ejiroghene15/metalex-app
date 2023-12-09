@@ -15,33 +15,18 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link  " href="{{route('admin')}}">
-          <i class="nav-icon fe fe-user me-2"></i> My Profile
+        <a class="nav-link" href="{{ route('user.dashboard', Str::slug($user->fullName())) }}">
+          <i class="nav-icon fe fe-user me-2"></i> User Dashboard
         </a>
       </li>
 
-      {{-- USERS--}}
-      <li class="nav-item d-none">
-        <a class="nav-link   collapsed " href="#"
-           data-bs-toggle="collapse" data-bs-target="#navProfile" aria-expanded="false"
-           aria-controls="navProfile">
-          <i class="nav-icon fe fe-user me-2"></i> User
+      {{-- ACTIVITIES--}}
+      <li class="nav-item">
+        <a class="nav-link "
+           href="{{route('view-activities')}}">
+          <i class="nav-icon fe fe-activity me-2"></i>
+          Activities
         </a>
-        <div id="navProfile" class="collapse "
-             data-bs-parent="#sideNavbar">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link "
-                 href="../../../pages/dashboard/admin-instructor.html">
-                Instructor
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link "
-                 href="../../../pages/dashboard/admin-students.html">Students</a>
-            </li>
-          </ul>
-        </div>
       </li>
 
       {{-- CMS --}}
@@ -84,8 +69,34 @@
         </div>
       </li>
 
-      {{-- FORUM --}}
+      {{-- MAGAZINE --}}
       <li class="nav-item ">
+        <a class="nav-link collapsed" href="#"
+           data-bs-toggle="collapse" data-bs-target="#navMag" aria-expanded="false" aria-controls="navCMS">
+          <i class="nav-icon fe fe-book-open me-2"></i> Magazine
+        </a>
+        <div id="navMag" class="collapse  "
+             data-bs-parent="#sideNavbar">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link   "
+                 href="{{route('magazine.list')}}">
+                All Magazines
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link  "
+                 href="{{route('magazine.create')}}">
+                Upload Magazine
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      {{-- FORUM --}}
+      <li class="nav-item d-none">
         <a class="nav-link collapsed" href="#"
            data-bs-toggle="collapse" data-bs-target="#navForum" aria-expanded="false" aria-controls="navCMS">
           <i class="nav-icon mdi mdi-forum me-2"></i> Forum
@@ -110,7 +121,7 @@
       </li>
 
       {{-- USERS --}}
-      <li class="nav-item ">
+      <li class="nav-item d-none">
         <a class="nav-link collapsed" href="#"
            data-bs-toggle="collapse" data-bs-target="#navUsers" aria-expanded="false" aria-controls="navCMS">
           <i class="nav-icon fe fe-users me-2"></i> Users
@@ -134,52 +145,14 @@
         </div>
       </li>
 
-      {{-- ACTIVITIES--}}
+      {{-- LOGOUT--}}
       <li class="nav-item">
         <a class="nav-link "
-           href="../../../pages/dashboard/calendar.html">
-          <i class="nav-icon fe fe-activity me-2"></i>
-          Activities
+           href="{{route('auth.logout')}}">
+          <i class="nav-icon mdi mdi-logout me-2"></i>
+          Sign Out
         </a>
       </li>
-
-      {{-- VIRTUAL OFFICE--}}
-      <li class="nav-item">
-        <a class="nav-link "
-           href="../../../pages/dashboard/calendar.html">
-          <i class="nav-icon mdi mdi-office-building-cog me-2"></i>
-          Virtual Office
-        </a>
-      </li>
-
-      {{-- NOTIFICATION--}}
-      <li class="nav-item">
-        <a class="nav-link "
-           href="../../../pages/dashboard/calendar.html">
-          <i class="nav-icon fe fe-bell me-2"></i>
-          Notifications
-        </a>
-      </li>
-
-      {{-- EMAIL & CAMPAIGNS--}}
-      <li class="nav-item">
-        <a class="nav-link "
-           href="../../../pages/dashboard/calendar.html">
-          <i class="nav-icon fe fe-mail me-2"></i>
-          Emails & Campaigns
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <div class="nav-divider"></div>
-      </li>
-
-      <!-- Nav item -->
-      <li class="nav-item">
-        <div class="navbar-heading">Components</div>
-      </li>
-
-
     </ul>
 
   </div>
