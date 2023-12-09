@@ -14,7 +14,7 @@
         <div class="card  mb-4 card-hover">
           <a href="#" class="bg-gradient-mix-shade card-img-top">
             <img src="{{asset('storage/magazine_thumbnails/'. $_['image'])}}" alt=""
-                 class="card-img-top rounded-top-md">
+                 class="card-img-top rounded-md" style="height: 400px; object-fit: cover; transform: scale(.98)">
           </a>
 
           <!-- Card footer -->
