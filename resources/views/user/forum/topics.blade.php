@@ -22,7 +22,7 @@
             </nav>
           </div>
 
-          <a href="#" class="btn btn-primary" data-bs-toggle="modal"
+          <a href="#" class="btn btn-primary d-none" data-bs-toggle="modal"
              data-bs-target="#start-discussion">New Topic...</a>
         </div>
       </div>
