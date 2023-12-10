@@ -121,28 +121,12 @@
       </li>
 
       {{-- USERS --}}
-      <li class="nav-item d-none">
-        <a class="nav-link collapsed" href="#"
-           data-bs-toggle="collapse" data-bs-target="#navUsers" aria-expanded="false" aria-controls="navCMS">
-          <i class="nav-icon fe fe-users me-2"></i> Users
+      <li class="nav-item">
+        <a class="nav-link "
+           href="{{route('view-users')}}">
+          <i class="nav-icon fe fe-users me-2"></i>
+          Users
         </a>
-        <div id="navUsers" class="collapse  "
-             data-bs-parent="#sideNavbar">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link " href="#">Overview</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="#">Client</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="#">Lawyer</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="#">Firms</a>
-            </li>
-          </ul>
-        </div>
       </li>
 
       {{-- LOGOUT--}}

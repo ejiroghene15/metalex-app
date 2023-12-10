@@ -164,6 +164,7 @@ Route::middleware(['auth'])->group(function () {
       Route::get('', [AdminController::class, 'index'])->name('admin');
       Route::get('activities', [AdminController::class, 'activities'])->name('view-activities');
       Route::get('magazine', [AdminController::class, 'showMagazines'])->name('magazine.list');
+      Route::get('users', [AdminController::class, 'allUsers'])->name('view-users');
 
       // * UPLOAD A MAGAZINE
       Route::post('upload-magazine', [FileUploadController::class, 'magazine'])->name('upload-magazine');

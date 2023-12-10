@@ -106,7 +106,7 @@
                             <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#" role="button"
                                id="courseDropdown1" data-bs-toggle="dropdown" data-bs-offset="-20,20"
                                aria-expanded="false">
-                              <i class="fe fe-more-vertical"></i>
+                              <i class="fe fe-settings"></i>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="courseDropdown1">
                               <span class="dropdown-header">Action</span>

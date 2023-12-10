@@ -29,7 +29,7 @@
             </nav>
           </div>
           <div>
-            <a href="{{route('magazine.list')}}" class="btn btn-outline-secondary">Back to All Post</a>
+            <a href="{{route('magazine.list')}}" class="btn btn-outline-secondary">View Magazines</a>
           </div>
         </div>
       </div>

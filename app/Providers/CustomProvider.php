@@ -31,6 +31,7 @@ class CustomProvider extends ServiceProvider
   {
     View::composer(['*'], function ($view) {
       return $view->with([
+        'country' => Country::all(),
         'color_tag' => collect(['primary', 'secondary', 'success', 'danger', 'warning', 'info'])->random(),
         'current_route' => Route::currentRouteName(),
         'categories' => BlogCategory::all(),
@@ -38,11 +39,6 @@ class CustomProvider extends ServiceProvider
       ]);
     });
 
-    View::composer(['auth.register', 'user.*'], function ($view) {
-      return $view->with([
-        'country' => Country::all(),
-      ]);
-    });
 
     View::composer(['user.index', 'admin.index'], function ($view) {
       return $view->with([

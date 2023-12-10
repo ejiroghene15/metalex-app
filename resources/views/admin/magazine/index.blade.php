@@ -21,6 +21,9 @@
             </nav>
           </div>
 
+          <div>
+            <a href="{{route('magazine.create')}}" class="btn btn-primary">Upload Magazine</a>
+          </div>
         </div>
       </div>
     </header>

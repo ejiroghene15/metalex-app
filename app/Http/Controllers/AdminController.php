@@ -8,6 +8,7 @@ use App\Models\Bookmark;
 use App\Models\Forum;
 use App\Models\ForumTopics;
 use App\Models\Magazine;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -29,5 +30,9 @@ class AdminController extends Controller
   public function showMagazines()
   {
     return view('admin.magazine.index', ['magazines' => Magazine::all()]);
+  }
+
+  public function allUsers(){
+    return view('admin.users.index', ['users' => User::all()]);
   }
 }
