@@ -195,7 +195,7 @@
                       @endauth
                     </article>
                   @empty
-                    <h4 class="text-muted mt-n3 py-2">Reply this thread</h4>
+                    @auth <h4 class="text-muted mt-n3 py-2">Reply this thread</h4> @endauth
                   @endforelse
                 </div>
 
