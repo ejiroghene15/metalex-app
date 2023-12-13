@@ -58,7 +58,7 @@
             <section id="thread_section">
               <div class="card rounded-3">
 
-                <header class="position-sticky top-0 bg-white z-5 border-bottom mb-4"
+                <header class="position-stick top0 bg-white z-5 border-bottom mb-4"
                         style="border-radius: 15px 15px 0 0">
                   <!-- Card header -->
                   <div class="card-header d-flex justify-content-between">
