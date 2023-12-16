@@ -132,7 +132,7 @@
                               </div>
                               @foreach($_->replies as $__)
                                 <div
-                                  class="d-flex py-3 @if(!$loop->last) border-bottom @else @guest border-bottom @endguest @endif">
+                                  class="d-flex py-3 @if(!$loop->last) border-bottom @endif">
                                   <img src="{{$__->user->avatar}}" alt=""
                                        class="rounded-circle avatar-sm ms-n3 align-self-center mt-n3">
                                   <div class="ms-4 flex-grow-1">
@@ -195,7 +195,9 @@
                       @endauth
                     </article>
                   @empty
-                    @auth <h4 class="text-muted mt-n3 py-2">Reply this thread</h4> @endauth
+                    @auth
+                      <h4 class="text-muted mt-n3 py-2">Reply this thread</h4>
+                    @endauth
                   @endforelse
                 </div>
 
@@ -207,6 +209,7 @@
 
           </div>
 
+          {{-- The Authors details--}}
           <aside class="col-lg-4 col-md-12 col-12 mt-lg-n22">
             <!-- Card -->
             <div class="card position-sticky" style="top: 20px">
