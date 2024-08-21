@@ -108,17 +108,18 @@
       @if($latest_threads_for_dashboard->count())
         <div class=" col-lg-6 col-md-12 col-12 mb-4">
           <!-- Card -->
-          <div class="card h-100">
+          <div class="card">
             <!-- Card header -->
             <div class="card-header d-flex align-items-center justify-content-between card-header-height">
               <h4 class="mb-0">Latest Threads</h4>
               <a href="#" class="btn btn-outline-secondary btn-sm">View all</a>
             </div>
             <!-- Card body -->
-            <div class="card-body">
+            <div class="card-body py-0">
               <!-- List group -->
               <ul class="list-group list-group-flush">
                 @foreach($latest_threads_for_dashboard as $_)
+                  @continue(!$_->topic->forum)
                   <li class="list-group-item px-0 @if($loop->first) pt-0 @endif">
                     <div class="row">
                       <div class="col-auto">
@@ -137,7 +138,8 @@
                           {{$_->topic->subject}}
                         </a>
                         <div class="mt-2">
-                          <small class="badge bg-info-soft" style="font-size: 10px">{{$_->topic->forum->name}}</small>
+                          <small class="badge bg-info-soft"
+                                 style="font-size: 10px">{{$_->topic->forum->name ?? ''}}</small>
                         </div>
                       </div>
 
@@ -166,7 +168,7 @@
       @endif
       <!-- Latest Posts in the application -->
       <div class=" @if($latest_threads_for_dashboard->count()) col-lg-6 @endif col-md-12 col-12 mb-4">
-        <div class="card h-100">
+        <div class="card">
           <!-- Card header -->
           <div class="card-header d-flex align-items-center
                               justify-content-between card-header-height">
@@ -174,7 +176,7 @@
             <a href="{{route('p.articles')}}" target="_blank" class="btn btn-outline-secondary btn-sm">View all</a>
           </div>
           <!-- Card body -->
-          <div class="card-body">
+          <div class="card-body pb-0">
             <!-- List group flush -->
             <ul class="list-group list-group-flush">
               <!-- List group -->
@@ -212,7 +214,7 @@
       <!-- My Activity -->
       <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-4 d-none">
         <!-- Card -->
-        <div class="card h-100">
+        <div class="card">
           <!-- Card header -->
           <div class="card-header card-header-height d-flex align-items-center">
             <h4 class="mb-0">Magazines

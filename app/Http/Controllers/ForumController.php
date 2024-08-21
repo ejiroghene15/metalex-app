@@ -30,8 +30,6 @@ class ForumController extends Controller
       'description' => 'max:100'
     ]);
 
-    $forum['slug'] = HelpersController::slugify($request->name);
-
     $request->user()->forums()->create($forum);
 
     // * Log user activity
@@ -82,7 +80,6 @@ class ForumController extends Controller
     ]);
 
     $request['user_id'] = Auth::id();
-    $request['slug'] = HelpersController::slugify($request->subject);
 
     $forum->topics()->create($request->all());
 

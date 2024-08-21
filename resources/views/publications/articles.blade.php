@@ -4,7 +4,7 @@
 
 @section('publication_content')
   @php
-    $post = $posts->paginate($paginate_per_page)->fragment('article');
+    $post = $posts->latest()->paginate($paginate_per_page)->fragment('article');
   @endphp
 
   {{--  <header class="mb-5">--}}
@@ -29,7 +29,7 @@
               <a href="{{route('full-article', ["article"=> $_->slug, "id" => $_->id])}}" class="text-inherit">
                 {{$_->title}}
               </a>
-            </h4>
+            </h4>`
             <p>{!! Str::limit($_->body, 200) !!}</p>
             <!-- Media content -->
             <div class="row align-items-center g-0 mt-4 mt-auto">

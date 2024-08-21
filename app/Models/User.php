@@ -4,18 +4,20 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-  use HasApiTokens, HasFactory, Notifiable, CanResetPassword;
+  use HasApiTokens, HasFactory, Notifiable, CanResetPassword, Sluggable;
 
   /**
    * The attributes that are mass assignable.
@@ -58,6 +60,16 @@ class User extends Authenticatable implements MustVerifyEmail
     'email_verified_at' => 'datetime',
   ];
 
+  public function sluggable(): array
+  {
+    return [
+      'username' => [
+        'source' => ['first_name', 'last_name'],
+        'separator' => '-'
+      ]
+    ];
+  }
+
   public function createdAt(): Attribute
   {
     return Attribute::make(
@@ -68,28 +80,28 @@ class User extends Authenticatable implements MustVerifyEmail
   // * A users full name
   public function fullName()
   {
-    return $this->user_type === 'firm' ? $this->firm_name : $this->first_name . ' ' . $this->last_name;
+    return $this->user_type === 'firm' ? $this->firm_name : $this->username;
   }
 
   // * Firm associated with the user if they signed up to offer services as a firm
-  public function firm()
+  public function firm(): HasOne
   {
     return $this->hasOne(FirmProfile::class)->withDefault();
   }
 
   // * Get the users profile details if they are a lawyer
-  public function lawyer()
+  public function lawyer(): HasOne
   {
     return $this->hasOne(LawyerProfile::class)->withDefault();
   }
 
   // * Get all activities associated with the user
-  public function activity()
+  public function activity(): HasMany
   {
     return $this->hasMany(Activity::class)->orderByDesc('id');
   }
 
-  public function certificates()
+  public function certificates(): HasMany
   {
     return $this->hasMany(Certification::class);
   }

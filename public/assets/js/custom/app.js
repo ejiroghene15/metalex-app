@@ -1,79 +1,83 @@
 // * Set input to replace entries as tags under area of specialization
-let tags = document.querySelectorAll(".tags");
+$(function () {
+  let tags = document.querySelectorAll(".tags");
 
-tags.forEach((input) => new Tagify(input));
+  tags.forEach((input) => new Tagify(input));
 
-$("select[name='country'").on("change", function () {
-  let _this = $(this);
-  let states = null;
-  let country = _this.val();
-  toastr.remove();
+  // $('._countries').select2();
 
-  // * exit the process if no country was selected
-  if (!country) return;
+  $("select[name='country'").on("change", function () {
+    let _this = $(this);
+    let states = null;
+    let country = _this.val();
+    toastr.remove();
 
-  let states_loading = _this.parents("form").find(".state-loader");
+    // * exit the process if no country was selected
+    if (!country) return;
 
-  // * show an icon indicating a loading status of the states to be gotten from the API request
-  states_loading.show();
+    let states_loading = _this.parents("form").find(".state-loader");
 
-  // * States And Cities data
-  let settings = {
-    url: `https://api.countrystatecity.in/v1/countries/${country}/states`,
-    method: "GET",
-    headers: {
-      "X-CSCAPI-KEY": CSC_TOKEN,
-    },
-  };
+    // * show an icon indicating a loading status of the states to be gotten from the API request
+    states_loading.show();
 
-  $.ajax(settings).then(function (response) {
-    states_loading.hide();
+    // * States And Cities data
+    let settings = {
+      url: `https://api.countrystatecity.in/v1/countries/${country}/states`,
+      method: "GET",
+      headers: {
+        "X-CSCAPI-KEY": CSC_TOKEN,
+      },
+    };
 
-    if (!response.length)
-      return toastr.error("No state was found for your selected country", "");
+    $.ajax(settings).then(function (response) {
+      states_loading.hide();
 
-    response.sort((a, b) => {
-      let fa = a.name.toLowerCase(),
-        fb = b.name.toLowerCase();
+      if (!response.length)
+        return toastr.error("No state was found for your selected country", "");
 
-      if (fa < fb) {
-        return -1;
-      }
-      if (fa > fb) {
-        return 1;
-      }
-      return 0;
+      response.sort((a, b) => {
+        let fa = a.name.toLowerCase(),
+          fb = b.name.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+
+      response.forEach(
+        ({name, iso2}) => (states += `<option value='${name}'>${name}</option>`)
+      );
+
+      _this.parents("form").find("select[name='state']").html(states);
     });
-
-    response.forEach(
-      ({ name, iso2 }) => (states += `<option value='${name}'>${name}</option>`)
-    );
-
-    _this.parents("form").find("select[name='state']").html(states);
   });
-});
 
-$("#change_avatar").click(() => $("#avatar").click());
+  $("#change_avatar").click(() => $("#avatar").click());
 
-$("#avatar").change(function () {
-  const file = this.files[0];
-  if (file) {
-    let reader = new FileReader();
-    reader.onload = ({ target }) =>
-      $("#img-uploaded").attr("src", target.result);
-    reader.readAsDataURL(file);
-    $("#upload-avatar").show();
+  $("#avatar").change(function () {
+    const file = this.files[0];
+    if (file) {
+      let reader = new FileReader();
+      reader.onload = ({target}) =>
+        $("#img-uploaded").attr("src", target.result);
+      reader.readAsDataURL(file);
+      $("#upload-avatar").show();
+    }
+  });
+
+  if ($("#editor").length) {
+    ClassicEditor.create(document.querySelector("#editor"), {
+      toolbar: {
+        items: ["heading", "|", "bold", "link"],
+      },
+      language: "en",
+      licenseKey: "",
+    }).then((editor) => {
+      window.editor = editor;
+    });
   }
-});
-
-if ($("#editor").length) {
-  ClassicEditor.create(document.querySelector("#editor"), {
-    toolbar: {
-      items: ["heading", "|", "bold", "link"],
-    },
-    language: "en",
-    licenseKey: "",
-  }).then((editor) => {
-    window.editor = editor;
-  });
-}
+})

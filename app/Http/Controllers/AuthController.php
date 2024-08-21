@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRegistration;
+use App\Mail\RegisteredMail;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Registered;
@@ -39,11 +40,12 @@ class AuthController extends Controller
       'password' => Hash::make(request('password')),
     ])->all();
 
+
     // * New user record
     $user = User::create($validated);
 
     // * Create a profile for the user based on the user type
-    if ($user->user_type !== 'client') $user->{$validated['user_type']}()->create($validated);
+    if (in_array($user->user_type, ['lawyer', 'firm'])) $user->{$validated['user_type']}()->create($validated);
 
     // * Send an email verification message to the newly registered user
     event(new Registered($user));

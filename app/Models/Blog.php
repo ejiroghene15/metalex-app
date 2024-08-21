@@ -21,6 +21,20 @@ class Blog extends Model
     );
   }
 
+  public function slug(): Attribute
+  {
+    return Attribute::make(
+      get: fn(string $value) => html_entity_decode($value),
+    );
+  }
+
+  public function title(): Attribute
+  {
+    return Attribute::make(
+      get: fn(string $value) => html_entity_decode($value),
+    );
+  }
+
   public function deletedAt(): Attribute
   {
     return Attribute::make(

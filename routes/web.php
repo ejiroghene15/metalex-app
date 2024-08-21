@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'index')->name('home');
 Route::view('services', 'services')->name('services');
-Route::view('find-lawyer', '')->name('find-lawyer');
+Route::view('directory', 'directory')->name('directory');
 Route::view('about-us', 'about')->name('about');
 Route::view('terms', 'terms')->name('terms');
 Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');

@@ -19,32 +19,17 @@
     <input type="email" class="form-control" name="email" placeholder="Email address here" required>
   </div>
 
-  {{-- Country --}}
-  <div class="mb-3 col-12 col-md-4">
-    <label class="form-label"><span class="text-danger fw-bold">*</span> Country</label>
-    @include('components.countries')
-  </div>
-
   {{-- State --}}
-  <div class="mb-3 col-12 col-md-4">
-    <label class="form-label d-flex justify-content-between">
+  <div class="mb-3 col-12">
+    <label for="role" class="form-label"><span class="text-danger fw-bold">*</span> I am signing up as</label>
 
-      <span><span class="text-danger fw-bold">*</span> State</span>
-
-      <span class="spinner-border spinner-border-sm text-primary state-loader" role="loading" style="display: none">
-        <small class="visually-hidden">Loading...</small>
-      </span>
-    </label>
-
-    <select class="form-control" name="state" required>
-      <option value="">Select State</option>
+    <select class="form-control" name="user_type" required>
+      <option>Select Role</option>
+      <option value="intern">An Intern</option>
+      <option value="lawyer">A Lawyer</option>
+      <option value="firm">A Firm</option>
+      <option value="client"> A Client</option>
     </select>
-  </div>
-
-  {{-- zip code --}}
-  <div class="mb-3 col-12 col-md-4">
-    <label class="form-label" for="zipCode">Zip/Postal Code</label>
-    <input type="text" name="zip_code" class="form-control" placeholder="Zip" required>
   </div>
 
   <!-- Password -->

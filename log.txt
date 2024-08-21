@@ -1,3 +1,28 @@
+- Directory --- Listing of Lawyers and law firms that are registered on the platform. Anyone can access the directory
+(Features)
+-- Automatically filter listing based on users current location
+-- Search feature can be based on (location, area of specialization, legal services)
+-- Listing for lawyers should be different for listing for firms
+P.S: Should be designed to appear on the home page if possible.
+
+- Virtual Office --- A part of the app where a user can request consultation and the lawyer or law firm can in turn deliver legal service.
+1, The user clicks on Request Consultation button on the profile of a Lawyer or Firm which displays a message box where they give a brief statement of their legal need.
+2, The lawyer or firm can choose to accept or deny the consultation request.
+------On request acceptance, the user becomes a client to the lawyer or firm.
+------On request denial. the lawyer or firm gives a good reason for declining the request. (A warning message will be displayed to lawyers and firms on the downside to indiscriminately declining requests without good reason). The user will be notified about the request decline to enable them reach out to another lawyer.
+
+Firm Account --- Law firms can add its existing lawyers on the metalex legal platform to their firm profile
+
+Notifications --- This should include internal app notifications and email notifications
+
+
+Things to add to lawyers profile
+- Years of experience
+- Location
+- Place of Work (Legal Firm or Freelance)
+- Review rating
+
+
 Personal details as usually with anything but to be clear I will list them:
 1. Name: first name, middle and last name
 2. Age

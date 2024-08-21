@@ -7,57 +7,7 @@
     @auth
       {{--MOBILE VIEW NAV AREA--}}
       <ul class="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap">
-        <li class="dropdown ms-2">
-          <a class="rounded-circle" href="#" role="button" data-bs-toggle="dropdown">
-            <div class="avatar avatar-md avatar-indicators avatar-online">
-              <img alt="avatar" src="{{ $user->avatar }}" class="rounded-circle"/>
-            </div>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end">
-            <div class="dropdown-item">
-              <div class="d-flex">
-                <div class="avatar avatar-md avatar-indicators avatar-online">
-                  <img alt="avatar" src="{{ $user->avatar }}" class="rounded-circle"/>
-                </div>
-                <div class="ms-3 lh-1">
-                  <h5 class="mb-1">{{ $user->first_name . ' ' . $user->last_name}}</h5>
-                  <p class="mb-0 text-muted">{{ $user->email }}</p>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown-divider"></div>
-            <ul class="list-unstyled">
-              <li>
-                <a class="dropdown-item" href="{{ route('user.dashboard', Str::slug($user->fullName())) }}">
-                  <i class="mdi mdi-view-dashboard-outline me-2"></i>Dashboard
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="{{ route('user.profile') }}">
-                  <i class="fe fe-user me-2"></i>Profile
-                </a>
-              </li>
-              <li class="d-none">
-                <a class="dropdown-item" href="./pages/student-subscriptions.html">
-                  <i class="fe fe-star me-2"></i>Subscription
-                </a>
-              </li>
-              <li class="d-none">
-                <a class="dropdown-item" href="#">
-                  <i class="fe fe-settings me-2"></i>Settings
-                </a>
-              </li>
-            </ul>
-            <div class="dropdown-divider"></div>
-            <ul class="list-unstyled">
-              <li>
-                <a class="dropdown-item" href="{{ route('auth.logout') }}">
-                  <i class="fe fe-power me-2"></i>Sign Out
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
+        @include('partials.auth-navbar')
       </ul>
     @endauth
 
@@ -86,10 +36,10 @@
           </a>
         </li>
 
-        <li class="nav-item me-3" hidden>
+        <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'find-lawyer']) href="{{route('find-lawyer')}}">
-            <i class="fe fe-users me-1"></i> Consult a Lawyer
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'directory']) href="{{route('directory')}}">
+            <i class="fe fe-folder me-1"></i> Directory
           </a>
         </li>
 
@@ -130,60 +80,9 @@
 
         @auth
           {{-- Sign Out Button--}}
-{{--          <a href="{{ route('auth.logout') }}" class="d-lg-none d-inline-block btn bg-danger-soft ms-3">Logout</a>--}}
+          {{--          <a href="{{ route('auth.logout') }}" class="d-lg-none d-inline-block btn bg-danger-soft ms-3">Logout</a>--}}
           <ul class="navbar-nav navbar-right-wrap ms-2 d-none d-lg-block">
-            <li class="dropdown ms-2">
-              <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static"
-                 aria-expanded="false">
-                <div class="avatar avatar-md avatar-indicators avatar-online">
-                  <img alt="avatar" src="{{ $user->avatar }}" class="rounded-circle"/>
-                </div>
-              </a>
-              <div class="dropdown-menu dropdown-menu-end">
-                <div class="dropdown-item">
-                  <div class="d-flex">
-                    <div class="avatar avatar-md avatar-indicators avatar-online">
-                      <img alt="avatar" src="{{ $user->avatar }}" class="rounded-circle"/>
-                    </div>
-                    <div class="ms-3 lh-1">
-                      <h5 class="mb-1">{{ $user->first_name . ' ' . $user->last_name}}</h5>
-                      <p class="mb-0 text-muted">{{ $user->email }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="dropdown-divider"></div>
-                <ul class="list-unstyled">
-                  <li>
-                    <a class="dropdown-item" href="{{ route('user.dashboard', Str::slug($user->fullName())) }}">
-                      <i class="mdi mdi-view-dashboard-outline me-2"></i>Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="{{ route('user.profile') }}">
-                      <i class="fe fe-user me-2"></i>Profile
-                    </a>
-                  </li>
-                  <li class="d-none">
-                    <a class="dropdown-item" href="./pages/student-subscriptions.html">
-                      <i class="fe fe-star me-2"></i>Subscription
-                    </a>
-                  </li>
-                  <li class="d-none">
-                    <a class="dropdown-item" href="#">
-                      <i class="fe fe-settings me-2"></i>Settings
-                    </a>
-                  </li>
-                </ul>
-                <div class="dropdown-divider"></div>
-                <ul class="list-unstyled">
-                  <li>
-                    <a class="dropdown-item" href="{{ route('auth.logout') }}">
-                      <i class="fe fe-power me-2"></i>Sign Out
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
+            @include('partials.auth-navbar')
           </ul>
         @endauth
 

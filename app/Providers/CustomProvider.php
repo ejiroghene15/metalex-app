@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Country;
 use App\Models\ForumThread;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -31,6 +32,7 @@ class CustomProvider extends ServiceProvider
   {
     View::composer(['*'], function ($view) {
       return $view->with([
+        'directory' => User::whereIn('user_type', ['lawyer', 'firm'])->get(),
         'country' => Country::all(),
         'color_tag' => collect(['primary', 'secondary', 'success', 'danger', 'warning', 'info'])->random(),
         'current_route' => Route::currentRouteName(),
