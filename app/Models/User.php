@@ -80,7 +80,7 @@ class User extends Authenticatable implements MustVerifyEmail
   // * A users full name
   public function fullName()
   {
-    return $this->user_type === 'firm' ? $this->firm_name : $this->username;
+    return $this->user_type === 'firm' ? $this->firm_name : $this->first_name . ' ' . $this->last_name;
   }
 
   // * Firm associated with the user if they signed up to offer services as a firm
