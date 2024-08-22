@@ -1,34 +1,44 @@
-<div class="card mb-4">
-  <div class="card-body px-2">
-    <section id="display-profile">
-      <div class="d-flex">
-        {{--  User Avatar--}}
-        <img src="{{$user->avatar}}" class="avatar-xl rounded-circle" alt="">
+<div class="col-xl-3 mx-auto col-lg-6 col-md-6 col-12">
+  <!-- Card -->
+  <div class="card mb-4">
+    <!-- Card body -->
+    <div class="card-body">
+      <div class="text-center">
+        <div class="position-relative">
+          <img src="{{$user->avatar}}" class="rounded-circle avatar-xl mb-3" alt="">
+          <a href="#" class="position-absolute mt-10 ms-n5">
+            <span class="status bg-success"></span>
+          </a>
+        </div>
+        <h4 class="mb-0">{{$user->fullName()}}</h4>
+        @if($user->country)
+          <p class="mb-0">
+            <i class="fe fe-map-pin me-1 fs-6"></i>{{$country->where('code', $user->country)->pluck('name')->first()}}
+          </p>
+        @endif
+      </div>
 
-        <div class="ms-4">
-          <!-- text -->
-          <h3 class="mb-1 text-gray-600"> {{$user->fullName()}} </h3>
 
-          <small class="d-block">
-            <span><i class="bi bi-calendar-check text-muted me-2"></i>{{$user->created_at}}</span>
-          </small>
+      <div class="d-flex justify-content-between border-bottom py-2 mt-6">
+        <h6 class="text-muted">Role</h6>
+        <span class="text-dark"> {{$user->user_type}} </span>
+      </div>
 
-          <small class="my-2 d-block"><i class="bi bi-pin-map text-muted me-2"></i>{{$user->address}}</small>
+      <div class="d-flex justify-content-between border-bottom py-2">
+        <h6 class="text-muted">Joined at</h6>
+        <span> {{$user->created_at->format('d M, Y')}} </span>
+      </div>
 
-          <small class="d-block mb-2">
-            <i class="fe fe-map-pin text-muted me-1"></i>
-            <span>{{"$user->state, " . $country->where('code', $user->country)->pluck('name')->first()}}</span>
-          </small>
-
-          @if ($user->is_verified)
-            <span class="badge bg-success-soft" data-bs-toggle="tooltip" data-placement="top"
-                  title="Verified">
+      @if ($user->is_verified)
+        <div class="d-flex justify-content-between pt-2">
+          <h6 class="text-muted">Status</h6>
+          <span class="badge bg-success-soft" data-bs-toggle="tooltip" data-placement="top"
+                title="Verified">
                   <i class="fe fe-check-circle text-muted me-1"></i>Verified
                 </span>
-          @endif
-
         </div>
-      </div>
-    </section>
+      @endif
+
+    </div>
   </div>
 </div>

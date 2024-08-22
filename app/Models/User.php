@@ -70,12 +70,12 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
   }
 
-  public function createdAt(): Attribute
-  {
-    return Attribute::make(
-      get: fn(string $value) => date("F jS, Y", strtotime($value))
-    );
-  }
+//  public function createdAt(): Attribute
+//  {
+//    return Attribute::make(
+//      get: fn(string $value) => date("F jS, Y", strtotime($value))
+//    );
+//  }
 
   // * A users full name
   public function fullName()
