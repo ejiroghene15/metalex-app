@@ -15,7 +15,7 @@
             <div>
               <a
                 href="{{ route('forum.topics', ["slug"=> $topic->forum->slug, "id" => $topic->forum->id]) }}"
-                class="badge p-2 bg-light-soft mb-3 d-inline-block fw-bold ls-md text-inverse">
+                class="badge p-2 bg-light-soft mb-3 d-inline-block fw-bold ls-md text-inverse" style="white-space: normal; line-height: 2em">
                 {{$topic->forum->name}}
               </a>
               <p class="text-white mb-4 lead">
