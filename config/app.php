@@ -41,7 +41,7 @@ return [
     |
     */
 
-  'debug' => (bool) env('APP_DEBUG', false),
+  'debug' => (bool)env('APP_DEBUG', false),
 
   /*
     |--------------------------------------------------------------------------
@@ -57,6 +57,17 @@ return [
   'url' => env('APP_URL', 'http://localhost'),
 
   'asset_url' => env('ASSET_URL'),
+
+
+  /*
+   |----------------------------------------------------------------
+   | Helpers Pagination
+   |----------------------------------------------------------------
+   | This is used to set the default pagination settings for the application
+   |
+   */
+
+  'pagination' => env('APP_PAGINATE_PER_PAGE'),
 
   /*
     |--------------------------------------------------------------------------
