@@ -115,7 +115,7 @@
               <a href="#" class="btn btn-outline-secondary btn-sm">View all</a>
             </div>
             <!-- Card body -->
-            <div class="card-body py-0">
+            <div class="card-body pt-2 pb-0">
               <!-- List group -->
               <ul class="list-group list-group-flush">
                 @foreach($latest_threads_for_dashboard as $_)
