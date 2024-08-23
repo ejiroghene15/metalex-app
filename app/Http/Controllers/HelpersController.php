@@ -8,7 +8,7 @@ class HelpersController extends Controller
 
   public function __construct()
   {
-    return self::$paginate_per_page = env('APP_PAGINATE_PER_PAGE');
+    return self::$paginate_per_page = config('app.pagination');
   }
 
   public static function logActivity($activity)
