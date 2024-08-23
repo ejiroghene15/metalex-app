@@ -37,7 +37,7 @@ class CustomProvider extends ServiceProvider
         'color_tag' => collect(['primary', 'secondary', 'success', 'danger', 'warning', 'info'])->random(),
         'current_route' => Route::currentRouteName(),
         'categories' => BlogCategory::all(),
-        'paginate_per_page' => env('APP_PAGINATE_PER_PAGE') # Using this as the default value for the no of records to show on each display/page for paginated records
+        'paginate_per_page' => config('app.pagination') # Using this as the default value for the no of records to show on each display/page for paginated records
       ]);
     });
 
