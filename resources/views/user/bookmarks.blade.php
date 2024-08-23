@@ -98,7 +98,7 @@
     $(".remove_bookmark").on("click", function () {
       let data = $(this).serializeArray();
       let parent = $(this).parents('.list-group-item');
-      $.post(`{{env('APP_URL')}}/forum/removeBookmark/thread`, data, function (response) {
+      $.post(`{{config('app.url')}}/forum/removeBookmark/thread`, data, function (response) {
         if (response?.status === 'success') $("#bookmark").load(`{{route('user.bookmarks')}} #bookmark > *`);
       })
     })

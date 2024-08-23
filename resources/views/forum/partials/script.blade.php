@@ -4,7 +4,7 @@
   @auth
     <script src="{{asset('assets/js/vendors/ckeditor-ballon.js')}}"></script>
     <script src="{{asset('assets/js/custom/content.js')}}"></script>
-    <script>const APP_URL = "{{env('APP_URL')}}"</script>
+    <script>const APP_URL = "{{config('app.url')}}"</script>
   @endauth
 
 @endsection

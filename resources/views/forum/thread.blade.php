@@ -280,7 +280,7 @@
 @auth
   @section('scripts')
     @parent
-    <script>const APP_URL = "{{env('APP_URL')}}"</script>
+    <script>const APP_URL = "{{config('app.url')}}"</script>
     {{--  <script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key={{env('IFRAMELY_EMBED_KEY')}}"></script>--}}
     <script src="{{asset('assets/js/vendors/ckeditor-ballon.js')}}"></script>
     <script src="{{asset('assets/js/custom/content.js')}}"></script>
