@@ -140,7 +140,7 @@
                           {{$_->topic->subject}}
                         </a>
                         <div class="mt-2">
-                          <small class="badge bg-info-soft" style="font-size: 10px">{{$_->topic->forum->name}}</small>
+                          <small class="badge bg-info-soft" style="font-size: 10px">{{$_->topic->forum->name ?? ''}}</small>
                         </div>
                       </div>
 

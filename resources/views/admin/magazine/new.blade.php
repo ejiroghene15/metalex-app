@@ -72,6 +72,19 @@
 
             </div>
 
+            <div class="mb-4 col-md-12">
+              <!-- Title -->
+              <label for="title" class="form-label">External URL</label>
+              <input type="text" name="url" value="{{old('title')}}" class="form-control text-dark"
+                     placeholder="Enter Magazine Link">
+
+              <div class="form-check mt-2">
+                <input type="checkbox" class="form-check-input" name="use_external_link">
+                <label class="form-check-label" for="agreeCheck">
+                  <span> Use External URL Link? </span>
+                </label>
+              </div>
+            </div>
           </div>
 
           <!-- button -->

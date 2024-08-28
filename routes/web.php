@@ -169,15 +169,16 @@ Route::middleware(['auth'])->group(function () {
       // * UPLOAD A MAGAZINE
       Route::post('upload-magazine', [FileUploadController::class, 'magazine'])->name('upload-magazine');
 
-      // CMS
-      Route::controller(BlogController::class)->group(function () {
-        Route::get('cms', 'index')->name('cms');
-        Route::get('cms/post/edit/{post}', 'editPost')->name('cms.post.edit');
-        Route::post('cms/post/store', 'storePost')->name('cms.post.store');
-        Route::post('cms/post/update/{post}', 'updatePost')->name('cms.post.update');
-        Route::post('cms/post/delete/{post}', 'deletePost')->name('cms.post.delete');
-        Route::post('cms/category/store', 'saveCategory')->name('cms.category.store');
-      });
     });
+  });
+
+  // CMS
+  Route::controller(BlogController::class)->group(function () {
+    Route::get('cms', 'index')->name('cms');
+    Route::get('cms/post/edit/{post}', 'editPost')->name('cms.post.edit');
+    Route::post('cms/post/store', 'storePost')->name('cms.post.store');
+    Route::post('cms/post/update/{post}', 'updatePost')->name('cms.post.update');
+    Route::post('cms/post/delete/{post}', 'deletePost')->name('cms.post.delete');
+    Route::post('cms/category/store', 'saveCategory')->name('cms.category.store');
   });
 });

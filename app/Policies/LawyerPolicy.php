@@ -20,7 +20,7 @@ class LawyerPolicy
     //
   }
 
-  public function certificates(User $user)
+  public function certificates(User $user): Response
   {
     return $user->user_type === "lawyer" ? Response::allow() : Response::deny("Unauthorized access");
   }

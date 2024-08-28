@@ -21,7 +21,7 @@ class Thread
   }
 
 
-  public function flag_thread(User $user, ForumThread $thread)
+  public function flag_thread(User $user, ForumThread $thread): bool
   {
     return $user->id !== $thread->user_id;
   }

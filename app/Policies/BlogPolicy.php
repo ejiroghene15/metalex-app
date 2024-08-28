@@ -20,7 +20,7 @@ class BlogPolicy
     //
   }
 
-  public function updateBlog(User $user, Blog $blog)
+  public function updateBlog(User $user, Blog $blog): bool
   {
     return $user->id === $blog->user_id;
   }
