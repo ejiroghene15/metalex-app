@@ -22,13 +22,20 @@
           <footer class="card-footer">
             <h5 class="text-primary">{{$_['label']}}</h5>
             <h5 class="lh-3 fs-6">{{$_['title']}}</h5>
-            <form method="post" action="{{route('download-magazine')}}">
-              @csrf
-              <input type="hidden" name="url" value="{{$_['url']}}">
-              <button class="btn btn-sm bg-success-soft">
-                <i class="bi bi-download me-1"></i> Download Magazine
-              </button>
-            </form>
+            @if($_['external'] == 'true')
+              <a href="{{$_['url']}}" target="_blank" class="btn btn-sm bg-info-soft">
+                <i class="bi bi-eye me-1"></i> View Magazine
+              </a>
+            @else
+              <form method="post" action="{{route('download-magazine')}}">
+                @csrf
+                <input type="hidden" name="url" value="{{$_['url']}}">
+                <button class="btn btn-sm bg-success-soft">
+                  <i class="bi bi-download me-1"></i> Download Magazine
+                </button>
+              </form>
+            @endif
+
           </footer>
         </div>
       </article>
