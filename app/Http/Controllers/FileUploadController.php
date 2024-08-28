@@ -34,7 +34,8 @@ class FileUploadController extends Controller
       'label' => $request->edition,
       'title' => $request->title,
       'image' => $magazine_thumbnail_filename,
-      'url' => $request->has('use_external_link') ? $request->url : $magazine_filename
+      'url' => $request->has('use_external_link') ? $request->url : $magazine_filename,
+      'external' => $request->has('use_external_link') ? 'true' : 'false'
     ]);
 
     return redirect()->back()->withMessage("Magazine Uploaded")->withStatus("success");
