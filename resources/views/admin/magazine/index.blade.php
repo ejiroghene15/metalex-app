@@ -53,7 +53,7 @@
                   </button>
                 </form>
 
-                <form action="{{route('magazine.delete', ['id' => $_['id']])}}">
+                <form method="post" action="{{route('magazine.delete', ['id' => $_['id']])}}">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-sm bg-danger-soft">
