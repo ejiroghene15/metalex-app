@@ -53,9 +53,8 @@
                   </button>
                 </form>
 
-                <form method="post" action="{{route('download-magazine')}}">
+                <form method="post" action="{{route('magazine.delete', ['id' => $_['id']])}}">
                   @csrf
-                  <input type="hidden" name="url" value="{{$_['url']}}">
                   <button class="btn btn-sm bg-danger-soft">
                     <i class="bi bi-trash3 fs-3"></i>
                   </button>
