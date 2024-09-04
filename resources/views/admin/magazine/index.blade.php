@@ -43,13 +43,24 @@
             <footer class="card-footer">
               <h5 class="text-primary">{{$_['label']}}</h5>
               <h5 class="lh-3 fs-6">{{$_['title']}}</h5>
-              <form method="post" action="{{route('download-magazine')}}">
-                @csrf
-                <input type="hidden" name="url" value="{{$_['url']}}">
-                <button class="btn btn-sm bg-success-soft">
-                  <i class="bi bi-download me-1"></i> Download Magazine
-                </button>
-              </form>
+
+              <div class="d-flex justify-content-between">
+                <form method="post" action="{{route('download-magazine')}}">
+                  @csrf
+                  <input type="hidden" name="url" value="{{$_['url']}}">
+                  <button class="btn btn-sm bg-success-soft">
+                    <i class="bi bi-download me-1"></i> Download Magazine
+                  </button>
+                </form>
+
+                <form method="post" action="{{route('download-magazine')}}">
+                  @csrf
+                  <input type="hidden" name="url" value="{{$_['url']}}">
+                  <button class="btn btn-sm bg-danger-soft">
+                    <i class="bi bi-trash3 fs-3"></i>
+                  </button>
+                </form>
+              </div>
             </footer>
           </div>
         </article>

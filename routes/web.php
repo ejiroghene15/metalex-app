@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicationsController;
@@ -180,5 +181,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('cms/post/update/{post}', 'updatePost')->name('cms.post.update');
     Route::post('cms/post/delete/{post}', 'deletePost')->name('cms.post.delete');
     Route::post('cms/category/store', 'saveCategory')->name('cms.category.store');
+  });
+
+  Route::controller(MagazineController::class)->group(function () {
+    Route::delete('magazine/delete/{id}', 'destroy')->name('magazine.delete');
   });
 });
