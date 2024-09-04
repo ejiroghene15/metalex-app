@@ -82,6 +82,6 @@ class MagazineController extends Controller
   {
     Magazine::destroy($id);
     HelpersController::logActivity("Deleted Magazine");
-    return ResponseController::success("Magazine Deleted");
+    return ResponseController::_success("Magazine Deleted");
   }
 }
