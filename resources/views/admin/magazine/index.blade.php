@@ -53,7 +53,7 @@
                   </button>
                 </form>
 
-                <form method="post" action="{{route('magazine.delete', ['id' => $_['id']])}}">
+                <form method="post" action="{{route('magazine.delete', ['id' => $_['id']])}}" onsubmit="confirm('This action is irreversible')">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-sm bg-danger-soft">
