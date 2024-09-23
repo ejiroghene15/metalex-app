@@ -25,14 +25,18 @@
                 <img src="{{$post->author->avatar}}" alt="" class="rounded-circle avatar-sm me-1">
                 <h5 class="mb-0">{{$post->author->fullName()}}</h5>
                 <span class="mx-1">|</span>
-                <small class="fw-semi-bold">{{$post->created_at}}</small cl>
+                <small class="fw-semi-bold">{{$post->created_at}}</small>
               </div>
 
               <div>
-                <a href="{{$facebook_share_link}}" target="_blank" class="ms-2 text-muted"><i class="mdi mdi-facebook fs-3"></i></a>
-                <a href="{{$twitter_share_link}}" target="_blank" class="ms-2 text-muted"><i class="mdi mdi-twitter fs-3"></i></a>
-                <a href="{{$whatsapp_share_link}}" target="_blank" class="ms-2 text-muted"><i class="mdi mdi-whatsapp fs-3"></i></a>
-                <a href="{{$linkedin_share_link}}" target="_blank" class="ms-2 text-muted "><i class="mdi mdi-linkedin fs-3"></i></a>
+                <a href="{{$facebook_share_link}}" target="_blank" class="ms-2 text-muted"><i
+                    class="mdi mdi-facebook fs-3"></i></a>
+                <a href="{{$twitter_share_link}}" target="_blank" class="ms-2 text-muted"><i
+                    class="mdi mdi-twitter fs-3"></i></a>
+                <a href="{{$whatsapp_share_link}}" target="_blank" class="ms-2 text-muted"><i
+                    class="mdi mdi-whatsapp fs-3"></i></a>
+                <a href="{{$linkedin_share_link}}" target="_blank" class="ms-2 text-muted "><i
+                    class="mdi mdi-linkedin fs-3"></i></a>
               </div>
 
             </section>
@@ -176,7 +180,7 @@
         let action = btn_elem.find('.label').attr('for');
 
         let data = $(this).serializeArray();
-        $.post(`{{env('APP_URL')}}/publication/article/${action === 'add' ? 'add-bookmark' : 'remove-bookmark'}`, data, function (response) {
+        $.post(`{{config('app.url')}}/publication/article/${action === 'add' ? 'add-bookmark' : 'remove-bookmark'}`, data, function (response) {
           if (response?.status === 'success') {
             switch (action) {
               case 'add':
