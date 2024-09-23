@@ -59,4 +59,24 @@ class Blog extends Model
     return max($readingTime, 1) . " Min Read";
   }
 
+  public function excerpt($limit = 40): string
+  {
+    // Strip HTML tags and trim whitespace
+    $text = strip_tags(trim($this->body));
+
+    // Break the text into an array of words
+    $words = explode(' ', $text);
+
+    // If the number of words is less than or equal to the limit, return the full text
+    if (count($words) <= $limit) {
+      return $text;
+    }
+
+    // Slice the words array to get only the desired number of words
+    $excerpt = array_slice($words, 0, $limit);
+
+    // Join the words back into a string and append ellipsis
+    return implode(' ', $excerpt) . '...';
+  }
+
 }
