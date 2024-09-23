@@ -25,5 +25,5 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   @show
 
-  <title>Metalex | @yield('title')</title>
+  <title>{{config('app.name')}} | @yield('title')</title>
 </head>
