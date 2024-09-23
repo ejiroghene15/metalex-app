@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   @show
 
-
-  {{--
-  <meta name="author" content="Codescandy"> --}}
-
   @section('style')
     <!-- Favicon icon-->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon/metalex_ico.png') }}">
