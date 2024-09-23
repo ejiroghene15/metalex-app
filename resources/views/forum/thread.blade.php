@@ -15,7 +15,8 @@
             <div>
               <a
                 href="{{ route('forum.topics', ["slug"=> $topic->forum->slug, "id" => $topic->forum->id]) }}"
-                class="badge p-2 bg-light-soft mb-3 d-inline-block fw-bold ls-md text-inverse" style="white-space: normal; line-height: 2em">
+                class="badge p-2 bg-light-soft mb-3 d-inline-block fw-bold ls-md text-inverse"
+                style="white-space: normal; line-height: 2em">
                 {{$topic->forum->name}}
               </a>
               <p class="text-white mb-4 lead">
@@ -233,7 +234,7 @@
                     <span class="fs-6">
                     <span class="badge bg-success-soft">
                       <span class="mdi mdi-calendar-check"></span>
-                      {{$topic->user->created_at}}
+                      {{$topic->user->created_at->format('F Js, Y')}}
                     </span>
                     </span>
                   </div>

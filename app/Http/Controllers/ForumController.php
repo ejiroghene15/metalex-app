@@ -16,12 +16,7 @@ class ForumController extends Controller
   }
 
   // * Return all forums that has been created
-  public function forums()
-  {
-    return view('forum.index', ['forums' => ForumCategory::all()]);
-  }
 
-  // * Create a new forum
   public function newForum(Request $request)
   {
     $forum = $request->validate([
@@ -38,7 +33,15 @@ class ForumController extends Controller
     return ResponseController::_success("New forum - $request->name created");
   }
 
+  // * Create a new forum
+
+  public function forums()
+  {
+    return view('forum.index', ['forums' => ForumCategory::all()]);
+  }
+
   // * Edit a forum
+
   public function editForum($slug, Forum $forum)
   {
     return view('user.forum.edit', ['forum' => $forum]);
@@ -72,6 +75,13 @@ class ForumController extends Controller
   }
 
   // * Create a new topic for discussion
+
+  public function newTopicFromDashboard(Request $request)
+  {
+    $forum = Forum::find(base64_decode($request->forum_id));
+    if ($forum) $this->newTopic($forum);
+  }
+
   public function newTopic(Request $request, Forum $forum)
   {
     $request->validate([
@@ -89,13 +99,8 @@ class ForumController extends Controller
     return ResponseController::_success("Topic $request->subject created");
   }
 
-  public function newTopicFromDashboard(Request $request)
-  {
-    $forum = Forum::find(base64_decode($request->forum_id));
-    if ($forum) $this->newTopic($forum);
-  }
-
   // * Return all topics that has been created under a particular forum
+
   public function topics($slug, $id)
   {
     $per_page = HelpersController::$paginate_per_page;
