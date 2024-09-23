@@ -1,5 +1,18 @@
 @extends('layout.master')
 
+@section('meta-tags')
+  @parent
+  <meta name="og:type" content="article">
+  <meta name="og:title" content="{{$post->title}}">
+  <meta name="og:image" content="{{$post->thumbnail}}">
+  <meta name="og:image:secure_url" content="{{$post->thumbnail}}">
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+  <meta name="og:article:author" content="{{$post->author->fullName()}}">
+  <meta name="og:url" content="{{request()->fullUrl()}}">
+  <meta name="og:site_name" content="{{config('app.name')}}">
+@endsection
+
 @section('title', 'Publication - Articles')
 
 @php
