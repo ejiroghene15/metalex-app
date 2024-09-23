@@ -62,7 +62,7 @@ class Blog extends Model
   public function excerpt($limit = 20): string
   {
     // Strip HTML tags and trim whitespace
-    $text = strip_tags(trim($this->body, ' '));
+    $text = strip_tags(trim($this->body));
 
     // Break the text into an array of words
     $words = explode(' ', $text);
