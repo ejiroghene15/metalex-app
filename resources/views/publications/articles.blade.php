@@ -30,7 +30,7 @@
                 {{$_->title}}
               </a>
             </h4>`
-            <p>{!! Str::limit($_->body, 200) !!}</p>
+            <p>{!! Str::limit(nl2br(strip_tags($_->body)), 200) !!}</p>
             <!-- Media content -->
             <div class="row align-items-center g-0 mt-4 mt-auto">
               <div class="col-auto">
@@ -41,8 +41,8 @@
                 <h5 class="mb-1 text-gray-600">{{$_->author->fullName()}}</h5>
                 <p class="fs-6 mb-0 text-{{$color_tag}}">{{$_->created_at}}</p>
               </div>
-              <div class="col-auto" hidden>
-                <p class="fs-6 mb-0">20 Min Read</p>
+              <div class="col-auto">
+                <p class="fs-6 mb-0">{{$_->readTime()}}</p>
               </div>
             </div>
           </div>

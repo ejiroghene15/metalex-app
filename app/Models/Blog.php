@@ -52,4 +52,11 @@ class Blog extends Model
     return $this->belongsTo(User::class, 'user_id');
   }
 
+  public function readTime(): string
+  {
+    $wordCount = str_word_count($this->body);
+    $readingTime = round($wordCount / 200);
+    return max($readingTime, 1) . " Min Read";
+  }
+
 }
