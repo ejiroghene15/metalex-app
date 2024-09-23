@@ -59,10 +59,10 @@ class Blog extends Model
     return max($readingTime, 1) . " Min Read";
   }
 
-  public function excerpt($limit = 40): string
+  public function excerpt($limit = 20): string
   {
     // Strip HTML tags and trim whitespace
-    $text = strip_tags(trim($this->body));
+    $text = strip_tags(trim($this->body, '&nbsp;'));
 
     // Break the text into an array of words
     $words = explode(' ', $text);
