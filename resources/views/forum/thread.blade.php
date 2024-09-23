@@ -234,7 +234,7 @@
                     <span class="fs-6">
                     <span class="badge bg-success-soft">
                       <span class="mdi mdi-calendar-check"></span>
-                      {{$topic->user->created_at->format('F Js, Y')}}
+                      {{$topic->user->created_at->format('F jS, Y')}}
                     </span>
                     </span>
                   </div>
