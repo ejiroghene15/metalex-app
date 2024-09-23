@@ -81,12 +81,12 @@
               <div class="card-body d-flex flex-column">
                 <a href="#" style="width: max-content"
                    class="fs-6 fw-semi-bold d-inline-block mb-3 badge bg-{{$color_tag}}-soft">{{$_->b_category->name}}</a>
-                <h4>
+                <h5 class="text-capitalize">
                   <a href="{{route('full-article', ["article"=> $_->slug, "id" => $_->id])}}" class="text-inherit">
-                    {{$_->title}}
+                    {{strtolower($_->title)}}
                   </a>
-                </h4>
-                <p>{!! Str::limit($_->body, 100) !!}</p>
+                </h5>
+                <p class="lh-3">{!! nl2br($_->excerpt()) !!}</p>
                 <!-- Media content -->
                 <div class="row align-items-center g-0 mt-4 mt-auto">
                   <div class="col-auto">
@@ -97,8 +97,8 @@
                     <h5 class="mb-1 text-gray-600">{{$_->author->fullName()}}</h5>
                     <p class="fs-6 mb-0 text-{{$color_tag}}">{{$_->created_at}}</p>
                   </div>
-                  <div class="col-auto" hidden>
-                    <p class="fs-6 mb-0">20 Min Read</p>
+                  <div class="col-auto">
+                    <p class="fs-6 mb-0">{{$_->readTime()}}</p>
                   </div>
                 </div>
               </div>
