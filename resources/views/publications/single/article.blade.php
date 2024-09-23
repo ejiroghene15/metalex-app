@@ -4,10 +4,11 @@
   @parent
   <meta name="og:type" content="article">
   <meta name="og:title" content="{{$post->title}}">
+  <meta name="og:description" content="{{$post->excerpt(10)}}">
   <meta name="og:image" content="{{$post->thumbnail}}">
   <meta name="og:image:secure_url" content="{{$post->thumbnail}}">
-  <meta property="og:image:width" content="300" />
-  <meta property="og:image:height" content="300" />
+  <meta property="og:image:width" content="300"/>
+  <meta property="og:image:height" content="300"/>
   <meta name="og:article:author" content="{{$post->author->fullName()}}">
   <meta name="og:url" content="{{request()->fullUrl()}}">
   <meta name="og:site_name" content="{{config('app.name')}}">
@@ -186,14 +187,14 @@
   @section('scripts')
     @parent
     <script>
-      // * Bookmark a Post
-      $(".bookmark").on("submit", function (e) {
-        e.preventDefault();
-        let btn_elem = $(this).children("button");
-        let action = btn_elem.find('.label').attr('for');
+        // * Bookmark a Post
+        $(".bookmark").on("submit", function (e) {
+            e.preventDefault();
+            let btn_elem = $(this).children("button");
+            let action = btn_elem.find('.label').attr('for');
 
-        let data = $(this).serializeArray();
-        $.post(`{{config('app.url')}}/publication/article/${action === 'add' ? 'add-bookmark' : 'remove-bookmark'}`, data, function (response) {
+            let data = $(this).serializeArray();
+            $.post(`{{config('app.url')}}/publication/article/${action === 'add' ? 'add-bookmark' : 'remove-bookmark'}`, data, function (response) {
           if (response?.status === 'success') {
             switch (action) {
               case 'add':
