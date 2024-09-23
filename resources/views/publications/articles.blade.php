@@ -42,7 +42,7 @@
                 <p class="fs-6 mb-0 text-{{$color_tag}}">{{$_->created_at}}</p>
               </div>
               <div class="col-auto">
-                <p class="fs-6 mb-0 badge bg-{{$color_tag}}-soft"">{{$_->readTime()}}</p>
+                <p class="fs-6 mb-0 badge bg-{{$color_tag}}-soft">{{$_->readTime()}}</p>
               </div>
             </div>
           </div>
