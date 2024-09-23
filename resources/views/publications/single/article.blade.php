@@ -23,7 +23,7 @@
   <meta name="twitter:image" content="{{$post->thumbnail}}">
 @endsection
 
-@section('title', "Publication Article | $post->title")
+@section('title', "$post->title")
 
 @php
   $related_posts = $post->b_category->blog_post->where('id', '!=', $post->id);
