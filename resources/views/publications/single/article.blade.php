@@ -4,7 +4,8 @@
   @parent
   <meta name="og:type" content="article">
   <meta name="og:title" content="{{$post->title}}">
-  <meta name="og:description" content="{{$post->excerpt(20)}}">
+  <meta name="og:description" content="{{$post->excerpt()}}">
+  <meta name="description" content="{{$post->excerpt()}}">
   <meta name="og:image" content="{{$post->thumbnail}}">
   <meta name="og:image:secure_url" content="{{$post->thumbnail}}">
   <meta property="og:image:width" content="300"/>
