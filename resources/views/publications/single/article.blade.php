@@ -13,7 +13,7 @@
   <meta name="og:site_name" content="{{config('app.name')}}">
 @endsection
 
-@section('title', 'Publication - Articles')
+@section('title', "Publication Article | $post->title")
 
 @php
   $related_posts = $post->b_category->blog_post->where('id', '!=', $post->id);
