@@ -30,7 +30,7 @@
                 {{$_->title}}
               </a>
             </h4>`
-            <p>{{nl2br($_->excerpt())}}</p>
+            <p>{!! nl2br($_->excerpt()) !!}</p>
             <!-- Media content -->
             <div class="row align-items-center g-0 mt-4 mt-auto">
               <div class="col-auto">
