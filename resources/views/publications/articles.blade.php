@@ -25,11 +25,11 @@
           <div class="card-body d-flex flex-column">
             <a href="#" style="width: max-content"
                class="fs-6 fw-semi-bold d-inline-block mb-3 badge bg-{{$color_tag}}-soft">{{$_->b_category->name}}</a>
-            <h5>
+            <h4>
               <a href="{{route('full-article', ["article"=> $_->slug, "id" => $_->id])}}" class="text-inherit">
                 {{Str::camel($_->title)}}
               </a>
-            </h5>
+            </h4>
             <p class="lh-3">{!! nl2br($_->excerpt()) !!}</p>
             <!-- Media content -->
             <div class="row align-items-center g-0 mt-4 mt-auto">
