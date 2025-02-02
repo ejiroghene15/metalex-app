@@ -42,7 +42,7 @@ class RegisteredMail extends Mailable
   public function content()
   {
     return new Content(
-      view: 'mail.auth.registered',
+      markdown: 'mail.auth.registered',
     );
   }
 

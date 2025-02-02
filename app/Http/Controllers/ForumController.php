@@ -6,6 +6,7 @@ use App\Models\Forum;
 use App\Models\ForumCategory;
 use App\Models\ForumThread;
 use App\Models\ForumTopics;
+use App\Notifications\ThreadReply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -123,12 +124,22 @@ class ForumController extends Controller
 
     $topic = ForumTopics::find(base64_decode($request->topic));
 
-    $request->user()->forumThreads()->create([
+    $threadAuthor = $topic->user;
+    if ($request->has('is_replying')) {
+      $getThread = base64_decode($request->thread);
+      $getThreadInfo = ForumThread::find($getThread);
+      $threadAuthor = $getThreadInfo->user;
+    }
+
+    $thread = $request->user()->forumThreads()->create([
       'topic_id' => $topic->id,
       'reply' => $request->reply,
       'is_replying' => $request->has('is_replying'),
-      'thread_id' => $request->has('is_replying') && $request->is_replying ? base64_decode($request->thread) : 0
+      'thread_id' => $request->has('is_replying') && $request->is_replying ? $getThread : 0
     ]);
+
+    // * Notify the thread author
+    $threadAuthor->notify(new ThreadReply($thread));
 
     // * Log user activity
     HelpersController::logActivity("Commented on thread - <a href='/forum/d/$topic->slug.$topic->id'>$topic->subject </a>");

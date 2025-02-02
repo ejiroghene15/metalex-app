@@ -72,3 +72,42 @@ Access Details:
 Server IP:	162.0.209.138
 Username:	metaaywi
 SSH port:	21098
+
+
+
+
+
+<div class=" carousel-track">
+        @for($i =0; $i < 5; $i++)
+          <div class=" testimonial" style="flex-basis: 303px">
+            <!-- Card -->
+            <div class="card mb-4 shadow-lg">
+              <!-- Card body -->
+              <div class="card-body px-0 pb-0 d-flex flex-column">
+                <div>
+                  <div class="px-5 text-dark">
+                    <header>
+                      <i class="fa-solid fa-quote-left" style="font-size: 32px"></i>
+                    </header>
+
+                    <p class="mb-0" style="font-size: 16px">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, temporibus.
+                    </p>
+                  </div>
+
+                  <footer class="mt-auto text-center pb-7">
+                    <div class="position-relative z-1" style="top: 20px">
+                      <img src="../../assets/images/avatar/avatar-12.jpg"
+                           class="rounded-circle avatar-xl" alt="">
+                      <p class="mb-0 mt-3">Ejiro</p>
+                    </div>
+                  </footer>
+                </div>
+              </div>
+            </div>
+          </div>
+        @endfor
+      </div>
+
+
+      col-xl-3 col-lg-6 col-md-6 col-12 mx-auto testimonial

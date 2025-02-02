@@ -4,7 +4,7 @@
 
 @section('publication_content')
   @php
-    $post = $posts->latest()->paginate($paginate_per_page)->fragment('article');
+    $post = $posts->latest()->simplePaginate($paginate_per_page)->fragment('article');
   @endphp
 
   {{--  <header class="mb-5">--}}
@@ -53,7 +53,7 @@
 
   @if($post->count())
     <footer class="mt-5 d-flex justify-content-center">
-      {{$post->onEachSide(10)->links()}}
+      {{$post->onEachSide(1)->links()}}
     </footer>
   @endif
 @endsection
