@@ -28,11 +28,11 @@ Route::view('about', 'main.about')->name('main.about');
 Route::view('news', 'main.news-updates')->name('main.news');
 Route::view('faq', 'main.faq')->name('main.faq');
 Route::view('careers', 'main.careers')->name('main.careers');
-Route::view('metalex-technologies', 'main.subsidiaries.tech')->name('sub.tech');
-Route::view('metalex-academy', 'main.subsidiaries.academy')->name('sub.academy');
-Route::view('metalex-publications', 'main.subsidiaries.publications')->name('sub.publications');
-Route::view('metalex-entertainment', 'main.subsidiaries.entertainment')->name('sub.entertainment');
-Route::view('metalex-legal', 'main.subsidiaries.legal')->name('sub.legal');
+Route::view('technologies', 'main.subsidiaries.tech')->name('sub.tech');
+Route::view('academy', 'main.subsidiaries.academy')->name('sub.academy');
+Route::view('publications', 'main.subsidiaries.publications')->name('sub.publications');
+Route::view('entertainment', 'main.subsidiaries.entertainment')->name('sub.entertainment');
+Route::view('lp', 'main.subsidiaries.legal')->name('sub.legal');
 
 Route::domain('app.' . config('app.url'))->group(function () {
   Route::view('/', 'index')->name('home');
