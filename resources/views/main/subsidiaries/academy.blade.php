@@ -18,7 +18,7 @@
         Gain the skills you need to excel in today’s fast-paced professional world with Metalex Academy’s
         industry-driven programs.
       </p>
-      <a href="" class="btn text-white">Join A Programe today</a>
+      <a href="" class="btn text-white">Join A Program Today</a>
     </div>
   </section>
 
