@@ -35,14 +35,14 @@ Route::view('publications', 'main.subsidiaries.publications')->name('sub.publica
 Route::view('entertainment', 'main.subsidiaries.entertainment')->name('sub.entertainment');
 Route::view('lp', 'main.subsidiaries.legal')->name('sub.legal');
 
-Route::domain('app.' . config('app.url'))->group(function () {
-  Route::view('/', 'main.home')->name('home');
+//Route::domain('app.' . config('app.url'))->group(function () {
+//  Route::view('/', 'main.home')->name('home');
   Route::view('services', 'services')->name('services');
   Route::view('directory', 'directory')->name('directory');
   Route::view('about-us', 'main.about')->name('about');
   Route::view('terms', 'terms')->name('terms');
   Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');
-  Route::view('faq', 'faq')->name('faq');
+//  Route::view('faq', 'faq')->name('faq');
   Route::view('not-found', 'errors.404')->name('not-found');
 
   Route::get('view-mail', function () {
@@ -201,4 +201,4 @@ Route::domain('app.' . config('app.url'))->group(function () {
   });
 
   require_once __DIR__ . '/livewire.php';
-});
+//});
