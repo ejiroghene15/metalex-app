@@ -63,7 +63,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a @class(['nav-link','active'=> $current_route === 'main.faq']) href="{{route('main.faq')}}">FAQ</a>
+          <a @class(['nav-link','active'=> $current_route === 'main.faq']) href="{{route('faq')}}">FAQ</a>
         </li>
       </ul>
 

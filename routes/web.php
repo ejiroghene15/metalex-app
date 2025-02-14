@@ -27,7 +27,7 @@ Route::view('/', 'main.home')->name('home');
 Route::view('about', 'main.about')->name('main.about');
 Route::view('news', 'main.news-updates')->name('main.news');
 Route::view('contact-us', 'main.contact-us')->name('main.contact-us');
-Route::view('faq', 'main.faq')->name('main.faq');
+Route::view('faq', 'main.faq')->name('faq');
 Route::view('careers', 'main.careers')->name('main.careers');
 Route::view('technologies', 'main.subsidiaries.tech')->name('sub.tech');
 Route::view('academy', 'main.subsidiaries.academy')->name('sub.academy');
@@ -40,7 +40,6 @@ Route::view('services', 'services')->name('services');
 Route::view('directory', 'directory')->name('directory');
 Route::view('terms', 'terms')->name('terms');
 Route::view('privacy-policy', 'privacy-policy')->name('privacy-policy');
-Route::view('faq', 'main.faq')->name('faq');
 Route::view('not-found', 'errors.404')->name('not-found');
 
 Route::get('view-mail', function () {
