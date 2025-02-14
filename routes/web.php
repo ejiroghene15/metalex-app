@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'main.home')->name('main.home');
+Route::view('/', 'main.home')->name('home');
 Route::view('about', 'main.about')->name('main.about');
 Route::view('news', 'main.news-updates')->name('main.news');
 Route::view('contact-us', 'main.contact-us')->name('main.contact-us');
@@ -36,7 +36,6 @@ Route::view('entertainment', 'main.subsidiaries.entertainment')->name('sub.enter
 Route::view('lp', 'main.subsidiaries.legal')->name('sub.legal');
 
 //Route::domain('app.' . config('app.url'))->group(function () {
-Route::view('', 'main.home')->name('home');
 Route::view('services', 'services')->name('services');
 Route::view('directory', 'directory')->name('directory');
 Route::view('about-us', 'main.about')->name('about');

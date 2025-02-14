@@ -52,7 +52,7 @@
         <div class="d-flex flex-wrap px-0 justify-content-between">
           <nav class="col-md-5 quick-links">
             <h4 class="text-white">Quick Links</h4>
-            <a class="nav-link" href="{{route('main.home')}}">Home</a>
+            <a class="nav-link" href="{{route('home')}}">Home</a>
             <a class="nav-link" href="{{route('main.about')}}">About Us</a>
             <a class="nav-link" href="{{route('main.news')}}">News & Updates</a>
             <a class="nav-link" href="{{route('main.careers')}}">Careers</a>

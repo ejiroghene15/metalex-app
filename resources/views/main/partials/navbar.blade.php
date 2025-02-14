@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-default px-0 py-3 py-lg-4" id="mg-nav-def">
   <div class="container-lg px-xxl-12">
-    <a class="navbar-brand me-0" href="{{route('main.home')}}">
+    <a class="navbar-brand me-0" href="{{route('home')}}">
       <img src="{{ asset('assets/images/brand/logo/metalex_full_logo.svg') }}" style="height: 20px; width: 125px"
            alt="">
     </a>
@@ -15,8 +15,8 @@
     <div class="collapse navbar-collapse" id="navbar-default">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a @class(['nav-link','active'=> $current_route === 'main.home']) aria-current="page"
-             href="{{route('main.home')}}">Home</a>
+          <a @class(['nav-link','active'=> $current_route === 'home']) aria-current="page"
+             href="{{route('home')}}">Home</a>
         </li>
         <li class="nav-item">
           <a @class(['nav-link','active'=> $current_route === 'main.about']) href="{{route('main.about')}}">About Us</a>
