@@ -12,7 +12,7 @@
 
   {{--  Jumbotron --}}
   <section class="pt-3 pb-8" id="ehub-jumbotron">
-    <div class="col-lg-9 mx-auto text-center">
+    <div class="col-lg-9 px-3 mx-auto text-center">
       <h2 class="text-white" id="heading">Metalex Entertainment Hub Ltd</h2>
       <p class="text-white pt-4 pb-7 px-xl-15">
         At Metalex Entertainment Hub, we redefine entertainment by nurturing artists, producing captivating content, and
@@ -55,7 +55,7 @@
               <span class="color">About</span>
               <span>Metalelex Entertainment Hub</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-ehub-s1.svg')}}" class="d-block mx-auto" alt="">
+            <img src="{{asset('assets/images/background/subsidiaries/m-ehub-s1.svg')}}" class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -143,7 +143,7 @@
   {{--  Why Choose Us --}}
   <section class="py-10" id="ehub-why-choose-us">
     <div class="col-lg-10 px-5 mx-auto">
-      <div class="row flex-lg-nowrap gap-3 flex-column-reverse flex-lg-row-reverse align-items-center">
+      <div class="row flex-lg-nowrap gap-3 flex-column-reverse flex-lg-row-reverse">
         <div class="col-lg-6" id="section-1">
           <article class="mb-5">
             <h2 class="title mb-5 d-none d-lg-block">
@@ -183,7 +183,7 @@
               <span class="color">Why</span>
               <span>Choose Us?</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-ehub-services.svg')}}" class="d-block mx-auto"
+            <img src="{{asset('assets/images/background/subsidiaries/m-ehub-services.svg')}}" class="d-block mx-auto img-fluid"
                  alt="">
           </figure>
         </div>

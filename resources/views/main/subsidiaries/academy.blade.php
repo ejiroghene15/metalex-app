@@ -65,7 +65,7 @@
   </section>
 
   {{--  Programs Offered--}}
-  <section class="py-lg-8" id="academy-programs">
+  <section class="py-8" id="academy-programs">
     <div class="col-lg-10 px-3 mx-auto pb-7">
       <header class="text-center">
         <h2 class="title mb-3">
@@ -81,9 +81,9 @@
     </div>
 
     <div class="py-6" id="projects">
-      <div class="col-lg-10 px-3 mx-auto">
+      <div class="col-lg-10 mx-auto">
         <div class="container">
-          <div class="row justify-content-center gap-5 mx-auto">
+          <div class="row justify-content-xl-center justify-content-between gap-5 mx-auto">
             {{--Tech & Digital Skills--}}
             <article class="col-md-4 article">
               <div class="card">
@@ -223,7 +223,7 @@
               <span class="color">Why</span>
               <span>Choose Us?</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-academy-2.svg')}}" class="d-block mx-auto"
+            <img src="{{asset('assets/images/background/subsidiaries/m-academy-2.svg')}}" class="d-block mx-auto img-fluid"
                  alt="">
           </figure>
         </div>

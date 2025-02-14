@@ -33,7 +33,7 @@ $font-raleway: 'Raleway', sans-serif;
 @mixin button($width, $height, $bgColor) {
   width: $width !important;
   height: $height;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: $bgColor;
   font-weight: 700;
@@ -41,7 +41,7 @@ $font-raleway: 'Raleway', sans-serif;
 }
 
 @mixin sectionTitle($spanColor: $primary-color) {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -49,6 +49,10 @@ $font-raleway: 'Raleway', sans-serif;
 
   span.color {
     color: $spanColor;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2em;
   }
 }
 
@@ -79,6 +83,10 @@ $font-raleway: 'Raleway', sans-serif;
       }
     }
 
+    > h4 {
+      font-size: 1em;
+    }
+
     .category {
       height: 24px;
       background-color: #F7E7FF;
@@ -94,13 +102,13 @@ $font-raleway: 'Raleway', sans-serif;
       font-family: $font-plus-jakarta-sans;
 
       .name {
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 600;
         line-height: 20.16px;
       }
 
       .date {
-        font-size: 14px;
+        font-size: .9em;
         font-weight: 400;
         line-height: 17.64px;
         gap: .8em;
@@ -119,12 +127,12 @@ $font-raleway: 'Raleway', sans-serif;
   place-content: center;
 
   #heading {
-    font-size: 48px;
+    font-size: 3em;
     font-weight: 900;
     line-height: 56.21px;
 
     ~ p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 500;
       line-height: 26.24px;
     }
@@ -133,9 +141,31 @@ $font-raleway: 'Raleway', sans-serif;
       ~ .btn {
         @include button($buttonWidth, $buttonHeight, $buttonColor);
         place-content: center;
+        @media (max-width: 480px) {
+          width: max-content !important;
+          padding-inline: 1.5em;
+        }
       }
     }
   }
+
+  @media (max-width: 768px) {
+    height: max-content;
+    padding-block: 3em !important;
+    #heading {
+      font-size: 2.5em;
+    }
+  }
+  @media (max-width: 768px) {
+    #heading {
+      font-size: 2em;
+      line-height: 48px;
+    }
+  }
+}
+
+html {
+  overflow-x: hidden;
 }
 
 #body {
@@ -155,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .nav-item {
       a {
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 19.5px;
         text-underline-position: from-font;
@@ -183,20 +213,20 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     h3 {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 700;
       line-height: 36px;
       color: #6A1B9A;
 
       ~ p {
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 20.8px;
         color: black;
         white-space: nowrap;
 
         &.reach-us {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 600;
           line-height: 19.5px;
         }
@@ -206,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .socials {
-      font-size: 22px;
+      font-size: 1.3em;
 
       a {
         color: $primary-color;
@@ -218,20 +248,20 @@ h1, h2, h3, h4, h5, h6 {
 #mg-def-footer {
   background-color: $deep-blue;
   padding-top: 64px;
-  padding-inline: 2em;
+  padding-inline: 1em;
 
   #about-summary {
     flex-basis: 357px;
     padding-inline: 0;
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
-      line-height: 24px;
+      line-height: 27px;
     }
 
     .contact-info p {
-      font-size: 14px;
+      font-size: .9em;
     }
   }
 
@@ -242,13 +272,13 @@ h1, h2, h3, h4, h5, h6 {
     h4 {
       font-weight: 800;
       line-height: 19.5px;
-      font-size: 16px;
+      font-size: 1em;
       margin-bottom: 1em;
     }
 
     a {
       line-height: 32px;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       padding-bottom: 7px;
     }
@@ -263,7 +293,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 3em;
 
     p {
-      font-size: 18px;
+      font-size: 1.1em;
       font-weight: 600;
       line-height: 26px;
     }
@@ -284,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     small {
-      font-size: 13px;
+      font-size: .8em;
       font-weight: 700;
       line-height: 15.85px;
     }
@@ -295,8 +325,16 @@ h1, h2, h3, h4, h5, h6 {
 #home-jumbotron {
   background-color: $deep-blue;
 
+  #tagline {
+    background-color: #CCCCCC;
+    color: #1D2A44;
+    padding: 8px;
+    font-size: .8em;
+    line-height: 88px
+  }
+
   .bt {
-    font-size: 48px;
+    font-size: 3em;
     font-weight: 900;
     line-height: 56.21px;
     margin-bottom: 42px;
@@ -309,6 +347,7 @@ h1, h2, h3, h4, h5, h6 {
 
     ~ .btn {
       @include button(258px, 54px, $primary-color);
+      place-content: center;
     }
   }
 
@@ -318,6 +357,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     line-height: 22.96px;
   }
+
+  @media (max-width: 510px) {
+    .bt {
+      font-size: 2.3em;
+      line-height: 42px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .bt {
+      font-size: 2em;
+    }
+  }
+
+
 }
 
 #record {
@@ -326,20 +380,34 @@ h1, h2, h3, h4, h5, h6 {
 
   .no {
     color: #000;
+    white-space: nowrap;
 
     h3 {
-      font-size: 48px;
+      font-size: 3em;
       font-weight: 900;
       line-height: 62.4px;
       margin-bottom: 0;
 
       ~ small {
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 20.8px;
       }
     }
+  }
 
+  @media (max-width: 440px) {
+    padding: .5em 1em;
+    .no {
+      h3 {
+        font-size: 2em;
+        line-height: 48.4px;
+
+        ~ small {
+          font-size: .7em;
+        }
+      }
+    }
   }
 }
 
@@ -355,15 +423,13 @@ h1, h2, h3, h4, h5, h6 {
 
     > h3 {
       color: $primary-color;
-      font-size: 24px;
+      font-size: 1.5em;
       font-weight: 900;
       line-height: 28.11px;
-
-
     }
 
     > p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -405,8 +471,45 @@ h1, h2, h3, h4, h5, h6 {
         }
       }
     }
-
   }
+
+  @media (max-width: 991px) {
+    #section-1 {
+      flex-basis: 100%;
+      //margin-bottom: 3em;
+    }
+    #section-2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3em;
+
+      img {
+        left: 0;
+
+        ~ .box {
+          right: 0;
+          bottom: unset;
+          margin: auto;
+          padding: 2em 3em;
+          height: auto;
+          width: 300px;
+
+          p {
+            font-size: 2.2em;
+            line-height: 31.05px;
+
+            ~ span {
+              font-size: 16px;
+              font-weight: 400;
+              line-height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
 
 #subsidiary-section {
@@ -472,10 +575,10 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     flex-basis: 576px;
 
-    .tab-pane {
+    .tab-pane, .accordion-body {
       h3 {
         margin-top: 1em;
-        font-size: 24px;
+        font-size: 1.5em;
         font-weight: 700;
         line-height: 28.11px;
         text-align: left;
@@ -483,9 +586,9 @@ h1, h2, h3, h4, h5, h6 {
 
         ~ p {
           margin-block: 1em;
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 400;
-          line-height: 21.92px;
+          line-height: 27px;
           color: #000;
         }
 
@@ -493,6 +596,20 @@ h1, h2, h3, h4, h5, h6 {
           @include button(144px, 43px, $primary-color);
           font-size: 16px;
           border-radius: 8px;
+        }
+      }
+    }
+
+    .accordion-body {
+      figure {
+        border-radius: 20px;
+        max-height: 400px;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
         }
       }
     }
@@ -515,9 +632,13 @@ h1, h2, h3, h4, h5, h6 {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 700;
       line-height: 19.5px;
+
+      @media (max-width: 400px) {
+        font-size: .7em;
+      }
     }
 
     @include news-update-component;
@@ -530,8 +651,12 @@ h1, h2, h3, h4, h5, h6 {
 
   > .title {
     @include sectionTitle;
+    @media (max-width: 480px) {
+      width: 90%;
+      margin-inline: auto;
+      line-height: 1.7em;
+    }
   }
-
 
   .carousel-track {
     display: flex;
@@ -542,7 +667,7 @@ h1, h2, h3, h4, h5, h6 {
     animation: scroll 5s linear infinite;
 
     .testimonial {
-      flex-basis: 350px;
+      width: 350px;
       margin-inline: auto;
     }
 
@@ -571,8 +696,6 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
   }
-
-
 }
 
 #contact-us {
@@ -591,7 +714,7 @@ h1, h2, h3, h4, h5, h6 {
       @include font($font-raleway);
 
       h3 {
-        font-size: 32px;
+        font-size: 2em;
         font-weight: 800;
         line-height: 37.57px;
         font-family: inherit;
@@ -599,7 +722,7 @@ h1, h2, h3, h4, h5, h6 {
       }
 
       p {
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 500;
         line-height: 24px;
         color: #4B2E20;
@@ -625,7 +748,7 @@ h1, h2, h3, h4, h5, h6 {
       .btn {
         @include button(232px, 65px, $primary-color);
         box-shadow: -3px 10px 11.7px 0px #6A1B9A4D;
-        font-size: 24px;
+        font-size: 1.3em;
         font-weight: 800;
         line-height: 28.18px;
         font-family: $font-raleway;
@@ -644,13 +767,13 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
       }
@@ -658,7 +781,7 @@ h1, h2, h3, h4, h5, h6 {
       &:nth-child(2) {
         .title {
           font-weight: 700;
-          font-size: 32px;
+          font-size: 1.8em;
         }
       }
     }
@@ -675,8 +798,13 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
+
+        @media (max-width: 420px) {
+          font-size: 1.7em;
+          line-height: 40px;
+        }
       }
 
       @media screen and (max-width: 991px) {
@@ -700,18 +828,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           color: $primary-color;
           font-weight: 600;
           display: block;
@@ -731,7 +859,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -755,12 +883,12 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle;
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -798,13 +926,13 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         h3 {
-          font-size: 14px;
+          font-size: 1em;
           font-weight: 700;
           line-height: 22.96px;
         }
 
         p {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 400;
           line-height: 22.96px;
           color: $deep-blue;
@@ -816,7 +944,7 @@ h1, h2, h3, h4, h5, h6 {
         .btn {
           @include button(132px, 34px, $primary-color);
           border-radius: 4px;
-          font-size: 14px;
+          font-size: 1em;
           font-weight: 700;
           line-height: 17.07px;
         }
@@ -843,18 +971,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 700;
           display: block;
         }
@@ -873,7 +1001,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -893,13 +1021,13 @@ h1, h2, h3, h4, h5, h6 {
 
 #abt-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 1.8em;
     font-weight: 900;
     line-height: 37.47px;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 24px;
   }
@@ -907,6 +1035,10 @@ h1, h2, h3, h4, h5, h6 {
   .btn {
     @include button(302px, 54px, $primary-color);
     place-content: center;
+    @media (max-width: 380px) {
+      width: max-content !important;
+      padding-inline: 2em;
+    }
   }
 }
 
@@ -987,13 +1119,13 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
       }
@@ -1007,7 +1139,7 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         ol li {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 400;
           line-height: 27px;
           margin-bottom: 10px;
@@ -1020,6 +1152,10 @@ h1, h2, h3, h4, h5, h6 {
   #section-2 {
     figure {
       border-radius: 24px;
+
+      h2.title {
+        font-size: 1.5em;
+      }
 
       img {
         object-fit: cover;
@@ -1045,12 +1181,12 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle;
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -1082,10 +1218,10 @@ h1, h2, h3, h4, h5, h6 {
         color: $deep-blue;
 
         h3 {
-          font-size: 14px;
+          font-size: 1em;
           font-weight: 700;
           line-height: 22.96px;
-          margin-bottom: 0px;
+          margin-bottom: 0;
         }
 
         hr {
@@ -1094,7 +1230,7 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         p {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 600;
           line-height: 22.96px;
           color: $deep-blue;
@@ -1106,7 +1242,7 @@ h1, h2, h3, h4, h5, h6 {
         .btn {
           @include button(91px, 34px, #007BFF);
           border-radius: 4px;
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 700;
           line-height: 17.07px;
         }
@@ -1171,18 +1307,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 700;
           display: block;
         }
@@ -1201,7 +1337,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle;
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -1221,13 +1357,13 @@ h1, h2, h3, h4, h5, h6 {
 
 #job-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 900;
     line-height: 37.47px;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 24px;
   }
@@ -1249,18 +1385,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-electric-blue);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 600;
           display: block;
         }
@@ -1304,7 +1440,7 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle;
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
 
       span.color {
@@ -1313,7 +1449,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -1345,13 +1481,13 @@ h1, h2, h3, h4, h5, h6 {
         color: $deep-blue;
 
         h3 {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 700;
           line-height: 26.24px;
         }
 
         p {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 400;
           line-height: 22.96px;
           color: $deep-blue;
@@ -1391,7 +1527,7 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle;
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
 
       span.color {
@@ -1400,7 +1536,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -1419,6 +1555,7 @@ h1, h2, h3, h4, h5, h6 {
       flex-basis: 352px;
       margin-inline: auto;
       padding-inline: 0;
+      flex-grow: 1;
 
       .card {
         border-radius: 24px;
@@ -1456,23 +1593,23 @@ h1, h2, h3, h4, h5, h6 {
 
 #tech-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 900;
     line-height: 37.47px;
     color: $primary-electric-blue;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 24px;
   }
 
   .btn {
-    @media (min-width: 561px) {
-      @include button(258px, 54px, $primary-electric-blue);
-      place-content: center;
-    }
+    //@media (min-width: 561px) {
+    @include button(258px, 54px, $primary-electric-blue);
+    place-content: center;
+    //}
   }
 
 }
@@ -1487,18 +1624,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-green);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 600;
           display: block;
         }
@@ -1518,7 +1655,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-green);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -1542,12 +1679,12 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle($primary-green);
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -1569,6 +1706,10 @@ h1, h2, h3, h4, h5, h6 {
     .subsidiary-card {
       position: relative;
 
+      figure img {
+        width: 100%;
+      }
+
       > * {
         z-index: 1;
         height: 267px;
@@ -1580,13 +1721,13 @@ h1, h2, h3, h4, h5, h6 {
         padding-block: 2em;
 
         h3 {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 700;
           line-height: 26.24px;
         }
 
         p {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 400;
           line-height: 22.96px;
           color: $deep-blue;
@@ -1616,19 +1757,19 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-green);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 27px;
         margin-bottom: 1.5em;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 800;
           display: block;
           color: $primary-green;
@@ -1648,7 +1789,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-green);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -1668,7 +1809,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #publication-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 1.8em;
     font-weight: 900;
     line-height: 37.47px;
     color: $primary-green;
@@ -1681,10 +1822,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .btn {
-    @media (min-width: 561px) {
-      @include button(327px, 54px, $primary-green);
-      place-content: center;
+    //@media (min-width: 561px) {
+    @include button(327px, 54px, $primary-green);
+    place-content: center;
+    @media (max-width: 561px) {
+      width: max-content !important;
+      padding-inline: 1em;
     }
+    //}
   }
 
 }
@@ -1699,18 +1844,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-yellow);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 600;
           display: block;
         }
@@ -1730,7 +1875,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-yellow);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -1754,12 +1899,12 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle($primary-yellow);
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -1797,14 +1942,14 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         h3 {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 700;
           line-height: 23px;
           padding-right: 10px;
         }
 
         p {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 400;
           line-height: 22.96px;
           color: $deep-blue;
@@ -1832,19 +1977,19 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-yellow);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 27px;
         margin-bottom: 1.5em;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 800;
           display: block;
           //color: $primary-yellow;
@@ -1864,7 +2009,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-yellow);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -1884,24 +2029,28 @@ h1, h2, h3, h4, h5, h6 {
 
 #ehub-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 900;
     line-height: 37.47px;
     color: #000;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 24px;
     color: #000;
   }
 
   .btn {
-    @media (min-width: 561px) {
-      @include button(302px, 54px, $primary-yellow);
-      place-content: center;
+    //@media (min-width: 561px) {
+    @include button(302px, 54px, $primary-yellow);
+    place-content: center;
+    @media (max-width: 561px) {
+      width: max-content !important;
+      padding-inline: 1.5em;
     }
+    //}
   }
 
 }
@@ -1916,18 +2065,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-teal);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 600;
           display: block;
         }
@@ -1947,7 +2096,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-teal);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -1971,12 +2120,12 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle($primary-teal);
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -1991,6 +2140,7 @@ h1, h2, h3, h4, h5, h6 {
   .card-container {
     flex-basis: 256px;
     width: 100%;
+
     @media (max-width: 768px) {
       flex-basis: auto;
     }
@@ -2015,14 +2165,14 @@ h1, h2, h3, h4, h5, h6 {
         }
 
         h3 {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 700;
           line-height: 23px;
           padding-right: 2em;
         }
 
         p {
-          font-size: 14px;
+          font-size: .9em;
           font-weight: 400;
           line-height: 22.96px;
           color: $deep-blue;
@@ -2050,13 +2200,13 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-teal);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 27px;
         margin-bottom: 1.5em;
@@ -2075,7 +2225,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-teal);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -2095,23 +2245,27 @@ h1, h2, h3, h4, h5, h6 {
 
 #legal-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 900;
     line-height: 37.47px;
     color: $primary-teal;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 24px;
   }
 
   .btn {
-    @media (min-width: 561px) {
-      @include button(327px, 54px, $primary-teal);
-      place-content: center;
+    //@media (min-width: 561px) {
+    @include button(327px, 54px, $primary-teal);
+    place-content: center;
+    @media (max-width: 561px) {
+      width: max-content !important;
+      padding-inline: 1.5em;
     }
+    //}
   }
 
 }
@@ -2127,18 +2281,18 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-orange);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 28px;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 600;
           display: block;
         }
@@ -2158,7 +2312,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-orange);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -2182,12 +2336,12 @@ h1, h2, h3, h4, h5, h6 {
   header {
     .title {
       @include sectionTitle($primary-orange);
-      font-size: 32px;
+      font-size: 2em;
       line-height: 38px;
     }
 
     p {
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26.24px;
       color: $deep-blue;
@@ -2210,6 +2364,11 @@ h1, h2, h3, h4, h5, h6 {
       flex-basis: 480px;
       padding-inline: 0;
 
+      @media (max-width: 1220px) {
+        flex-basis: 400px;
+        flex-grow: 1;
+      }
+
       .card {
         border-radius: 24px;
         box-shadow: 0 0 14.5px 0 #0000001A !important;
@@ -2217,8 +2376,10 @@ h1, h2, h3, h4, h5, h6 {
 
         .program-content {
           padding-bottom: 1.5em;
+
           h3 {
             font-weight: 700;
+            font-size: 1.2em;
           }
 
           hr {
@@ -2226,16 +2387,22 @@ h1, h2, h3, h4, h5, h6 {
           }
 
           h5 {
-            font-size: 14px;
+            font-size: .9em;
             font-weight: 700;
             line-height: 22.96px;
+          }
+
+          p {
+            font-size: .9em;
+            font-weight: 400;
+            line-height: 26.96px;
           }
         }
 
         .explore-proj-btn {
           @include button(160px, 34px, $primary-orange);
           place-content: center;
-          font-size: 14px;
+          font-size: .9em;
           line-height: 17.07px;
           color: #fff;
           border-radius: 8px;
@@ -2266,19 +2433,19 @@ h1, h2, h3, h4, h5, h6 {
     article {
       .title {
         @include sectionTitle($primary-orange);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 38px;
       }
 
       p {
         color: $deep-blue;
-        font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         line-height: 27px;
         margin-bottom: 1.5em;
 
         .lead {
-          font-size: 16px;
+          font-size: 1em;
           font-weight: 700;
           display: block;
         }
@@ -2297,7 +2464,7 @@ h1, h2, h3, h4, h5, h6 {
 
       .title {
         @include sectionTitle($primary-orange);
-        font-size: 32px;
+        font-size: 2em;
         line-height: 45px;
       }
 
@@ -2317,23 +2484,23 @@ h1, h2, h3, h4, h5, h6 {
 
 #academy-join-us {
   h3 {
-    font-size: 32px;
+    font-size: 2em;
     font-weight: 900;
     line-height: 37.47px;
     color: $primary-orange;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 24px;
   }
 
   .btn {
-    @media (min-width: 561px) {
-      @include button(258px, 54px, $primary-orange);
-      place-content: center;
-    }
+    //@media (min-width: 561px) {
+    @include button(258px, 54px, $primary-orange);
+    place-content: center;
+    //}
   }
 
 }

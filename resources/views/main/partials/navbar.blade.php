@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-default px-0 py-3 py-lg-4" id="mg-nav-def">
-  <div class="container-lg px-lg-12">
+  <div class="container-lg px-xxl-12">
     <a class="navbar-brand me-0" href="{{route('main.home')}}">
       <img src="{{ asset('assets/images/brand/logo/metalex_full_logo.svg') }}" style="height: 20px; width: 125px"
            alt="">
@@ -68,8 +68,13 @@
       </ul>
 
       <div class=" d-flex align-items-center mt-2 mt-md-0 pt-2 py-lg-0">
-        <a href="{{ route('register') }}" class="btn text-white" style="border-radius: 12px; background-color: #6A1B9A">Contact
+        <a href="{{ route('main.contact-us') }}" class="btn text-white" style="border-radius: 12px; background-color: #6A1B9A">Contact
           Us</a>
+
+        <a href="#" class="form-check form-switch theme-switch btn btn-light btn-icon rounded-circle d-none">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+        </a>
       </div>
     </div>
 

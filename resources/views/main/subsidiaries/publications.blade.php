@@ -12,7 +12,7 @@
 
   {{--  Jumbotron --}}
   <section class="pt-3 pb-8" id="publication-jumbotron">
-    <div class="col-lg-9 mx-auto text-center">
+    <div class="col-lg-9 px-3 mx-auto text-center">
       <h2 class="text-white" id="heading">Metalex Publications Ltd</h2>
       <p class="text-white pt-4 pb-7 px-xl-15">
         At Metalex Publications, we transform ideas into impactful publications. From legal insights to academic
@@ -62,7 +62,7 @@
               <span class="color">About</span>
               <span>Metalex Publications</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-pub-s1.svg')}}" class="d-block mx-auto" alt="">
+            <img src="{{asset('assets/images/background/subsidiaries/m-pub-s1.svg')}}" class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -138,7 +138,7 @@
   {{--  Our Services --}}
   <section class="py-10" id="publication-services">
     <div class="col-lg-10 px-5 mx-auto">
-      <div class="row flex-lg-nowrap gap-3 flex-column-reverse flex-lg-row-reverse align-items-center">
+      <div class="row flex-lg-nowrap gap-3 flex-column-reverse flex-lg-row-reverse">
         <div class="col-lg-6" id="section-1">
           <article class="mb-5">
             <h2 class="title mb-5 d-none d-lg-block">
@@ -175,7 +175,7 @@
               <span>Our</span>
               <span class="color">Services</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-pub-services.svg')}}" class="d-block mx-auto"
+            <img src="{{asset('assets/images/background/subsidiaries/m-pub-services.svg')}}" class="d-block mx-auto img-fluid"
                  alt="">
           </figure>
         </div>

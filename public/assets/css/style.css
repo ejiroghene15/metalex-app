@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+html {
+  overflow-x: hidden;
+}
+
 #body {
   font-family: "Montserrat", serif;
   font-optical-sizing: auto;
@@ -16,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
   column-gap: 32px;
 }
 #mg-nav-def .navbar-nav .nav-item a {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 19.5px;
   text-underline-position: from-font;
@@ -39,25 +43,25 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid #7E7E7E;
 }
 #before-footer .item h3 {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 36px;
   color: #6A1B9A;
 }
 #before-footer .item h3 ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 20.8px;
   color: black;
   white-space: nowrap;
 }
 #before-footer .item h3 ~ p.reach-us {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   line-height: 19.5px;
 }
 #before-footer .item .socials {
-  font-size: 22px;
+  font-size: 1.3em;
 }
 #before-footer .item .socials a {
   color: #6A1B9A;
@@ -66,19 +70,19 @@ h1, h2, h3, h4, h5, h6 {
 #mg-def-footer {
   background-color: #1D2A44;
   padding-top: 64px;
-  padding-inline: 2em;
+  padding-inline: 1em;
 }
 #mg-def-footer #about-summary {
   flex-basis: 357px;
   padding-inline: 0;
 }
 #mg-def-footer #about-summary p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 27px;
 }
 #mg-def-footer #about-summary .contact-info p {
-  font-size: 14px;
+  font-size: 0.9em;
 }
 #mg-def-footer nav.quick-links {
   padding-inline: 0;
@@ -86,12 +90,12 @@ h1, h2, h3, h4, h5, h6 {
 #mg-def-footer nav.quick-links h4 {
   font-weight: 800;
   line-height: 19.5px;
-  font-size: 16px;
+  font-size: 1em;
   margin-bottom: 1em;
 }
 #mg-def-footer nav.quick-links a {
   line-height: 32px;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   padding-bottom: 7px;
 }
@@ -104,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 3em;
 }
 #mg-def-footer section.newsletter p {
-  font-size: 18px;
+  font-size: 1.1em;
   font-weight: 600;
   line-height: 26px;
 }
@@ -121,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: -10px;
 }
 #mg-def-footer section.newsletter small {
-  font-size: 13px;
+  font-size: 0.8em;
   font-weight: 700;
   line-height: 15.85px;
 }
@@ -129,8 +133,15 @@ h1, h2, h3, h4, h5, h6 {
 #home-jumbotron {
   background-color: #1D2A44;
 }
+#home-jumbotron #tagline {
+  background-color: #CCCCCC;
+  color: #1D2A44;
+  padding: 8px;
+  font-size: 0.8em;
+  line-height: 88px;
+}
 #home-jumbotron .bt {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   margin-bottom: 42px;
@@ -143,17 +154,29 @@ h1, h2, h3, h4, h5, h6 {
 #home-jumbotron .bt ~ .btn {
   width: 258px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
   line-height: 24.38px;
+  place-content: center;
 }
 #home-jumbotron .tt {
   font-size: 14px;
   font-style: italic;
   font-weight: 400;
   line-height: 22.96px;
+}
+@media (max-width: 510px) {
+  #home-jumbotron .bt {
+    font-size: 2.3em;
+    line-height: 42px;
+  }
+}
+@media (max-width: 420px) {
+  #home-jumbotron .bt {
+    font-size: 2em;
+  }
 }
 
 #record {
@@ -162,24 +185,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 #record .no {
   color: #000;
+  white-space: nowrap;
 }
 #record .no h3 {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 62.4px;
   margin-bottom: 0;
 }
 #record .no h3 ~ small {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 20.8px;
+}
+@media (max-width: 440px) {
+  #record {
+    padding: 0.5em 1em;
+  }
+  #record .no h3 {
+    font-size: 2em;
+    line-height: 48.4px;
+  }
+  #record .no h3 ~ small {
+    font-size: 0.7em;
+  }
 }
 
 #about-section {
   background-color: white;
 }
 #about-section > .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -188,17 +224,22 @@ h1, h2, h3, h4, h5, h6 {
 #about-section > .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #about-section > .title {
+    font-size: 2em;
+  }
+}
 #about-section #section-1 {
   flex-basis: 592px;
 }
 #about-section #section-1 > h3 {
   color: #6A1B9A;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 900;
   line-height: 28.11px;
 }
 #about-section #section-1 > p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -206,7 +247,7 @@ h1, h2, h3, h4, h5, h6 {
 #about-section #section-1 #learn-more {
   width: 192px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
@@ -238,12 +279,43 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 37.47px;
 }
+@media (max-width: 991px) {
+  #about-section #section-1 {
+    flex-basis: 100%;
+  }
+  #about-section #section-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3em;
+  }
+  #about-section #section-2 img {
+    left: 0;
+  }
+  #about-section #section-2 img ~ .box {
+    right: 0;
+    bottom: unset;
+    margin: auto;
+    padding: 2em 3em;
+    height: auto;
+    width: 300px;
+  }
+  #about-section #section-2 img ~ .box p {
+    font-size: 2.2em;
+    line-height: 31.05px;
+  }
+  #about-section #section-2 img ~ .box p ~ span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+}
 
 #subsidiary-section {
   background-color: #FDF9FE;
 }
 #subsidiary-section > .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -251,6 +323,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 #subsidiary-section > .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #subsidiary-section > .title {
+    font-size: 2em;
+  }
 }
 #subsidiary-section .left {
   flex-basis: 422px;
@@ -301,25 +378,25 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 12px;
   flex-basis: 576px;
 }
-#subsidiary-section .right .tab-pane h3 {
+#subsidiary-section .right .tab-pane h3, #subsidiary-section .right .accordion-body h3 {
   margin-top: 1em;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: 700;
   line-height: 28.11px;
   text-align: left;
   color: #6A1B9A;
 }
-#subsidiary-section .right .tab-pane h3 ~ p {
+#subsidiary-section .right .tab-pane h3 ~ p, #subsidiary-section .right .accordion-body h3 ~ p {
   margin-block: 1em;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
-  line-height: 21.92px;
+  line-height: 27px;
   color: #000;
 }
-#subsidiary-section .right .tab-pane h3 ~ .btn {
+#subsidiary-section .right .tab-pane h3 ~ .btn, #subsidiary-section .right .accordion-body h3 ~ .btn {
   width: 144px !important;
   height: 43px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
@@ -327,12 +404,22 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 16px;
   border-radius: 8px;
 }
+#subsidiary-section .right .accordion-body figure {
+  border-radius: 20px;
+  max-height: 400px;
+  overflow: hidden;
+}
+#subsidiary-section .right .accordion-body figure img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 
 #news-updates {
   background-color: white;
 }
 #news-updates > .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -340,6 +427,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 #news-updates > .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #news-updates > .title {
+    font-size: 2em;
+  }
 }
 #news-updates .container > #body {
   background-color: #F7E7FF;
@@ -349,9 +441,14 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 19.5px;
+}
+@media (max-width: 400px) {
+  #news-updates .container > #body > header {
+    font-size: 0.7em;
+  }
 }
 #news-updates .container > #body .article {
   flex-basis: 352px;
@@ -376,6 +473,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
 }
+#news-updates .container > #body .article > h4 {
+  font-size: 1em;
+}
 #news-updates .container > #body .article .category {
   height: 24px;
   background-color: #F7E7FF;
@@ -390,12 +490,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 #news-updates .container > #body .article .author-container .name {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   line-height: 20.16px;
 }
 #news-updates .container > #body .article .author-container .date {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 17.64px;
   gap: 0.8em;
@@ -408,7 +508,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
 }
 #testimonials > .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -416,6 +516,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 #testimonials > .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #testimonials > .title {
+    font-size: 2em;
+  }
+}
+@media (max-width: 480px) {
+  #testimonials > .title {
+    width: 90%;
+    margin-inline: auto;
+    line-height: 1.7em;
+  }
 }
 #testimonials .carousel-track {
   display: flex;
@@ -426,7 +538,7 @@ h1, h2, h3, h4, h5, h6 {
   animation: scroll 5s linear infinite;
 }
 #testimonials .carousel-track .testimonial {
-  flex-basis: 350px;
+  width: 350px;
   margin-inline: auto;
 }
 #testimonials .carousel-track footer {
@@ -455,7 +567,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
 }
 #contact-us > .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -463,6 +575,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 #contact-us > .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #contact-us > .title {
+    font-size: 2em;
+  }
 }
 #contact-us #body {
   box-shadow: 0 0 5.9px 0 rgba(0, 0, 0, 0.1019607843);
@@ -475,14 +592,14 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
 }
 #contact-us #body #info h3 {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 800;
   line-height: 37.57px;
   font-family: inherit;
   color: #6A1B9A;
 }
 #contact-us #body #info p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 24px;
   color: #4B2E20;
@@ -503,13 +620,13 @@ h1, h2, h3, h4, h5, h6 {
 #contact-us #body #form .btn {
   width: 232px !important;
   height: 65px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
   line-height: 24.38px;
   box-shadow: -3px 10px 11.7px 0px rgba(106, 27, 154, 0.3019607843);
-  font-size: 24px;
+  font-size: 1.3em;
   font-weight: 800;
   line-height: 28.18px;
   font-family: "Raleway", sans-serif;
@@ -521,47 +638,73 @@ h1, h2, h3, h4, h5, h6 {
   place-content: center;
 }
 #abt-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #abt-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #abt-jumbotron #heading ~ .btn {
   width: 195px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #abt-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #abt-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #abt-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #abt-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 
 #abt-who-we-are #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #abt-who-we-are #section-1 article .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #abt-who-we-are #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #abt-who-we-are #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #abt-who-we-are #section-1 article:nth-child(2) .title {
   font-weight: 700;
-  font-size: 32px;
+  font-size: 1.8em;
 }
 #abt-who-we-are #section-2 figure {
   border-radius: 24px;
@@ -571,16 +714,27 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #abt-who-we-are #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #abt-who-we-are #section-2 figure .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #abt-who-we-are #section-2 figure .title {
+    font-size: 2em;
+  }
+}
+@media (max-width: 420px) {
+  #abt-who-we-are #section-2 figure .title {
+    font-size: 1.7em;
+    line-height: 40px;
+  }
 }
 @media screen and (max-width: 991px) {
   #abt-who-we-are #section-2 figure {
@@ -597,25 +751,30 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FDF9FE;
 }
 #abt-mission-vision #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #abt-mission-vision #section-1 article .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #abt-mission-vision #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #abt-mission-vision #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #abt-mission-vision #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   color: #6A1B9A;
   font-weight: 600;
   display: block;
@@ -628,16 +787,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #abt-mission-vision #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #abt-mission-vision #section-2 figure .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #abt-mission-vision #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #abt-mission-vision #section-2 figure {
@@ -654,19 +818,24 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #F7E7FF;
 }
 #abt-subsidiaries header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #abt-subsidiaries header .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #abt-subsidiaries header .title {
+    font-size: 2em;
+  }
+}
 #abt-subsidiaries header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -704,12 +873,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 #abt-subsidiaries .card-container .subsidiary-card > * h3 {
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 22.96px;
 }
 #abt-subsidiaries .card-container .subsidiary-card > * p {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 22.96px;
   color: #1D2A44;
@@ -722,13 +891,13 @@ h1, h2, h3, h4, h5, h6 {
 #abt-subsidiaries .card-container .subsidiary-card > * .btn {
   width: 132px !important;
   height: 34px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
   line-height: 24.38px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 17.07px;
 }
@@ -745,25 +914,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #abt-why-choose-us #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #abt-why-choose-us #section-1 article .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #abt-why-choose-us #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #abt-why-choose-us #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #abt-why-choose-us #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   display: block;
 }
@@ -775,16 +949,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #abt-why-choose-us #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #abt-why-choose-us #section-2 figure .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #abt-why-choose-us #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #abt-why-choose-us #section-2 figure {
@@ -798,24 +977,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #abt-join-us h3 {
-  font-size: 32px;
+  font-size: 1.8em;
   font-weight: 900;
   line-height: 37.47px;
 }
 #abt-join-us p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 24px;
 }
 #abt-join-us .btn {
   width: 302px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
+}
+@media (max-width: 380px) {
+  #abt-join-us .btn {
+    width: max-content !important;
+    padding-inline: 2em;
+  }
 }
 
 #news-jumbotron, #faq-jumbotron {
@@ -825,14 +1010,29 @@ h1, h2, h3, h4, h5, h6 {
   height: 312px;
 }
 #news-jumbotron #heading, #faq-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #news-jumbotron #heading ~ p, #faq-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
+}
+@media (max-width: 768px) {
+  #news-jumbotron, #faq-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #news-jumbotron #heading, #faq-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #news-jumbotron #heading, #faq-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
 }
 
 #news-n-updates #nav-slider {
@@ -899,6 +1099,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
 }
+#news-n-updates .article > h4 {
+  font-size: 1em;
+}
 #news-n-updates .article .category {
   height: 24px;
   background-color: #F7E7FF;
@@ -913,12 +1116,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 #news-n-updates .article .author-container .name {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   line-height: 20.16px;
 }
 #news-n-updates .article .author-container .date {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 17.64px;
   gap: 0.8em;
@@ -928,7 +1131,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #faqs > h3 {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -939,6 +1142,11 @@ h1, h2, h3, h4, h5, h6 {
 #faqs > h3 span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #faqs > h3 {
+    font-size: 2em;
+  }
+}
 
 #career-jumbotron {
   background-color: #1D2A44;
@@ -946,44 +1154,70 @@ h1, h2, h3, h4, h5, h6 {
   place-content: center;
 }
 #career-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #career-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #career-jumbotron #heading ~ .btn {
   width: 258px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #career-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #career-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #career-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #career-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 #career-jumbotron #heading ~ .btn {
   border-radius: 0 12px 0 12px;
 }
 
 #career-info #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #career-info #section-1 article .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #career-info #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #career-info #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
@@ -995,7 +1229,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 5px;
 }
 #career-info #section-1 article #why ol li {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 27px;
   margin-bottom: 10px;
@@ -1003,6 +1237,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 #career-info #section-2 figure {
   border-radius: 24px;
+}
+#career-info #section-2 figure h2.title {
+  font-size: 1.5em;
 }
 #career-info #section-2 figure img {
   object-fit: cover;
@@ -1023,19 +1260,24 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FDF9FE;
 }
 #job-roles header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #job-roles header .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #job-roles header .title {
+    font-size: 2em;
+  }
+}
 #job-roles header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -1068,17 +1310,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #1D2A44;
 }
 #job-roles .card-container .subsidiary-card > * h3 {
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 22.96px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 #job-roles .card-container .subsidiary-card > * hr {
   margin-block: 0.6em;
   color: #8F8F8F;
 }
 #job-roles .card-container .subsidiary-card > * p {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 600;
   line-height: 22.96px;
   color: #1D2A44;
@@ -1091,13 +1333,13 @@ h1, h2, h3, h4, h5, h6 {
 #job-roles .card-container .subsidiary-card > * .btn {
   width: 91px !important;
   height: 34px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #007BFF;
   font-weight: 700;
   line-height: 24.38px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 700;
   line-height: 17.07px;
 }
@@ -1135,25 +1377,30 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #F7E7FF;
 }
 #career-why #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #career-why #section-1 article .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #career-why #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #career-why #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #career-why #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   display: block;
 }
@@ -1165,16 +1412,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #career-why #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #career-why #section-2 figure .title span.color {
   color: #6A1B9A;
+}
+@media (max-width: 480px) {
+  #career-why #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #career-why #section-2 figure {
@@ -1188,19 +1440,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #job-join-us h3 {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 900;
   line-height: 37.47px;
 }
 #job-join-us p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 24px;
 }
 #job-join-us .btn {
   width: 258px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #6A1B9A;
   font-weight: 700;
@@ -1214,46 +1466,72 @@ h1, h2, h3, h4, h5, h6 {
   place-content: center;
 }
 #tech-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #tech-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #tech-jumbotron #heading ~ .btn {
   width: 258px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #007BFF;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #tech-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #tech-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #tech-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #tech-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 
 #tech-about #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #tech-about #section-1 article .title span.color {
   color: #007BFF;
 }
+@media (max-width: 480px) {
+  #tech-about #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #tech-about #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #tech-about #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   display: block;
 }
@@ -1265,7 +1543,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #tech-about #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
@@ -1275,6 +1553,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 #tech-about #section-2 figure .title span.color {
   color: #007BFF;
+}
+@media (max-width: 480px) {
+  #tech-about #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #tech-about #section-2 figure {
@@ -1291,22 +1574,27 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #EDF6FF;
 }
 #tech-services header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #tech-services header .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #tech-services header .title {
+    font-size: 2em;
+  }
+}
 #tech-services header .title span.color {
   color: #007BFF;
 }
 #tech-services header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -1339,12 +1627,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #1D2A44;
 }
 #tech-services .card-container .subsidiary-card > * h3 {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 26.24px;
 }
 #tech-services .card-container .subsidiary-card > * p {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 22.96px;
   color: #1D2A44;
@@ -1357,7 +1645,7 @@ h1, h2, h3, h4, h5, h6 {
 #tech-services .card-container .subsidiary-card > * .btn {
   width: 91px !important;
   height: 34px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #007BFF;
   font-weight: 700;
@@ -1383,22 +1671,27 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #fff;
 }
 #tech-portfolio header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #tech-portfolio header .title span.color {
   color: #6A1B9A;
 }
+@media (max-width: 480px) {
+  #tech-portfolio header .title {
+    font-size: 2em;
+  }
+}
 #tech-portfolio header .title span.color {
   color: #007BFF;
 }
 #tech-portfolio header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -1416,6 +1709,7 @@ h1, h2, h3, h4, h5, h6 {
   flex-basis: 352px;
   margin-inline: auto;
   padding-inline: 0;
+  flex-grow: 1;
 }
 #tech-portfolio #projects .article .card {
   border-radius: 24px;
@@ -1443,27 +1737,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #tech-join-us h3 {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 900;
   line-height: 37.47px;
   color: #007BFF;
 }
 #tech-join-us p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 24px;
 }
-@media (min-width: 561px) {
-  #tech-join-us .btn {
-    width: 258px !important;
-    height: 54px;
-    font-size: 20px;
-    border-radius: 12px;
-    background-color: #007BFF;
-    font-weight: 700;
-    line-height: 24.38px;
-    place-content: center;
-  }
+#tech-join-us .btn {
+  width: 258px !important;
+  height: 54px;
+  font-size: 1.3em;
+  border-radius: 12px;
+  background-color: #007BFF;
+  font-weight: 700;
+  line-height: 24.38px;
+  place-content: center;
 }
 
 #publication-jumbotron {
@@ -1472,46 +1764,72 @@ h1, h2, h3, h4, h5, h6 {
   place-content: center;
 }
 #publication-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #publication-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #publication-jumbotron #heading ~ .btn {
   width: 341px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #228B22;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #publication-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #publication-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #publication-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #publication-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 
 #publication-about #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #publication-about #section-1 article .title span.color {
   color: #228B22;
 }
+@media (max-width: 480px) {
+  #publication-about #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #publication-about #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #publication-about #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   display: block;
 }
@@ -1523,16 +1841,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #publication-about #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #publication-about #section-2 figure .title span.color {
   color: #228B22;
+}
+@media (max-width: 480px) {
+  #publication-about #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #publication-about #section-2 figure {
@@ -1549,19 +1872,24 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #E2F0E2;
 }
 #publication-categories header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #publication-categories header .title span.color {
   color: #228B22;
 }
+@media (max-width: 480px) {
+  #publication-categories header .title {
+    font-size: 2em;
+  }
+}
 #publication-categories header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -1584,6 +1912,9 @@ h1, h2, h3, h4, h5, h6 {
 #publication-categories .card-container .subsidiary-card {
   position: relative;
 }
+#publication-categories .card-container .subsidiary-card figure img {
+  width: 100%;
+}
 #publication-categories .card-container .subsidiary-card > * {
   z-index: 1;
   height: 267px;
@@ -1595,12 +1926,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-block: 2em;
 }
 #publication-categories .card-container .subsidiary-card > * h3 {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   line-height: 26.24px;
 }
 #publication-categories .card-container .subsidiary-card > * p {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 22.96px;
   color: #1D2A44;
@@ -1623,26 +1954,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #publication-services #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #publication-services #section-1 article .title span.color {
   color: #228B22;
 }
+@media (max-width: 480px) {
+  #publication-services #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #publication-services #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 27px;
   margin-bottom: 1.5em;
 }
 #publication-services #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 800;
   display: block;
   color: #228B22;
@@ -1655,16 +1991,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #publication-services #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #publication-services #section-2 figure .title span.color {
   color: #228B22;
+}
+@media (max-width: 480px) {
+  #publication-services #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #publication-services #section-2 figure {
@@ -1678,7 +2019,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #publication-join-us h3 {
-  font-size: 32px;
+  font-size: 1.8em;
   font-weight: 900;
   line-height: 37.47px;
   color: #228B22;
@@ -1688,16 +2029,20 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 24px;
 }
-@media (min-width: 561px) {
+#publication-join-us .btn {
+  width: 327px !important;
+  height: 54px;
+  font-size: 1.3em;
+  border-radius: 12px;
+  background-color: #228B22;
+  font-weight: 700;
+  line-height: 24.38px;
+  place-content: center;
+}
+@media (max-width: 561px) {
   #publication-join-us .btn {
-    width: 327px !important;
-    height: 54px;
-    font-size: 20px;
-    border-radius: 12px;
-    background-color: #228B22;
-    font-weight: 700;
-    line-height: 24.38px;
-    place-content: center;
+    width: max-content !important;
+    padding-inline: 1em;
   }
 }
 
@@ -1707,46 +2052,72 @@ h1, h2, h3, h4, h5, h6 {
   place-content: center;
 }
 #ehub-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #ehub-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #ehub-jumbotron #heading ~ .btn {
   width: 341px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #FFD700;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #ehub-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #ehub-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #ehub-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #ehub-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 
 #ehub-about #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #ehub-about #section-1 article .title span.color {
   color: #FFD700;
 }
+@media (max-width: 480px) {
+  #ehub-about #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #ehub-about #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #ehub-about #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   display: block;
 }
@@ -1758,16 +2129,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #ehub-about #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #ehub-about #section-2 figure .title span.color {
   color: #FFD700;
+}
+@media (max-width: 480px) {
+  #ehub-about #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #ehub-about #section-2 figure {
@@ -1784,19 +2160,24 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FFF4CC;
 }
 #ehub-services header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #ehub-services header .title span.color {
   color: #FFD700;
 }
+@media (max-width: 480px) {
+  #ehub-services header .title {
+    font-size: 2em;
+  }
+}
 #ehub-services header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -1834,13 +2215,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 60px;
 }
 #ehub-services .card-container .subsidiary-card > * h3 {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 700;
   line-height: 23px;
   padding-right: 10px;
 }
 #ehub-services .card-container .subsidiary-card > * p {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 22.96px;
   color: #1D2A44;
@@ -1858,26 +2239,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #ehub-why-choose-us #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #ehub-why-choose-us #section-1 article .title span.color {
   color: #FFD700;
 }
+@media (max-width: 480px) {
+  #ehub-why-choose-us #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #ehub-why-choose-us #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 27px;
   margin-bottom: 1.5em;
 }
 #ehub-why-choose-us #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 800;
   display: block;
 }
@@ -1889,16 +2275,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #ehub-why-choose-us #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #ehub-why-choose-us #section-2 figure .title span.color {
   color: #FFD700;
+}
+@media (max-width: 480px) {
+  #ehub-why-choose-us #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #ehub-why-choose-us #section-2 figure {
@@ -1912,27 +2303,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #ehub-join-us h3 {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 900;
   line-height: 37.47px;
   color: #000;
 }
 #ehub-join-us p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 24px;
   color: #000;
 }
-@media (min-width: 561px) {
+#ehub-join-us .btn {
+  width: 302px !important;
+  height: 54px;
+  font-size: 1.3em;
+  border-radius: 12px;
+  background-color: #FFD700;
+  font-weight: 700;
+  line-height: 24.38px;
+  place-content: center;
+}
+@media (max-width: 561px) {
   #ehub-join-us .btn {
-    width: 302px !important;
-    height: 54px;
-    font-size: 20px;
-    border-radius: 12px;
-    background-color: #FFD700;
-    font-weight: 700;
-    line-height: 24.38px;
-    place-content: center;
+    width: max-content !important;
+    padding-inline: 1.5em;
   }
 }
 
@@ -1942,46 +2337,72 @@ h1, h2, h3, h4, h5, h6 {
   place-content: center;
 }
 #legal-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #legal-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #legal-jumbotron #heading ~ .btn {
   width: 333px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #008080;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #legal-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #legal-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #legal-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #legal-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 
 #legal-about #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #legal-about #section-1 article .title span.color {
   color: #008080;
 }
+@media (max-width: 480px) {
+  #legal-about #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #legal-about #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #legal-about #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   display: block;
 }
@@ -1993,16 +2414,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #legal-about #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #legal-about #section-2 figure .title span.color {
   color: #008080;
+}
+@media (max-width: 480px) {
+  #legal-about #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #legal-about #section-2 figure {
@@ -2019,19 +2445,24 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #E8F4F4;
 }
 #legal-practice-areas header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #legal-practice-areas header .title span.color {
   color: #008080;
 }
+@media (max-width: 480px) {
+  #legal-practice-areas header .title {
+    font-size: 2em;
+  }
+}
 #legal-practice-areas header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -2069,13 +2500,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 60px;
 }
 #legal-practice-areas .card-container .subsidiary-card > * h3 {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 700;
   line-height: 23px;
   padding-right: 2em;
 }
 #legal-practice-areas .card-container .subsidiary-card > * p {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 400;
   line-height: 22.96px;
   color: #1D2A44;
@@ -2093,20 +2524,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #legal-client-focus #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #legal-client-focus #section-1 article .title span.color {
   color: #008080;
 }
+@media (max-width: 480px) {
+  #legal-client-focus #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #legal-client-focus #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 27px;
   margin-bottom: 1.5em;
@@ -2119,16 +2555,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #legal-client-focus #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #legal-client-focus #section-2 figure .title span.color {
   color: #008080;
+}
+@media (max-width: 480px) {
+  #legal-client-focus #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #legal-client-focus #section-2 figure {
@@ -2142,26 +2583,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #legal-join-us h3 {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 900;
   line-height: 37.47px;
   color: #008080;
 }
 #legal-join-us p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 24px;
 }
-@media (min-width: 561px) {
+#legal-join-us .btn {
+  width: 327px !important;
+  height: 54px;
+  font-size: 1.3em;
+  border-radius: 12px;
+  background-color: #008080;
+  font-weight: 700;
+  line-height: 24.38px;
+  place-content: center;
+}
+@media (max-width: 561px) {
   #legal-join-us .btn {
-    width: 327px !important;
-    height: 54px;
-    font-size: 20px;
-    border-radius: 12px;
-    background-color: #008080;
-    font-weight: 700;
-    line-height: 24.38px;
-    place-content: center;
+    width: max-content !important;
+    padding-inline: 1.5em;
   }
 }
 
@@ -2172,46 +2617,72 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url("../../assets/images/background/subsidiaries/academy-jumbotron.svg");
 }
 #academy-jumbotron #heading {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
 }
 #academy-jumbotron #heading ~ p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 26.24px;
 }
 #academy-jumbotron #heading ~ .btn {
   width: 320px !important;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #FF6F00;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
 }
+@media (max-width: 480px) {
+  #academy-jumbotron #heading ~ .btn {
+    width: max-content !important;
+    padding-inline: 1.5em;
+  }
+}
+@media (max-width: 768px) {
+  #academy-jumbotron {
+    height: max-content;
+    padding-block: 3em !important;
+  }
+  #academy-jumbotron #heading {
+    font-size: 2.5em;
+  }
+}
+@media (max-width: 768px) {
+  #academy-jumbotron #heading {
+    font-size: 2em;
+    line-height: 48px;
+  }
+}
 
 #academy-about #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #academy-about #section-1 article .title span.color {
   color: #FF6F00;
 }
+@media (max-width: 480px) {
+  #academy-about #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #academy-about #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 28px;
 }
 #academy-about #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   display: block;
 }
@@ -2223,16 +2694,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #academy-about #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #academy-about #section-2 figure .title span.color {
   color: #FF6F00;
+}
+@media (max-width: 480px) {
+  #academy-about #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #academy-about #section-2 figure {
@@ -2249,19 +2725,24 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FFF3E8;
 }
 #academy-programs header .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #academy-programs header .title span.color {
   color: #FF6F00;
 }
+@media (max-width: 480px) {
+  #academy-programs header .title {
+    font-size: 2em;
+  }
+}
 #academy-programs header p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 26.24px;
   color: #1D2A44;
@@ -2281,6 +2762,12 @@ h1, h2, h3, h4, h5, h6 {
   flex-basis: 480px;
   padding-inline: 0;
 }
+@media (max-width: 1220px) {
+  #academy-programs #projects .article {
+    flex-basis: 400px;
+    flex-grow: 1;
+  }
+}
 #academy-programs #projects .article .card {
   border-radius: 24px;
   box-shadow: 0 0 14.5px 0 rgba(0, 0, 0, 0.1019607843) !important;
@@ -2291,25 +2778,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 #academy-programs #projects .article .card .program-content h3 {
   font-weight: 700;
+  font-size: 1.2em;
 }
 #academy-programs #projects .article .card .program-content hr {
   margin-block: 10px;
 }
 #academy-programs #projects .article .card .program-content h5 {
-  font-size: 14px;
+  font-size: 0.9em;
   font-weight: 700;
   line-height: 22.96px;
+}
+#academy-programs #projects .article .card .program-content p {
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 26.96px;
 }
 #academy-programs #projects .article .card .explore-proj-btn {
   width: 160px !important;
   height: 34px;
-  font-size: 20px;
+  font-size: 1.3em;
   border-radius: 12px;
   background-color: #FF6F00;
   font-weight: 700;
   line-height: 24.38px;
   place-content: center;
-  font-size: 14px;
+  font-size: 0.9em;
   line-height: 17.07px;
   color: #fff;
   border-radius: 8px;
@@ -2330,26 +2823,31 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FDF9FE;
 }
 #academy-why-choose-us #section-1 article .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 38px;
 }
 #academy-why-choose-us #section-1 article .title span.color {
   color: #FF6F00;
 }
+@media (max-width: 480px) {
+  #academy-why-choose-us #section-1 article .title {
+    font-size: 2em;
+  }
+}
 #academy-why-choose-us #section-1 article p {
   color: #1D2A44;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 27px;
   margin-bottom: 1.5em;
 }
 #academy-why-choose-us #section-1 article p .lead {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 700;
   display: block;
 }
@@ -2361,16 +2859,21 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
 }
 #academy-why-choose-us #section-2 figure .title {
-  font-size: 48px;
+  font-size: 3em;
   font-weight: 900;
   line-height: 56.21px;
   color: black;
   margin-bottom: 1em;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 45px;
 }
 #academy-why-choose-us #section-2 figure .title span.color {
   color: #FF6F00;
+}
+@media (max-width: 480px) {
+  #academy-why-choose-us #section-2 figure .title {
+    font-size: 2em;
+  }
 }
 @media screen and (max-width: 991px) {
   #academy-why-choose-us #section-2 figure {
@@ -2384,27 +2887,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #academy-join-us h3 {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: 900;
   line-height: 37.47px;
   color: #FF6F00;
 }
 #academy-join-us p {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 24px;
 }
-@media (min-width: 561px) {
-  #academy-join-us .btn {
-    width: 258px !important;
-    height: 54px;
-    font-size: 20px;
-    border-radius: 12px;
-    background-color: #FF6F00;
-    font-weight: 700;
-    line-height: 24.38px;
-    place-content: center;
-  }
+#academy-join-us .btn {
+  width: 258px !important;
+  height: 54px;
+  font-size: 1.3em;
+  border-radius: 12px;
+  background-color: #FF6F00;
+  font-weight: 700;
+  line-height: 24.38px;
+  place-content: center;
 }
 
 /* Keyframes for infinite scrolling */

@@ -26,7 +26,7 @@
   <section class="py-10" id="abt-who-we-are">
 
     <div class="col-lg-10 px-3 mx-auto">
-      <div class="row flex-lg-nowrap flex-column-reverse flex-lg-row align-items-center gap-2">
+      <div class="row flex-lg-nowrap flex-column-reverse flex-lg-row gap-2">
         <div class="col-lg-6" id="section-1">
           <article class="mb-5">
             <h2 class="title mb-3 d-none d-lg-block">
@@ -65,7 +65,7 @@
               <span class="color">Welcome</span>
               <span>to Metalex Group Limited</span>
             </h2>
-            <img src="{{asset('assets/images/background/about/who-we-are.svg')}}" class="" alt="">
+            <img src="{{asset('assets/images/background/about/who-we-are.svg')}}" class="img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -75,7 +75,7 @@
   {{--  Mission vision --}}
   <section class="py-10" id="abt-mission-vision">
     <div class="col-lg-10 px-3 mx-auto">
-      <div class="row flex-lg-nowrap flex-column-reverse flex-lg-row-reverse align-items-center">
+      <div class="row flex-lg-nowrap flex-column-reverse flex-lg-row-reverse">
         <div class="col-lg-6" id="section-1">
           <article class="mb-5">
             <h2 class="title mb-3 d-none d-lg-block">
@@ -112,7 +112,7 @@
               <span class="color">Our</span>
               <span>Vision, Mission, and Values</span>
             </h2>
-            <img src="{{asset('assets/images/background/about/mission-vision.svg')}}" class="" alt="">
+            <img src="{{asset('assets/images/background/about/mission-vision.svg')}}" class="img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -141,7 +141,7 @@
               </figure>
               <h3>Metalex Technologies</h3>
               <p>Cutting-edge innovations that drive efficiency and solve real-world problems.</p>
-              <a href="#" class="btn text-white">Learn More</a>
+              <a href="{{route('sub.tech')}}" class="btn text-white">Learn More</a>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@
               </figure>
               <h3>Metalex Academy</h3>
               <p>Transformative learning solutions that empower individuals to achieve more.</p>
-              <a href="#" class="btn text-white">Learn More</a>
+              <a href="{{route('sub.academy')}}" class="btn text-white">Learn More</a>
             </div>
           </div>
         </div>
@@ -169,7 +169,7 @@
               </figure>
               <h3>Metalex Publishing</h3>
               <p>Quality content and platforms that inform, entertain, and inspire.</p>
-              <a href="#" class="btn text-white">Learn More</a>
+              <a href="{{route('sub.publications')}}" class="btn text-white">Learn More</a>
             </div>
           </div>
         </div>
@@ -183,7 +183,7 @@
               </figure>
               <h3>Metalex Entertainment</h3>
               <p>Captivating productions that spark imagination and connect communities.</p>
-              <a href="#" class="btn text-white">Learn More</a>
+              <a href="{{route('sub.entertainment')}}" class="btn text-white">Learn More</a>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@
               </figure>
               <h3>Metalex Legal</h3>
               <p>Expert legal services tailored to meet diverse client needs.</p>
-              <a href="#" class="btn text-white">Learn More</a>
+              <a href="{{route('sub.legal')}}" class="btn text-white">Learn More</a>
             </div>
           </div>
         </div>
@@ -243,7 +243,7 @@
               <span class="color">Why</span>
               <span>Choose Us?</span>
             </h2>
-            <img src="{{asset('assets/images/background/about/why-choose-us.svg')}}" class="d-block mx-auto" alt="">
+            <img src="{{asset('assets/images/background/about/why-choose-us.svg')}}" class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>

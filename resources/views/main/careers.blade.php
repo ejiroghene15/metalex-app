@@ -62,7 +62,7 @@
               <span class="color">Our</span>
               <span>Vision, Mission, and Values</span>
             </h2>
-            <img src="{{asset('assets/images/background/careers/people.svg')}}" class="" alt="">
+            <img src="{{asset('assets/images/background/careers/people.svg')}}" class="img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -154,7 +154,7 @@
   {{--  Why choose us --}}
   <section class="py-lg-10 py-5" id="career-why">
     <div class="col-lg-10 px-3 mx-auto">
-      <div class="row flex-lg-nowrap flex-column-reverse flex-lg-row-reverse align-items-center">
+      <div class="row flex-lg-nowrap flex-column-reverse flex-lg-row-reverse">
         <div class="col-lg-6" id="section-1">
           <article class="mb-5">
             <h2 class="title mb-5 d-none d-lg-block">
@@ -170,7 +170,7 @@
         </div>
         <div class="col-lg-6" id="section-2">
           <figure>
-            <img src="{{asset('assets/images/background/careers/why.svg')}}" class="d-block mx-auto" alt="">
+            <img src="{{asset('assets/images/background/careers/why.svg')}}" class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>

@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'News & Updates')
+@section('title', 'Frequently Asked Questions')
 
 @section('style')
   @parent

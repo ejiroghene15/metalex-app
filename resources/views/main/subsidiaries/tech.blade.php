@@ -65,7 +65,7 @@
               <span class="color">About</span>
               <span>Metalex Technologies</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-tech-s1.svg')}}" class="d-block mx-auto" alt="">
+            <img src="{{asset('assets/images/background/subsidiaries/m-tech-s1.svg')}}" class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -198,7 +198,7 @@
 
     <div class="py-6" id="projects">
       <div class="col-lg-10 px-3 mx-auto">
-        <div class="row mt-5 justify-content-center mx-auto">
+        <div class="row mt-5 justify-content-center mx-auto gap-4" >
           @for($i = 0; $i < 3; $i++)
             <article class="col-md-4 article">
               <div class="card">

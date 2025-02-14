@@ -59,7 +59,7 @@
               <span class="color">About</span>
               <span>Metalex Legal</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-legal-s1.svg')}}" class="d-block mx-auto" alt="">
+            <img src="{{asset('assets/images/background/subsidiaries/m-legal-s1.svg')}}" class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -81,7 +81,7 @@
       </header>
 
       <div class="d-flex flex-wrap justify-content-between justify-content-md-center"
-           style="row-gap: 4em; column-gap: 2.5em">
+           style="row-gap: 4em; column-gap: 2em">
 
         {{--  Corporate & Business Law--}}
         <div class="col-md-3 card-container">
@@ -149,7 +149,7 @@
   {{--  Client Focus --}}
   <section class="py-10" id="legal-client-focus">
     <div class="col-lg-10 px-3 mx-auto">
-      <div class="row flex-lg-nowrap gap-3 flex-column-reverse flex-lg-row-reverse align-items-center">
+      <div class="row flex-lg-nowrap gap-3 flex-column-reverse flex-lg-row-reverse">
         <div class="col-lg-6" id="section-1">
           <article class="mb-5">
             <h2 class="title mb-5 d-none d-lg-block">
@@ -170,7 +170,7 @@
               <span class="color">Client</span>
               <span>Focus</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-legal-2.svg')}}" class="d-block mx-auto"
+            <img src="{{asset('assets/images/background/subsidiaries/m-legal-2.svg')}}" class="d-block mx-auto img-fluid"
                  alt="">
           </figure>
         </div>

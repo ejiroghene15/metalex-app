@@ -56,7 +56,7 @@
             <a class="nav-link" href="{{route('main.about')}}">About Us</a>
             <a class="nav-link" href="{{route('main.news')}}">News & Updates</a>
             <a class="nav-link" href="{{route('main.careers')}}">Careers</a>
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="{{route('main.contact-us')}}">Contact Us</a>
             <a class="nav-link" href="{{route('main.faq')}}">FAQ</a>
           </nav>
 

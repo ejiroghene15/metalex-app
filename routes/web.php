@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'main.home')->name('main.home');
 Route::view('about', 'main.about')->name('main.about');
 Route::view('news', 'main.news-updates')->name('main.news');
+Route::view('contact-us', 'main.contact-us')->name('main.contact-us');
 Route::view('faq', 'main.faq')->name('main.faq');
 Route::view('careers', 'main.careers')->name('main.careers');
 Route::view('technologies', 'main.subsidiaries.tech')->name('sub.tech');

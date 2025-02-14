@@ -1,4 +1,4 @@
-<div class="col-xl-9 mx-auto px-5">
+<div class="col-xl-9 mx-auto px-3">
   <div class="row justify-content-between flex-column flex-md-row">
     <div class="col-md-3 item border-bottom-md-0 pb-md-0 mb-md-0">
       <h3>Contact Info</h3>

@@ -81,8 +81,6 @@
     </div>
   </section>
 
-
-
   {{--  Additional Info--}}
   <section id="before-footer" class="mt-5">
     @include('main.contact-info-footer')

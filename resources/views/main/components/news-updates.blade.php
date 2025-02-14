@@ -1,6 +1,6 @@
 <div class="row justify-content-between mt-5 gap-6">
   @foreach($post as $_)
-    <article class="col-md-4 p-4 article">
+    <article class="col-md-4 py-4 px-3 article">
       <figure>
         <img src="{{$_->thumbnail}}" class="" alt="">
       </figure>
