@@ -60,7 +60,7 @@
 
         <li class="nav-item me-3">
           <a
-            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'about']) href="{{route('about')}}">
+            @class(['nav-link rounded-2 py-2 px-3','text-bg-light-primary text-primary'=> $current_route === 'main.about']) href="{{route('main.about')}}">
             <i class="bi bi-info me-1"></i>About Us
           </a>
         </li>

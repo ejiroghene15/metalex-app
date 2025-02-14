@@ -21,7 +21,7 @@
           <!-- list -->
           <h3 class="fw-bold mb-3">Company</h3>
           <ul class="list-unstyled nav nav-footer flex-column nav-x-0">
-            <li><a href="{{route('about')}}" class="nav-link fw-semi-bold">About Us</a></li>
+            <li><a href="{{route('main.about')}}" class="nav-link fw-semi-bold">About Us</a></li>
             <li><a href="#" class="nav-link fw-semi-bold">Services</a></li>
             <li><a href="{{route('p.articles')}}" class="nav-link fw-semi-bold">Articles</a></li>
             <li><a href="{{route('forums')}}" class="nav-link fw-semi-bold">Forum</a></li>
