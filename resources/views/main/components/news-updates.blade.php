@@ -1,6 +1,6 @@
 <div class="row justify-content-between mt-5 gap-6">
   @foreach($post as $_)
-    <a class="col-md-4 py-4 px-3 article stretched-link"
+    <a class="col-md-4 py-4 px-3 article"
        href="{{route('full-article', ["article"=> $_->slug, "id" => $_->id])}}">
       <figure>
         <img src="{{$_->thumbnail}}" class="" alt="">
