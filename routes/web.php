@@ -36,7 +36,7 @@ Route::view('entertainment', 'main.subsidiaries.entertainment')->name('sub.enter
 Route::view('lp', 'main.subsidiaries.legal')->name('sub.legal');
 
 //Route::domain('app.' . config('app.url'))->group(function () {
-Route::view('/', 'main.home')->name('home');
+Route::view('', 'main.home')->name('home');
 Route::view('services', 'services')->name('services');
 Route::view('directory', 'directory')->name('directory');
 Route::view('about-us', 'main.about')->name('about');
