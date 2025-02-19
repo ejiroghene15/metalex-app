@@ -63,11 +63,22 @@ return [
    |----------------------------------------------------------------
    | Helpers Pagination
    |----------------------------------------------------------------
-   | This is used to set the default pagination settings for the application
+   | This is used to set the default pagination settings for the publication
    |
    */
 
   'pagination' => env('APP_PAGINATE_PER_PAGE'),
+
+  /*
+ |----------------------------------------------------------------
+ | GOOGLE CAPTCHA
+ |----------------------------------------------------------------
+ | This is used to set the default pagination settings for the application
+ |
+ */
+
+  'google_captcha_site_key' => env('GOOGLE_CAPTCHA_SITE_KEY'),
+  'google_captcha_site_secret' => env('GOOGLE_CAPTCHA_SECRET_KEY'),
 
   /*
     |--------------------------------------------------------------------------
