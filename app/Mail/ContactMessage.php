@@ -29,7 +29,7 @@ class ContactMessage extends Mailable implements ShouldQueue
   public function envelope(): Envelope
   {
     return new Envelope(
-      to: "ejiroghene20@gmail.com",
+      to: "hello@metalexlegal.com",
       subject: "Contact Message From {$this->request['user']}"
     );
   }

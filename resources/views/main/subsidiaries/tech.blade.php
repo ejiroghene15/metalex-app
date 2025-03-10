@@ -65,7 +65,8 @@
               <span class="color">About</span>
               <span>Metalex Technologies</span>
             </h2>
-            <img src="{{asset('assets/images/background/subsidiaries/m-tech-s1.svg')}}" class="d-block mx-auto img-fluid" alt="">
+            <img src="{{asset('assets/images/background/subsidiaries/m-tech-s1.svg')}}"
+                 class="d-block mx-auto img-fluid" alt="">
           </figure>
         </div>
       </div>
@@ -198,31 +199,8 @@
 
     <div class="py-6" id="projects">
       <div class="col-lg-10 px-3 mx-auto">
-        <div class="row mt-5 justify-content-center mx-auto gap-4" >
-          @for($i = 0; $i < 3; $i++)
-            <article class="col-md-4 article">
-              <div class="card">
-                <div class="card-body">
-                  <figure>
-                    <img src="{{asset('assets/images/background/subsidiaries/fastbuy-thumbnail.svg')}}" class="w-100"
-                         alt="">
-                  </figure>
-
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0">Fast Buy</h3>
-                    <button class="btn btn-sm btn-outline-info proj-status-btn">Active</button>
-                  </div>
-                  <hr>
-                  <article>
-                    <h4>Food & Groceries Delivery</h4>
-                    <p class="text-dark">A seamless platform connecting users with local food and grocery delivery
-                      services. Designed to make delivery fast and easy, helping local businesses thrive.</p>
-                    <button class="btn btn-sm btn-info explore-proj-btn">Explore Project</button>
-                  </article>
-                </div>
-              </div>
-            </article>
-          @endfor
+        <div class="row mt-5 justify-content-center mx-auto gap-4">
+          @include('main.portfolio.portfolio')
         </div>
       </div>
     </div>
