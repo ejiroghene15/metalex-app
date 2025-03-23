@@ -12,59 +12,75 @@
 "General" => [
       [
           "q" => "What is the Metalex?",
-          "a" =>"The Metalex is a global online platform that connects legal professionals and individuals interested in legal matters. It's a space for knowledge sharing, discussions, and accessing legal services and resources."
+          "a" =>"Metalex Group is a diversified company operating across multiple industries, including legal services, technology, publishing, business development, and entertainment. Our goal is to provide innovative solutions that create value for businesses, professionals, and creatives."
       ],
       [
-          "q" => "How do I join Metalex?",
-          "a" =>"Joining Metalex is easy. Click on the <b>Sign Up</b> button, provide the necessary information, and confirm your email address. You will then have full access to the community."
+          "q" => "What companies operate under Metalex Group?",
+          "a" => "
+                <p>Metalex Group consists of: </p>
+                <p>Metalex Legal – Legal services, corporate advisory, and compliance.</p>
+                <p>Metalex Technologies – Tech-driven business solutions, including the development of the Metalex App and third-party tech services.</p>
+                <p>Metalex Publications – Legal and business publications, including magazines, journals, and books.</p>
+                <p>Metalex Academy – Professional training programs.</p>
+                <p>Metalex Entertainment Hub – Music and entertainment management, content creation, and promotions.</p>"
+      ],
+
+      ],
+      "Metalex Legal" =>[
+      [
+          "q" => "What legal services does Metalex Legal provide?",
+          "a" => "We offer corporate and commercial law services, contract drafting, regulatory compliance, intellectual property protection, dispute resolution, and more."
       ],
       [
-          "q" => "Can I create my own forum or discussion on Metalex?",
-          "a" => "Yes, you can create personalized forums and discussions based on your interests. Customize your forums, ask questions, and start conversations within the community."
+          "q" => "Does Metalex Legal provide legal support for startups?",
+          "a" => "Yes! We assist startups with company registration, business structuring, legal compliance, and drafting essential agreements."
       ],
       [
-          "q" => "Are there any rules for participating in discussions?",
-          "a" => "Yes, we have forum rules and guidelines in place to ensure respectful and productive discussions. Please review and follow these rules when engaging in conversations."
+          "q" => " How can I book a consultation with Metalex Legal?",
+            "a" => "Yes! We assist startups with company registration, business structuring, legal compliance, and drafting essential agreements."
+       ]
+      ],
+      "Metalex Technologies" => [
+      [
+          "q" => "Does Metalex Technologies offer tech solutions for businesses?",
+          "a" => "Yes! We provide custom software development, tech advisory, and digital solutions for businesses looking to scale."
+      ],
+
+      ],
+      "Metalex Publications" => [
+      [
+          "q" => "What publications does Metalex produce?",
+          "a" => "We publish a series of specialized magazines, journals, and books covering corporate law, entertainment law, intellectual property law, human rights law, and technology law."
       ],
       [
-          "q" => "Is Metalex free to use?",
-          "a" => "Yes, Metalex offers free access to its community and resources. We may offer premium features in the future, but the core functionality will remain accessible to all users."
+          "q" => "Can I contribute to Metalex Publications?",
+          "a" => "Yes! We welcome contributions from legal professionals, researchers, and industry experts. Contact us for submission guidelines."
       ]
       ],
-      "Services" =>[
+      "Metalex Academy" => [
       [
-          "q" => "How can I connect with legal professionals on Metalex?",
-          "a" => "You can connect with legal professionals by following their profiles, participating in their forums, and sending private messages. Building connections is encouraged."
-      ],
-      [
-          "q" => "Is Metalex a platform for seeking legal advice or representation?",
-          "a" => "While the Metalex is a place for legal discussions and connection, currently any one interested in employing or retaining the service of an attorney will have to do so through Metalex Legal; which currently provides and serves as the E-Law firm for interested legal practitioners."
+          "q" => " What courses does Metalex Academy offer?",
+          "a" => "Our academy provides skills development training, legal education, and business development programs. More specialized courses will be introduced soon."
       ]
       ],
-      "Careers" => [
+      "Metalex Entertainment Hub" => [
       [
-          "q" => "Can I share my legal blog or content on the Metalex?",
-          "a" => "Yes, we have a category for legal resources and learning. You can share your legal blog, articles, or other content that can benefit the community."
+          "q" => "What services does Metalex Entertainment Hub offer?",
+          "a" => "We focus on artist management, music promotion, content creation, and entertainment consulting."
       ],
       [
-          "q" => "How do I report inappropriate content or behavior?",
-          "a" => "If you come across any content or behavior that violates the Metalex rules, contact us directly and we will address the issue."
+          "q" => " Does Metalex Entertainment sign artists?",
+          "a" => "Yes! We are establishing a record label to sign and manage artists while providing them with legal and business support."
       ]
       ],
-      "Partnership" => [
+      "Others" => [
       [
-          "q" => "Can I use Metalex on my mobile device?",
-          "a" => "Yes, the Metalex is designed to be mobile-friendly. You can access and use the platform on your mobile device through a web browser."
+          "q" => "How can I partner or collaborate with Metalex Group?",
+          "a" => "We welcome partnerships in various capacities! Whether you're an investor, content creator, or business owner, reach out to us to explore opportunities"
       ],
       [
-          "q" => "How can I get in touch with the Metalex support team?",
-          "a" => "If  you have specific questions or need assistance, you can reach out to our support team through the contact information provided on the platform."
-      ]
-      ],
-      "Contact Information" => [
-      [
-          "q" => "Do I need to be a legal professional or law student to use and be on the Metalex?",
-          "a" => "No, Metalex is open to anyone interested in legal matters or in need of legal services, whether you are a legal professional, a law student, or simply someone curious about legal topics. The platform is designed to accommodate a diverse range of users."
+          "q" => " How do I stay updated on Metalex Group’s activities?",
+          "a" => "Follow us on social media, subscribe to our newsletters, and check our website regularly for updates on our projects and events."
       ]
       ]
 ]
@@ -90,7 +106,7 @@
         @php($id = uniqid())
         <h3 class="title">
           <span class="color">{{$k}}</span>
-          <span>FAQ</span>
+{{--          <span>FAQ</span>--}}
         </h3>
         @foreach($v as $_)
           <div class="border p-3 rounded-3 mb-10" id="heading_{{$loop->index}}_{{$id}}">
