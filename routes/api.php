@@ -29,7 +29,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::post('contact-us', [ApiController::class, 'sendContactMail'])->name('api.send-contact-mail');
 
 Route::get('blogs', function (Request $request) {
-  $blogs = Blog::withoutTrashed()->with(['b_category:id,name', 'author:id,first_name,last_name'])->get();
+  $blogs = Blog::withoutTrashed()->with(['b_category:id,name', 'author:id,first_name,last_name'])->simplePaginate(6);
   return response()->json($blogs);
 });
 
