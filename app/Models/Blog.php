@@ -38,7 +38,7 @@ class Blog extends Model
   public function deletedAt(): Attribute
   {
     return Attribute::make(
-      get: fn(string $value) => date("F jS, Y", strtotime($value))
+      get: fn($value) => date("F jS, Y", strtotime($value))
     );
   }
 
