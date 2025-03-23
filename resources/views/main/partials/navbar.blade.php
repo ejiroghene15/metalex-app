@@ -68,8 +68,15 @@
       </ul>
 
       <div class=" d-flex align-items-center mt-2 mt-md-0 pt-2 py-lg-0">
-        <a href="{{ route('main.contact-us') }}" class="btn text-white" style="border-radius: 12px; background-color: #6A1B9A">Contact
-          Us</a>
+        @auth
+          <a href="{{ route('user.dashboard', auth()->user()->fullName()) }}" class="btn text-white"
+             style="border-radius: 12px; background-color: #6A1B9A">Dashboard</a>
+        @endauth
+
+        @guest
+          <a href="{{ route('login') }}" class="btn btn-success text-white"
+             style="border-radius: 12px;">Login</a>
+        @endauth
 
         <a href="#" class="form-check form-switch theme-switch btn btn-light btn-icon rounded-circle d-none">
           <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
