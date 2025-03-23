@@ -135,7 +135,7 @@
   </section>
 
   {{--  Testimonials--}}
-  <section id="testimonials" class="py-7">
+  <section id="testimonials" class="py-7 d-none">
     <h2 class="text-center title">
       <span>What Our</span>
       <span class="color">Customers Say </span>
