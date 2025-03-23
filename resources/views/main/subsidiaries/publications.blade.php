@@ -19,7 +19,7 @@
         resources and creative works, we’re your trusted partner for high-quality content that informs, educates, and
         inspires across industries.
       </p>
-      <a href="" class="btn text-white">Explore Our Publications</a>
+      <a href="{{route('p.articles')}}" class="btn text-white">Explore Our Publications</a>
     </div>
   </section>
 
