@@ -3,10 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
 //      // * These are the flag categories under which a content is reported
 //
 //    }
+// Set the current page manually
+    Paginator::currentPageResolver(function () {
+      request()->query('pageSize', 10);
+    });
 
     // * Set Pagination to use bootstrap 5 styling
     Paginator::useBootstrapFive();

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,63 @@ Route::controller(AuthController::class)->group(function () {
 Route::post('contact-us', [ApiController::class, 'sendContactMail'])->name('api.send-contact-mail');
 
 Route::get('blogs', function (Request $request) {
-  $blogs = Blog::withoutTrashed()->with(['b_category:id,name', 'author:id,first_name,last_name'])->simplePaginate(6);
-  return response()->json($blogs);
+  // Get page number and page size from query parameters, with defaults
+  $pageNumber = $request->query('pageNumber', 1);  // Default to page 1
+  $pageSize = $request->query('pageSize', 10);  // Default to 10 per page
+
+  $blogs = Blog::withoutTrashed()->with(['b_category:id,name', 'author:id,first_name,last_name'])->paginate($pageSize);
+
+// Customize the pagination query string parameters
+  $blogs->appends(['pageNumber' => $pageNumber, 'pageSize' => $pageSize]);
+
+// Optionally, change the default "page" parameter name to "pageNumber"
+  $blogs->setPageName('pageNumber');
+
+  // Transform the paginated data to include only specified fields
+  $formattedBlogs = $blogs->through(function ($blog) {
+    return [
+      'id' => $blog->id,
+      'author' => $blog->author ? $blog->author->first_name . ' ' . $blog->author->last_name : null,
+      'title' => $blog->title,
+      'created_at' => $blog->created_at,
+      'thumbnail' => $blog->thumbnail,
+      'category' => $blog->b_category ? $blog->b_category->name : null,
+    ];
+  });
+
+  return response()->json($formattedBlogs);
 });
+
+Route::get('blog-categories', function (Request $request) {
+// Get page number and page size from query parameters, with defaults
+  $pageNumber = $request->query('pageNumber', 1);  // Default to page 1
+  $pageSize = $request->query('pageSize', 10);  // Default to 10 per page
+
+  $category_id = BlogCategory::where('slug', $request->query('category'))->pluck('id')[0];
+
+  $blogs = Blog::withoutTrashed()->where('category', $category_id)->with(['b_category:id,name', 'author:id,first_name,last_name'])->paginate($pageSize);
+
+  // Customize the pagination query string parameters
+  $blogs->appends(['pageNumber' => $pageNumber, 'pageSize' => $pageSize]);
+
+  // Optionally, change the default "page" parameter name to "pageNumber"
+  $blogs->setPageName('pageNumber');
+
+  // Transform the paginated data to include only specified fields
+  $formattedBlogs = $blogs->through(function ($blog) {
+    return [
+      'id' => $blog->id,
+      'author' => $blog->author ? $blog->author->first_name . ' ' . $blog->author->last_name : null,
+      'title' => $blog->title,
+      'created_at' => $blog->created_at,
+      'thumbnail' => $blog->thumbnail,
+      'category' => $blog->b_category ? $blog->b_category->name : null,
+    ];
+  });
+
+  return response()->json($formattedBlogs);
+});
+
 
 Route::get('blog/{blog}', function ($blog) {
   $blog = Blog::with(['b_category:id,name', 'author:id,first_name,last_name'])->findOrFail($blog);
