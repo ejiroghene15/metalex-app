@@ -87,6 +87,10 @@ Route::get('blog-categories', function (Request $request) {
   return response()->json($formattedBlogs);
 });
 
+Route::get('category-list', function () {
+  $category = BlogCategory::all();
+  return response()->json($category);
+});
 
 Route::get('blog/{blog}', function ($blog) {
   $blog = Blog::with(['b_category:id,name', 'author:id,first_name,last_name'])->findOrFail($blog);
