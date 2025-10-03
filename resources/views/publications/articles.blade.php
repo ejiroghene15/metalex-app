@@ -4,7 +4,7 @@
 
 @section('publication_content')
   @php
-    $post = $posts->latest()->simplePaginate($paginate_per_page)->fragment('article');
+    $post = $posts->paginate($paginate_per_page);
   @endphp
 
   {{--  <header class="mb-5">--}}
