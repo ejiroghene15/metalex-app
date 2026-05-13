@@ -48,21 +48,4 @@ class UserFactory extends Factory
     ]);
   }
 
-  public function configure()
-  {
-    return $this->afterMaking(function (User $user) {
-      //
-    })->afterCreating(function (User $user) {
-      $user_type = $user->user_type;
-      // * Create a profile for the user based on the user type
-      if ($user_type !== 'client') $user->$user_type()->create(
-        [
-          'specialization' => fake()->jobTitle,
-          'offers_probono' => rand(0, 1),
-        ]
-      );
-    });
-  }
-
-
 }

@@ -79,4 +79,12 @@ class Blog extends Model
     return implode(' ', $excerpt) . '...';
   }
 
+  protected function authorName(): Attribute
+  {
+    return Attribute::make(
+      get: fn($value, array $attributes) => strtolower($this->author->fullName()),
+      set: fn($value) => $value,
+    );
+  }
+
 }

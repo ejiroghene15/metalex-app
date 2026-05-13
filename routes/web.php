@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::view('/', 'main.home')->name('home');
 Route::view('about', 'main.about')->name('main.about');
-Route::view('news', 'main.news-updates')->name('main.news');
+Route::livewire('news', 'pages::blog')->name('main.news');
 Route::view('contact-us', 'main.contact-us')->name('main.contact-us');
 Route::view('faq', 'main.faq')->name('faq');
 Route::view('careers', 'main.careers')->name('main.careers');
@@ -90,17 +90,15 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 // * Unauthenticated Routes
-Route::middleware(['guest'])->group(function () {
-  Route::prefix('auth')->group(function () {
-    Route::view('register', 'auth.register')->name('register');
-    Route::view('login', 'auth.login')->name('login');
-    Route::view('forgot-password', 'auth.forgot-password')->name('password.request');
+Route::prefix('auth')->group(function () {
+  Route::livewire('register', 'pages::auth.register')->name('register');
+  Route::view('login', 'auth.login')->name('login');
+  Route::view('forgot-password', 'auth.forgot-password')->name('password.request');
 
-    Route::get('/reset-password/{token}', function ($token) {
-      return view('auth.reset-password', ['token' => $token]);
-    })->name('password.reset');
-  });
-});
+  Route::get('/reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]);
+  })->name('password.reset');
+})->middleware('guest');
 
 // * Authenticated Routes
 Route::middleware(['auth'])->group(function () {
@@ -197,5 +195,4 @@ Route::middleware(['auth'])->group(function () {
   });
 });
 
-require_once __DIR__ . '/livewire.php';
 //});
