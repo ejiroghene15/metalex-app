@@ -63,7 +63,8 @@ new class extends Component {
     <div class="col-lg-9 mx-auto px-3 text-center">
       <h2 class="text-white" id="heading">News & Updates</h2>
       <p class="text-white pt-3 px-xl-15">
-        Stay informed with the latest insights, legal trends, and updates from our expert team. Explore articles,
+        Stay informed with the latest insights, legal trends, and updates from our expert team. Explore
+        articles,
         analyses, and news that keep you ahead in the ever-evolving legal landscape.
       </p>
     </div>
@@ -77,7 +78,8 @@ new class extends Component {
     </nav>
     <div class="col-lg-12 px-5">
       <div class="tab-content">
-        <div class="tab-pane fade show active" id="news-articles" role="tabpanel" aria-labelledby="news-articles">
+        <div class="tab-pane fade show active" id="news-articles" role="tabpanel"
+             aria-labelledby="news-articles">
           {{--This displays the news and updates--}}
           @include('main.components.news-updates')
         </div>
@@ -93,7 +95,8 @@ new class extends Component {
                       <a href="{{route('single-category', ["category"=> $_->slug, "id" => $_->id])}}"
                          class="stretched-link">
                         <!-- Img -->
-                        <img src="{{asset('assets/images/png/writing.png')}}" alt="" class="avatar-sm"></a>
+                        <img src="{{asset('assets/images/png/writing.png')}}" alt=""
+                             class="avatar-sm"></a>
                       <div class="ms-3">
                         <h4 class="mb-1">{{$_->name}}</h4>
                         <p class="mb-0 fs-6">
