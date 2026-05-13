@@ -45,13 +45,20 @@
               <h5 class="lh-3 fs-6">{{$_['title']}}</h5>
 
               <div class="d-flex justify-content-between flex-wrap mt-3">
-                <form method="post" action="{{route('download-magazine')}}">
-                  @csrf
-                  <input type="hidden" name="url" value="{{$_['url']}}">
-                  <button class="btn btn-sm bg-success-soft">
-                    <i class="bi bi-download me-1"></i> Download Magazine
-                  </button>
-                </form>
+                @if($_['external'])
+                  <a href="{{$_['url']}}" target="_blank" class="btn btn-sm bg-success-soft">
+                    <i class="bi bi-eye me-1"></i> View Magazine
+                  </a>
+                @else
+                  <form method="post" action="{{route('download-magazine')}}">
+                    @csrf
+                    <input type="hidden" name="url" value="{{$_['url']}}">
+                    <button class="btn btn-sm bg-success-soft">
+                      <i class="bi bi-download me-1"></i> Download Magazine
+                    </button>
+                  </form>
+                @endif
+
 
                 <form method="post" action="{{route('magazine.delete', ['id' => $_['id']])}}">
                   @csrf

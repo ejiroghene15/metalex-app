@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
     $this->call(
       [
         CountrySeeder::class,
-        UsersSeeder::class,
-        ForumCategorySeeder::class
+        BlogSeeder::class
+//        ForumCategorySeeder::class,
       ]
     );
     // \App\Models\User::factory(10)->create();
