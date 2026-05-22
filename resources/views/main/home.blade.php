@@ -5,12 +5,13 @@
 @section('style')
   @parent
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5480611429669515"
+          crossorigin="anonymous"></script>
 @endsection
 
 @php
   $post = $posts->take(3)->inRandomOrder()->latest()->get();
 @endphp
-
 
 @section('body')
   @include('main.partials.navbar')
