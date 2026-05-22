@@ -23,6 +23,8 @@
   <meta name="twitter:title" content="{{$post->title}}">
   <meta name="twitter:description" content="{{$post->excerpt(20)}}">
   <meta name="twitter:image" content="{{$post->thumbnail}}">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5480611429669515"
+          crossorigin="anonymous"></script>
 @endsection
 
 @section('title', "$post->title")
