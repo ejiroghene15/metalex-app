@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('meta-tags')
+  @parent
   <meta name="google-adsense-account" content="ca-pub-5480611429669515">
 @endsection
 
