@@ -1,8 +1,9 @@
 @extends('layout.master')
 
-@section('meta-tags')
+@section('style')
   @parent
-  <meta name="google-adsense-account" content="ca-pub-5480611429669515">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5480611429669515"
+          crossorigin="anonymous"></script>
 @endsection
 
 @section('body')
