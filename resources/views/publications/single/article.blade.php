@@ -2,6 +2,7 @@
 
 @section('meta-tags')
   @parent
+  <meta name="google-adsense-account" content="ca-pub-5480611429669515">
   <meta name="og:type" content="article">
   <meta name="og:title" content="{{$post->title}}">
   <meta name="og:description" content="{{$post->excerpt()}}">
