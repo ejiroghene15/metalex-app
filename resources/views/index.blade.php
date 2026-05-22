@@ -2,6 +2,11 @@
 
 @section('title', 'Home')
 
+@section('meta-tags')
+  @parent
+  <meta name="google-adsense-account" content="ca-pub-5480611429669515">
+@endsection
+
 @section('style')
   @parent
   <link rel="stylesheet" href="{{ asset('assets/libs/tiny-slider/dist/tiny-slider.css') }}">
