@@ -25,7 +25,10 @@
         </p>
         <p class="mb-5 d-flex gap-3 align-items-center">
           <i class="fa-solid fa-location-dot mt-n3" style="font-size: 20px"></i>
-          <span>Ukori Law House, 5 Emomejere Street, Ughelli, Delta State.</span>
+          <span class="d-flex flex-column">
+          <span class="d-block">Delta State, Nigeria</span>
+          <span class="d-block">Delaware, USA</span>
+        </span>
         </p>
       </div>
 
