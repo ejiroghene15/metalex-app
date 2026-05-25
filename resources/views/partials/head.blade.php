@@ -31,4 +31,6 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-W4WTVJX2');</script>
     <!-- End Google Tag Manager -->
+
+    <meta name="p:domain_verify" content="0ae698b9430f22ef69634280c675413f"/>
 </head>
