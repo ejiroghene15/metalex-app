@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\MagazineController;
@@ -69,6 +70,7 @@ Route::prefix('publication')->group(function () {
     Route::get('articles', 'articles')->name('p.articles');
     Route::get('categories', 'categories')->name('p.category');
     Route::get('magazines', 'magazines')->name('p.magazine');
+    Route::get('books', 'books')->name('p.books');
     Route::get('authors', 'authors')->name('p.authors');
 
     Route::get('article/{article}.{id}', 'singleArticle')->name('full-article');
@@ -176,6 +178,14 @@ Route::middleware(['auth'])->group(function () {
 
       // * UPLOAD A MAGAZINE
       Route::post('upload-magazine', [FileUploadController::class, 'magazine'])->name('upload-magazine');
+
+      // * BOOKS
+      Route::controller(BookController::class)->group(function () {
+        Route::get('books', 'index')->name('book.list');
+        Route::view('book/upload', 'admin.book.new')->name('book.create');
+        Route::delete('book/delete/{id}', 'destroy')->name('book.delete');
+      });
+      Route::post('upload-book', [FileUploadController::class, 'book'])->name('upload-book');
 
     });
   });
