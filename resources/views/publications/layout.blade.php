@@ -53,6 +53,12 @@
               </li>
               <li class="nav-item" role="presentation">
                 <a
+                  href="{{route('p.books')}}" @class(['nav-link', 'active'=> Route::currentRouteName() === 'p.books'])>
+                  Books
+                </a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
                   href="{{route('p.category')}}" @class(['nav-link', 'active'=> Route::currentRouteName() === 'p.category'])>
                   Categories
                 </a>

@@ -73,12 +73,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('my-forum-topics')}}">My Topics</a>
             </li>
-            <li class="nav-item d-none">
-              <a class="nav-link" href="{{route('cms')}}">Moderators</a>
-            </li>
-            <li class="nav-item d-none">
-              <a class="nav-link" href="{{route('cms')}}">Flagged Content</a>
-            </li>
+
           </ul>
         </div>
       </li>
@@ -91,26 +86,6 @@
           Sign Out
         </a>
       </li>
-
-      {{-- NOTIFICATION--}}
-      <li class="nav-item d-none">
-        <a class="nav-link "
-           href="../../../pages/dashboard/calendar.html">
-          <i class="nav-icon fe fe-bell me-2"></i>
-          Notifications
-        </a>
-      </li>
-
-      <li class="nav-item d-none">
-        <div class="nav-divider"></div>
-      </li>
-
-      <!-- Nav item -->
-      <li class="nav-item d-none">
-        <div class="navbar-heading">Components</div>
-      </li>
-
-
     </ul>
 
   </div>

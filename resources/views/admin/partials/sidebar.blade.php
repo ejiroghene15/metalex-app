@@ -72,7 +72,7 @@
       {{-- MAGAZINE --}}
       <li class="nav-item ">
         <a class="nav-link collapsed" href="#"
-           data-bs-toggle="collapse" data-bs-target="#navMag" aria-expanded="false" aria-controls="navCMS">
+           data-bs-toggle="collapse" data-bs-target="#navMag" aria-expanded="false" aria-controls="navMag">
           <i class="nav-icon fe fe-book-open me-2"></i> Magazine
         </a>
         <div id="navMag" class="collapse  "
@@ -95,26 +95,27 @@
         </div>
       </li>
 
-      {{-- FORUM --}}
-      <li class="nav-item d-none">
+      {{-- BOOKS --}}
+      <li class="nav-item ">
         <a class="nav-link collapsed" href="#"
-           data-bs-toggle="collapse" data-bs-target="#navForum" aria-expanded="false" aria-controls="navCMS">
-          <i class="nav-icon mdi mdi-forum me-2"></i> Forum
+           data-bs-toggle="collapse" data-bs-target="#navBooks" aria-expanded="false" aria-controls="navBooks">
+          <i class="nav-icon fe fe-book me-2"></i> Books
         </a>
-        <div id="navForum" class="collapse  "
+        <div id="navBooks" class="collapse  "
              data-bs-parent="#sideNavbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="{{route('cms')}}">Overview</a>
+              <a class="nav-link   "
+                 href="{{route('book.list')}}">
+                All Books
+              </a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="{{route('cms')}}">Topics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('cms')}}">Moderators</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('cms')}}">Flagged Content</a>
+              <a class="nav-link  "
+                 href="{{route('book.create')}}">
+                Upload Book
+              </a>
             </li>
           </ul>
         </div>

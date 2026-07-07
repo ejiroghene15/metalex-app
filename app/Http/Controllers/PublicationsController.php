@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Book;
 use App\Models\ForumTopics;
 use App\Models\Magazine;
 use Illuminate\Http\Request;
@@ -39,6 +40,11 @@ class PublicationsController extends Controller
   public function authors()
   {
     return view('publications.authors');
+  }
+
+  public function books()
+  {
+    return view('publications.books', ['books' => Book::latest()->get()]);
   }
 
   // * Bookmark a blog

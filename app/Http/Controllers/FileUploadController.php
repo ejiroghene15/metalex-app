@@ -2,12 +2,64 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Magazine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class FileUploadController extends Controller
 {
+  public function book(Request $request)
+  {
+    $request->validate([
+      'title' => 'required',
+      'authors' => 'required',
+      'category' => 'required',
+      'thumbnail' => 'required|file|mimes:png,jpg,jpeg|max:2048',
+      'book_file' => 'nullable|file|mimes:pdf,epub|max:20480',
+    ]);
+
+    $cover_image_filename = null;
+    if ($request->hasFile('thumbnail')) {
+      $m_thumbnail = $request->file('thumbnail');
+      $cover_image_filename = sprintf("%s-%s.%s", Str::slug($request->title), time(), $m_thumbnail->getClientOriginalExtension());
+      $m_thumbnail->storeAs('book_covers', $cover_image_filename);
+    }
+
+    $book_filename = null;
+    if ($request->hasFile('book_file')) {
+      $m_file = $request->file('book_file');
+      $book_filename = sprintf("%s-%s.%s", Str::slug($request->title), time(), $m_file->getClientOriginalExtension());
+      $m_file->storeAs('books', $book_filename);
+    }
+
+    Book::create([
+      'cover_image' => $cover_image_filename,
+      'title' => $request->title,
+      'subtitle' => $request->subtitle,
+      'authors' => $request->authors,
+      'isbn' => $request->isbn,
+      'edition' => $request->edition,
+      'publication_date' => $request->publication_date,
+      'publisher' => $request->publisher,
+      'language' => $request->language,
+      'category' => $request->category,
+      'tags' => $request->tags,
+      'short_description' => $request->short_description,
+      'about_book' => $request->about_book,
+      'table_of_contents' => $request->table_of_contents,
+      'number_of_pages' => $request->number_of_pages,
+      'format' => $request->format,
+      'price' => $request->price,
+      'currency' => $request->currency ?? 'USD',
+      'status' => $request->status,
+      'file_path' => $book_filename,
+      'external_link' => $request->external_link,
+    ]);
+
+    return redirect()->back()->withMessage("Book Uploaded Successfully")->withStatus("success");
+  }
+
   public function magazine(Request $request)
   {
     $request->validate([
