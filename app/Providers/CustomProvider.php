@@ -42,7 +42,7 @@ class CustomProvider extends ServiceProvider
     });
 
 
-    View::composer(['user.index', 'admin.index'], function ($view) {
+    View::composer(['admin.index'], function ($view) {
       return $view->with([
         'latest_threads_for_dashboard' => ForumThread::inRandomOrder()->latest()->limit(6)->get(),
         'posts_for_dashboard' => Blog::withoutTrashed()->inRandomOrder()->latest()->limit(5)->get(),
@@ -56,7 +56,7 @@ class CustomProvider extends ServiceProvider
       ]);
     });
 
-    View::composer(['publications.*', 'about', 'forum.*', 'main.home', 'main.news-updates'], function ($view) {
+    View::composer(['publications.*', 'forum.*', 'main.home', 'main.news-updates'], function ($view) {
       return $view->with([
         'posts' => Blog::withoutTrashed(),
         'flags' => DB::table('flag_content_category')->get(['id', 'name', 'description']),

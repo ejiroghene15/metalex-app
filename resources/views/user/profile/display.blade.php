@@ -10,19 +10,14 @@
             <span class="status bg-success"></span>
           </a>
         </div>
-        <h4 class="mb-0">{{$user->fullName()}}</h4>
+        <h4 class="mb-2">{{$user->fullName()}}</h4>
         @if($user->country)
-          <p class="mb-0">
+          <p class="mb-5">
             <i class="fe fe-map-pin me-1 fs-6"></i>{{$country->where('code', $user->country)->pluck('name')->first()}}
           </p>
         @endif
       </div>
 
-
-      <div class="d-flex justify-content-between border-bottom py-2 mt-6">
-        <h6 class="text-muted">Role</h6>
-        <span class="text-dark"> {{$user->user_type}} </span>
-      </div>
 
       <div class="d-flex justify-content-between border-bottom py-2">
         <h6 class="text-muted">Joined at</h6>

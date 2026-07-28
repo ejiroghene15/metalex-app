@@ -44,16 +44,6 @@
                   <i class="fe fe-user me-2"></i>Profile
                 </a>
               </li>
-              <li>
-                <a class="dropdown-item d-none" href="./pages/student-subscriptions.html">
-                  <i class="fe fe-star me-2"></i>Subscription
-                </a>
-              </li>
-              <li>
-                <a class="dropdown-item d-none" href="#">
-                  <i class="fe fe-settings me-2"></i>Settings
-                </a>
-              </li>
             </ul>
             <div class="dropdown-divider"></div>
             <ul class="list-unstyled">

@@ -21,7 +21,7 @@
           <i class="nav-icon fe fe-user me-2"></i> My Profile
         </a>
       </li>
-
+      
       {{-- CMS --}}
       <li class="nav-item ">
         <a class="nav-link collapsed" href="#"
