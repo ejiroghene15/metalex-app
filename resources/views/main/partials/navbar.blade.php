@@ -69,7 +69,7 @@
 
       <div class=" d-flex align-items-center mt-2 mt-md-0 pt-2 py-lg-0">
         @auth
-          <a href="{{ route('user.dashboard', auth()->user()->fullName()) }}" class="btn text-white"
+          <a href="{{ route('user.dashboard', auth()->user()->username) }}" class="btn text-white"
              style="border-radius: 12px; background-color: #6A1B9A">Dashboard</a>
         @endauth
 

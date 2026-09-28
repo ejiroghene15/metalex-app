@@ -7,7 +7,6 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\MagazineController;
-use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicationsController;
 use App\Http\Controllers\UserController;
@@ -84,42 +83,13 @@ Route::prefix('publication')->group(function () {
   });
 });
 
-// * Login, Logout, Reset Password
-Route::controller(AuthController::class)->group(function () {
-  Route::post('login', 'login')->name('auth.login');
-  Route::get('logout', 'logout')->name('auth.logout');
-  Route::post('reset-password', 'resetPassword')->name('password.update');
-});
-
-// * Unauthenticated Routes
-Route::prefix('auth')->group(function () {
-  Route::livewire('register', 'pages::auth.register')->name('register');
-  Route::view('login', 'auth.login')->name('login');
-  Route::view('forgot-password', 'auth.forgot-password')->name('password.request');
-
-  Route::get('/reset-password/{token}', function ($token) {
-    return view('auth.reset-password', ['token' => $token]);
-  })->name('password.reset');
-})->middleware('guest');
-
-// * Authenticated Routes
+// * AUTHENTICATED PAGES
 Route::middleware(['auth'])->group(function () {
-  Route::view('email/verify', 'auth.verify-email')->name('verification.notice');
-
-  // * VERIFICATION
-  Route::controller(AuthController::class)->group(function () {
-    Route::get('email/verify{id}/{hash}', 'verifyEmail')->middleware('signed')->name('verification.verify');
-    Route::post('/email/verification-notification', 'resendVerificationLink')->middleware(['throttle:6,1'])->name('verification.send');
-  });
-
   // * DASHBOARD ROUTES
   Route::prefix('dashboard')->group(function () {
 
     // USER DASHBOARD
-    Route::view('u/{user}', 'user.index')->name('user.dashboard');
-
-    // BOOKMARKSf
-    Route::view('bookmarks', 'user.bookmarks')->name('user.bookmarks');
+    Route::livewire('u/{user}', 'pages::dashboard.user')->name('user.dashboard');
 
     // CMS
     Route::view('cms/posts', 'user.cms.post')->name('user.blog');
@@ -145,22 +115,6 @@ Route::middleware(['auth'])->group(function () {
       Route::view('my-forum-topics', 'user.forum.topics')->name('my-forum-topics');
     });
 
-    // MENU: Office Setup for lawyers and firms
-    Route::controller(OfficeController::class)->group(function () {
-      // Lawyers & Firms
-      Route::view('office', 'dashboard.office')->name('office.profile');
-      Route::post('update-profile', 'updateProfile')->name('office.update');
-
-      // Firms
-      Route::get('associates', 'myAssociates')->name('office.associates');
-      Route::post('add-associate/{firm}', 'attachAssociate')->name('office.add-associate');
-      Route::post('remove-associate/{firm}', 'detachAssociate')->name('office.remove-associate');
-      Route::post('set-logo', 'setLogo')->name('office.set-logo');
-
-      // Lawyers
-      Route::get('certifications', 'myCertificates')->name('office.certificates');
-      Route::post("add-certificate", 'addCertificate')->name('office.upload-certificate');
-    });
   });
 
   // * ADMIN ROUTES
@@ -205,4 +159,26 @@ Route::middleware(['auth'])->group(function () {
   });
 });
 
-//});
+// * EMAIL VERIFICATION, LOGOUT
+Route::controller(AuthController::class)->group(function () {
+  Route::get('email/verify{id}/{hash}', 'verifyEmail')
+    ->middleware('signed')
+    ->name('verification.verify');
+
+  Route::post('/email/verification-notification', 'resendVerificationLink')
+    ->middleware(['throttle:6,1'])
+    ->name('verification.send');
+
+  Route::get('logout', 'logout')->name('auth.logout');
+});
+
+// * SIGNUP, LOGIN, FORGOT PASSWORD
+Route::prefix('auth')->group(function () {
+  Route::livewire('register', 'pages::auth.register')->name('register');
+  Route::livewire('login', 'pages::auth.login')->name('login');
+  Route::livewire('forgot-password', 'pages::auth.forgot-password')->name('password.request');
+  Route::livewire('/reset-password/{token}', 'pages::auth.reset-password')->name('password.reset');
+})->middleware('guest');
+
+// Academy Program
+Route::view('academy-program', 'main.subsidiaries.academy.index')->name('academy-program');

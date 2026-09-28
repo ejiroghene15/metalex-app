@@ -33,7 +33,6 @@
 {{ $slot }}
 
 
-<livewire:pages::components.alert/>
 <script src="https://www.google.com/recaptcha/api.js?render={{config('app.google_captcha_site_key')}}"></script>
 
 <!-- Libs JS -->
@@ -50,6 +49,8 @@
 
 {{-- Custom --}}
 <script src="https://kit.fontawesome.com/eb6289f81b.js" crossorigin="anonymous"></script>
+
+<livewire:pages::components.alert/>
 
 @stack('scripts')
 @livewireScripts

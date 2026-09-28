@@ -14,6 +14,7 @@ new class extends Component {
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
+
   Livewire.on('success-alert', ({title, message}) => {
     Swal.fire({
       title: `${title}`,

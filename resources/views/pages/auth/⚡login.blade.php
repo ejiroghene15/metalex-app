@@ -1,9 +1,43 @@
-@extends('layout.master')
+<?php
+
+use Livewire\Attributes\Validate;
+use Livewire\Component;
+
+new class extends Component {
+  #[Validate('email|required', as: 'Email Address')]
+  public string $email;
+
+  #[Validate('required', as: 'Password')]
+  public string $password;
+
+  #[Validate('boolean')]
+  public bool $remember_me = false;
+
+  public function login(): void
+  {
+    $this->validate();
+
+    try {
+      if (!auth()->attempt($this->only('email', 'password'), $this->remember_me)) {
+        $this->dispatch('error-alert', title: 'Login Error', message: 'Invalid email or password. Please try again.');
+        return;
+      }
+
+      $this->dispatch('success-alert', title: 'Login Successful', message: 'You have successfully logged in!');
+
+      // Log login activity
+      auth()->user()->activity()->create(["activity" => "Login successful"]);
+
+      $this->redirectRoute('home');
+    } catch (\Exception $e) {
+      $this->dispatch('error-alert', title: 'Login Error', message: 'Error occurred while logging in. Please try again later or contact support');
+    }
+  }
+};
+?>
 
 @section('title', 'Login')
 
-@section('body')
-<!-- Page content -->
 <main>
   <section class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center g-0 min-vh-100">
@@ -16,7 +50,7 @@
             <div class="mb-4">
               <a href="{{ url('/') }}">
                 <img src="{{ asset('assets/images/brand/logo/metalex_full_logo.svg') }}"
-                  style="object-position: -5px 0; height: 30px" class="mb-5" alt="">
+                     style="object-position: -5px 0; height: 30px" class="mb-5" alt="">
               </a>
               <h2 class="mb-1 fw-bold">Sign in</h2>
               <span class="fw-bold">Don’t have an account?
@@ -26,30 +60,32 @@
 
             {{-- alert display section --}}
             @if (session('message'))
-            <x-alert :status="session('status')" :message="session('message')" : />
+              <x-alert :status="session('status')" :message="session('message')" :/>
             @endif
 
             <!-- Form -->
-            <form method="POST" action="{{ route('auth.login') }}">
+            <form wire:submit="login">
               @csrf
               <!-- Username -->
               <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" name="email" placeholder="Email address here" required>
+                <input type="email" wire:model="email" class="form-control" name="email"
+                       placeholder="Email address here" required>
                 @error('email') <small class="fw-bold text-danger">{{ $message }}</small>@enderror
               </div>
 
               <!-- Password -->
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" placeholder="**************">
+                <input type="password" wire:model="password" class="form-control" name="password"
+                       placeholder="**************">
                 @error('password') <small class="fw-bold text-danger">{{ $message }}</small>@enderror
               </div>
 
               <!-- Checkbox -->
               <div class="d-lg-flex justify-content-between align-items-center mb-4">
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" name="remember_me">
+                  <input type="checkbox" wire:model="remember_me" class="form-check-input" name="remember_me">
                   <label class="form-check-label" for="rememberme">Remember me</label>
                 </div>
 
@@ -69,4 +105,3 @@
     </div>
   </section>
 </main>
-@endsection

@@ -1,1 +1,0 @@
-This is just a test verification page for email

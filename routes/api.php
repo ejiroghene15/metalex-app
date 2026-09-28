@@ -22,11 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
-Route::controller(AuthController::class)->group(function () {
-  Route::post('register', 'register');
-  Route::post('forgot-password', 'sendPasswordResetLink');
-});
-
 Route::post('contact-us', [ApiController::class, 'sendContactMail'])->name('api.send-contact-mail');
 
 Route::get('blogs', function (Request $request) {

@@ -24,5 +24,5 @@
   @show
 
 
-  <title>Metalex | @yield('title')</title>
+  <title>Metalex | Dashboard @yield('title')</title>
 </head>

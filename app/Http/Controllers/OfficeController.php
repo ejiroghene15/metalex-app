@@ -94,7 +94,7 @@ class OfficeController extends Controller
 
   public function myCertificates(Request $request)
   {
-    $this->authorize('certificates', LawyerProfile::class);
+//    $this->authorize('certificates', LawyerProfile::class);
     return view('dashboard.office.certifications')->withCertificates($request->user()->certificates);
   }
 
