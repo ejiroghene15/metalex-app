@@ -1,0 +1,337 @@
+/* ── Curriculum layout ────────────────────────── */
+.curriculum-intro {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 5rem;
+  align-items: start;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--cream-dark);
+  margin-bottom: 4rem;
+}
+
+.curriculum-intro__lead {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.curriculum-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.curriculum-stat {
+  padding: 1.25rem 1.5rem;
+  background: var(--cream-dark);
+  border-radius: 4px;
+  border-left: 3px solid var(--gold);
+}
+
+.curriculum-stat__num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.curriculum-stat__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ── Module list ──────────────────────────────── */
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.phase-header__pill {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+}
+
+.phase-header__line {
+  flex: 1;
+  height: 1px;
+  background: var(--cream-dark);
+}
+
+.phase-header__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 4rem;
+}
+
+.module-item {
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  background: var(--white);
+  transition: box-shadow 0.2s;
+}
+
+.module-item:hover {
+  box-shadow: 0 4px 16px rgba(12, 26, 46, 0.07);
+}
+
+.module-item__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.module-item__num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  min-width: 60px;
+}
+
+.module-item__title-wrap {
+  flex: 1;
+}
+
+.module-item__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.module-item__meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.module-item__tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  background: var(--cream-dark);
+  color: var(--text-muted);
+}
+
+.module-item__duration {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.module-item__toggle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+  padding: 0.25rem;
+}
+
+.module-item.open .module-item__toggle {
+  transform: rotate(180deg);
+}
+
+.module-item__body {
+  display: none;
+  padding: 0 2rem 1.75rem 2rem;
+  margin-left: calc(60px + 1.5rem);
+  border-top: 1px solid var(--cream-dark);
+  padding-top: 1.5rem;
+}
+
+.module-item.open .module-item__body {
+  display: block;
+}
+
+.module-item__desc {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.module-item__topics-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.module-item__topics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 2rem;
+}
+
+.module-item__topic {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.module-item__topic::before {
+  content: '▸';
+  color: var(--gold);
+  font-size: 0.7rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.module-item__outcome {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--cream);
+  border-radius: 4px;
+  border-left: 2px solid var(--gold);
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+
+.module-item__outcome strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ── Assessment & delivery ────────────────────── */
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.delivery-card {
+  padding: 2rem;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: 4px;
+  border-top: 3px solid var(--gold);
+}
+
+.delivery-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.delivery-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.delivery-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ── Timetable ────────────────────────────────── */
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.timetable thead tr {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.timetable th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.timetable td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--cream-dark);
+  color: var(--text-mid);
+  vertical-align: top;
+}
+
+.timetable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.timetable tbody tr:hover td {
+  background: var(--cream);
+}
+
+.timetable td:first-child {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.timetable .gold {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .curriculum-intro {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .delivery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .module-item__topics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-item__header {
+    flex-wrap: wrap;
+  }
+
+  .module-item__body {
+    margin-left: 0;
+  }
+}

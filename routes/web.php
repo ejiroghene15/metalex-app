@@ -180,3 +180,5 @@ Route::prefix('auth')->group(function () {
   Route::livewire('/reset-password/{token}', 'pages::auth.reset-password')->name('password.reset');
 })->middleware('guest');
 
+// Academy Program
+Route::view('academy-program', 'main.subsidiaries.academy.index')->name('academy-program');

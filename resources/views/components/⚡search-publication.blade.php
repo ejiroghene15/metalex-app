@@ -2,6 +2,7 @@
 
 use App\Models\Blog;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\Renderless;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
@@ -19,17 +20,10 @@ new class extends Component {
   }
 
   #[Computed]
+  #[Renderless]
   public function posts()
   {
-    $query = Blog::withoutTrashed();
-
-    if ($this->search) {
-      $query->where('title', 'like', '%' . $this->search . '%');
-    }
-
-    $query->latest();
-
-    return $query->paginate(6);
+    return Blog::withoutTrashed()->latest()->paginate(6);
   }
 
   #[Computed]
@@ -61,7 +55,8 @@ new class extends Component {
       </span>
     <input type="search" placeholder="Search for articles..." wire:model.live="search"
            @focus="open = true"
-           class="form-control ps-5">
+           class="form-control ps-5"
+    >
 
     @if($this->search && count($this->searchResults) > 0)
       <div class="position-absolute w-100 bg-white shadow-sm rounded-bottom mt-1 overflow-auto border"
@@ -71,7 +66,8 @@ new class extends Component {
           <a href="{{route('full-article', ["article"=> $_->slug, "id" => $_->id])}}"
              class="d-block p-3 border-bottom text-decoration-none">
             <div class="d-flex flex-column">
-              <span class="fw-bold text-dark text-capitalize mb-1" style="font-size: 14px">{{strtolower($_->title)}}</span>
+              <span class="fw-bold text-dark text-capitalize mb-1"
+                    style="font-size: 14px">{{strtolower($_->title)}}</span>
               <div class="d-flex align-items-center">
                 <img src="{{$_->author->avatar}}" alt="" class="rounded-circle avatar-xs me-2">
                 <small class="text-muted text-capitalize">{{strtolower($_->author->fullName())}}</small>
@@ -83,7 +79,7 @@ new class extends Component {
     @endif
   </div>
 
-  <section class="row" style="row-gap: 50px" wire:ignore>
+  <section class="row" style="row-gap: 50px">
     @foreach($this->posts as $_)
       <article class="col-xl-4 col-lg-4 col-md-6 col-12">
         <!-- Card -->
